@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                1。原版背景浮动模板的引用
+            </title>
+        </meta>
+        <style type="text/css">
+            html,body{
+					height:100%;
+		 			margin:0;
+		 		}
+		 		.container {
+  					height: 100%;
+  					position: relative;
+  					overflow: hidden;
+				}
+				.container .bg {
+  					width: 110%;
+  					height: 110%;
+  					position: absolute;
+  					z-index: -1;
+  					background: url("img/2.jpg") no-repeat center center;
+  					background-size: cover;
+          			/*transform: scale(1.1);*/
+				}
+			
+            
+            .footer{
+            height: 5%;
+            background: black;
+        }
+        .main{
+            height: 95%;
+
+            
+        }
+        .left{
+        	width: 5%;
+            height: 100%;
+            float: left;
+            
+        }
+        .right{
+        	width: 5%;
+            height: 100%;
+            float: right;
+            
+        }
+        .content{
+            width: 90%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            
+            
+        }
+      	.contentTop{
+            height: 95%;
+            background: white;
+            
+        }
+        .contentBot{
+            background-color: rgba(255,255, 255, 0.5); 
+            height: 5%;
+        }
+        .contentLeft{
+            background: yellow;
+            margin-top: 2%;
+            height: 93%;
+            width: 60%;
+            float: left;
+        }
+        .contentRight{
+            height: 100%;
+            width: 40%;
+            float: right;
+        }
+
+		.title{
+     		margin-top: 4%
+     		
+        }
+
+
+        .titleActive{
+        	height: 40%;
+            width: 95%;
+			float: right;
+			
+        }
+
+        .titleStill{
+ 			height: 10%;
+            width: 60%;
+			float: right;
+			
+        }
+        .titleShadow{ 
+          margin: 0;
+          color: white;
+          text-shadow: #000 5px 5px 5px;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0, 0, 0.3); 
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="bg">
+            </div>
+            
+            <div class="main">
+                <div class="left">
+                </div>
+                <div class="content">
+                    <div class="contentTop">
+                    	<!-- <div class="contentLeft">
+                    	</div>
+                    	<div class="contentRight">
+                    		<div class="title titleStill">
+                    			<div class="titleShadow"></div>
+                    		</div>
+                    		<div class="title titleActive">
+                    			<div class="titleShadow"></div>
+                    		</div>
+                    		<div class="title titleStill">
+                    			<div class="titleShadow"></div>
+                    		</div>
+                    		<div class="title titleStill">
+                    			<div class="titleShadow"></div>
+                    		</div>
+                    		<div class="title titleStill">
+                    			<div class="titleShadow"></div>
+                    		</div>
+                    	</div> -->
+                    </div>
+                    <div class="contentBot">
+                    </div>
+                </div>
+                <div class="right">
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+    </body>
+    <script src="js/jquery-2.1.1.min.js">
+    </script>
+    <script type="text/javascript">
+    	$(function(){
+    		
+
+
+
+
+	        var lFollowX = 0,
+			    lFollowY = 0,
+			    x = 0,
+			    y = 0,
+			    friction = 1 / 30;
+
+			function moveBackground() {
+			  x += (lFollowX - x) * friction;
+			  y += (lFollowY - y) * friction;
+			  
+			  translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+			  $('.bg').css({
+			    '-webit-transform': translate,
+			    '-moz-transform': translate,
+			    'transform': translate
+			  });
+
+			  window.requestAnimationFrame(moveBackground);
+			}
+
+			$(window).on('mousemove click', function(e) {
+
+			  var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
+			  var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
+			  lFollowX = (20 * lMouseX) / 50; // 100 : 12 = lMouxeX : lFollow
+			  lFollowY = (10 * lMouseY) / 50;
+
+			});
+
+			moveBackground();
+
+			});
+    </script>
+</html>

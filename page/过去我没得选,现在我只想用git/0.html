@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>0。初始版本，只有格子</title>
+    <style type="text/css">
+/*::-webkit-scrollbar {display:none}*/
+
+        html,body{height:100%; margin:0;}
+        .header,.footer{
+            height: 5%;
+            background: black;
+            
+        }
+        .main{
+            height: 90%;
+            background: white;
+
+        }
+
+        .left,.right{
+            width: 15%;
+            height: 100%;
+            
+
+        }
+        .left{
+            background: red;
+            float: left;
+        }
+        .content{
+            width: 70%;
+            height: 100%;
+            background: grey;
+            float: left;
+            overflow: hidden; 
+
+        }
+        .right{
+            
+            
+            background: green;
+            float: right;
+            
+        }
+       
+        .content-top{
+            background: yellow;
+            overflow:auto;
+            margin-right: -18px;
+            height: 95%;
+           
+
+        }
+        .content-bot{
+            background: blue;
+            height: 5%;
+
+        }
+        .clearfix:after{
+            content:".";
+            display: block;
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+            clear:both;
+        }
+        /*兼容ie浏览器*/
+        .clearfix{
+            zoom:1;
+        }
+
+
+
+.triangle{
+  width: 0;
+  height: 0;
+  
+
+    border-top: 430px solid transparent;
+    border-bottom: 430px solid transparent;
+    border-left: 0px solid transparent;
+    border-right:180px solid #000000;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+    </div>
+    <div class="main clearfix">
+     <div class="left">
+         
+     </div>
+     <div class="content">
+        <div class="content-top">
+
+
+
+
+
+        </div>
+        <div class="content-bot">
+            
+
+
+
+
+        </div>
+     </div>
+     <div class="right ">
+
+
+    <!-- <div class="triangle"> -->
+        
+
+    </div>
+
+     
+
+     </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+</body>
+</html>

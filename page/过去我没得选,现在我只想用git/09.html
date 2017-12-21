@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                8.废案废案，改错了
+            </title>
+            <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+            <style type="text/css">
+                html,body{
+                    height:100%; 
+                    margin:0;
+                    overflow: hidden;
+                }
+                .a{
+                    height:100%;
+                    width: 100%;
+                    overflow: hidden;
+                }
+                .b{
+                    height:95%;
+                    width: 800%;
+                    transform: translate3d(0px, 0px, 0px);
+                    transition: transform 500ms ease-in-out;
+                    padding-left: 12.5%
+                }
+                .b1{
+                	transform: translate3d(-12.5%, 0px, 0px);
+                }
+                .b2{
+                	transform: translate3d(-25%, 0px, 0px);
+                }
+                .b3{
+                	transform: translate3d(-37.5%, 0px, 0px);
+                }
+                .b4{
+                	transform: translate3d(-50%, 0px, 0px);
+                }
+                .b5{
+                	transform: translate3d(-62.5%, 0px, 0px);
+                }
+                .b6{
+                	transform: translate3d(-75%, 0px, 0px);
+                }
+                .c{
+                    height:100%;
+                    width: 12.5%;
+                    float: left;
+                    transform: translate3d(0px, 0px, 0px);
+                    transition: transform 500ms ease-in-out;
+                }
+                .cU{
+                	transform: translate3d(0px, -100%, 0px);
+                }
+                .d{
+                    right: 0;
+                    bottom: 0;
+                    height:5%;
+                    width: 50%;
+                    background: #ffffff;
+                    position: fixed;
+                    z-index: 1;
+                }
+                .e{
+                    top: 0;
+                    left: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: left;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                    
+                }
+                .eA{
+                	width: 16%;
+                }
+                .f{
+                    top: 0;
+                    right: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: right;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+
+                }
+                .fA{
+                	width: 16%;
+                }
+                .e:hover {
+                    opacity: 0.3;
+                }
+                .f:hover {
+                    opacity: 0.3;
+                }
+                .g{
+                    bottom: 0;
+                    left: 0;
+                    height: 5%;
+                    width: 50%;
+                    position: fixed;
+                    background: #ffffff;
+                    /*font-size: 2em;
+                    font-weight: 800;
+                    text-align: left;
+                    color: #ffffff;
+                    z-index: 2;
+					background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);*/
+                    
+
+                }
+                
+                .h{
+                    background:#000000;
+                    margin-left: 8%;
+                    margin-right: 8%; 
+                    height:100%;
+                    width: 84%;
+                    opacity:0.6;
+
+                }
+                .i{
+                    width: 100%;
+                    height: 95%;
+                    position: absolute;
+                    z-index: -1;
+                    background: url("img/b.jpg") no-repeat center center;
+                    background-size: cover;
+
+                }
+                .j1{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j2{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j3{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j4{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat; 
+                    
+                }
+                .j5{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j6{
+                    background: url("img/a.jpg") center center no-repeat;
+
+  
+                    
+                }
+                .j{
+                    height:100%;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    position: relative;
+                    z-index: -2;
+                    
+                }
+
+                .k{
+                    position: absolute;
+                    height:100%;
+                    width: 100%;
+                    background: #000000;
+                    z-index: -1;
+                    opacity:0.8;
+                }
+                .l{
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 8%;
+                    -webkit-text-fill-color: transparent !important;
+                    -webkit-background-clip: text !important;
+                    font-size: 30em;
+                    font-weight: 800;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    transition: 500ms;
+					opacity:1;
+                    
+                }
+                .lO{
+					opacity:0;
+
+                }
+
+
+                .m{
+                    height: 100%;
+                    float: right;
+                    opacity:1;
+                    font-size: 2em;
+                    font-weight: 800;
+                    text-align: left;
+                    transition: 500ms ease-in-out;
+
+                }
+                .m:hover{
+                    -webkit-filter:brightness(0.5);
+                }
+                .mR{
+                    width: 8%;
+                    background: #000000;
+                    color: #ffffff;
+                }
+                .mA{
+                	width: 60%;
+                	background: #000000;
+                	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                	color: #000000;
+                }
+
+                .mL{
+                	width: 8%;
+                    background: #ffffff;
+                    color: #000000;
+                }
+
+                .n{
+                	height:100%;
+                    width: 100%;
+                	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
+                
+            </style>
+        </meta>
+    </head>
+    <body>
+        <div class="a">
+            <div class="i">
+            </div>
+            <div class="b">
+                <div class="c">
+                    <div class="j j1">
+                        <div class="k">
+                        </div>
+                        <div class="l j1 ">
+                            A
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j2">
+                        <div class="k">
+                        </div>
+                        <div class="l j2">
+                            热
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j3">
+                        <div class="k">
+                        </div>
+                        <div class="l j3">
+                            C
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j4">
+                        <div class="k">
+                        </div>
+                        <div class="l j4">
+                            D
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j5">
+                        <div class="k">
+                        </div>
+                        <div class="l j5">
+                            E
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j6">
+                        <div class="k">
+                        </div>
+                        <div class="l j6">
+                            F
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+            </div>
+            <div class="d">
+                
+                <div class="mR m">
+                    F
+                </div>
+                <div class="mR m">
+                    E
+                </div>
+                <div class="mR m">
+                    D
+                </div>
+                <div class="mR m">
+                    C
+                </div>
+                <div class="mR m">
+                    B
+                </div>
+                <div class="mA m">
+                    A
+                </div>
+            </div>
+            <div class="e">
+            </div>
+            <div class="f">
+            </div>
+            <div class="g">
+                <div class="n">
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                var pn=1;
+                var tpn=6;
+
+
+
+
+
+                function bgMove(e){
+                    var RX=$(window).width()/2;
+                    var RY=$(window).height()/2;
+                    var CX=e.pageX;
+                    var CY=e.pageY;
+                    $('.i').css({
+                        "transform": "translate3d("+(CX-RX)/30+"px,"+(CY-RY)/30+"px, 0) scale(1.2,1.2)"
+                     });
+                    
+                }
+
+                function turnLeftStop(){
+
+                    $(".e").addClass("eA");
+                    $(".l").addClass("lO");
+
+                    
+                    setTimeout(function () {
+                        $(".e").removeClass("eA");
+                        $(".l").removeClass("lO");
+                    },500)
+
+
+
+                }
+
+                function turnRightStop(){
+
+                    $(".f").addClass("fA");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".f").removeClass("fA");
+                        $(".l").removeClass("lO");
+                    },500)
+
+
+
+                }
+
+
+                function turnToWhichNav(which){
+
+                	$(".m").removeClass("mA");
+
+                	$(".m").removeClass("mL");
+
+                	$(".m").removeClass("mR");
+                	console.log(which);
+
+                	if(which<6){
+                		for(var i=6;i>which;i--){
+
+                			$(".m").eq(i-1).addClass("mL");
+
+                		}
+                		
+                	}
+                	
+                	if (which>1) {
+                		for(var i=1;i<which;i++){
+
+                			$(".m").eq(i-1).addClass("mR");
+
+                		}
+                	}
+                	
+                	$(".m").eq(which-1).addClass("mA");
+
+                    
+                }
+
+                 function turnToWhichPage(which){
+
+                    $(".b").addClass("b"+which);
+
+
+                 }
+
+                 function titleTroggle(){
+
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500);
+
+                 }
+
+                 function coverUp(){
+                    $(".c")addClass("cU");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500)
+                }
+            
+                function coverDown(){
+                    $(".c")removeClass("cU");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500)
+                }
+
+                
+
+
+
+                function turnLeft(){
+                    if(pn==1){
+                        turnLeftStop();
+                        return;
+                    }
+                    pn--;
+                    turnToWhichNav(1+tpn-pn);
+                    turnToWhichPage(pn);
+                    titleTroggle();
+                }
+
+
+                function turnRight(){
+                    if(pn==tpn){
+                        turnRightStop();
+                        return;
+                    }
+                    pn++;
+                    turnToWhichNav(1+tpn-pn);
+                    turnToWhichPage(pn);
+                    titleTroggle();
+                }
+
+                
+                function turnTo(){
+                    turnToWhichPage((tpn-$(this).index()));
+                    turnToWhichNav($(this).index()+1);
+                    pn=tpn-$(this).index();
+
+
+                    $('.m').off('click');
+
+                    setTimeout(function () {
+
+                        $('.m').on('click', turnTo);
+           
+                    },500);
+
+
+                }
+
+                function turnScroll(e){
+                    var delta = e.originalEvent.wheelDelta;
+                    if (delta > 0 || e.originalEvent.detail < 0) turnLeft();
+                    if (delta < -0 || e.originalEvent.detail > 0) turnRight();
+
+                    $(".d").off('mousewheel ');
+
+                    $(".e").off('mousewheel ');
+
+                    $(".f").off('mousewheel ');
+
+                    setTimeout(function () {
+                        
+                        $(".d").on('mousewheel ', turnScroll);
+
+                        $(".e").on('mousewheel ', turnScroll);
+
+                        $(".f").on('mousewheel ', turnScroll);
+
+
+
+                 
+                    },500);
+                }
+
+                function turnLeftCrol(){
+
+                    turnLeft();
+
+                    $(".e").off('click');
+
+                     setTimeout(function () {
+
+                        $(".e").on('click', turnLeftCrol);
+           
+                    },500);
+
+                }
+
+                function turnRightCrol(){
+                    
+                    turnRight();
+
+                    $(".f").off('click');
+
+                     setTimeout(function () {
+
+                        $(".f").on('click', turnRightCrol);
+           
+                    },500);
+                }
+
+                
+                
+
+                $(window).on('mousemove',bgMove);
+
+                $(".e").on('click', turnLeftCrol);
+
+                $(".f").on('click', turnRightCrol);
+
+                $(".d").on('mousewheel ', turnScroll);
+
+                $(".e").on('mousewheel ', turnScroll);
+
+                $(".f").on('mousewheel ', turnScroll);
+
+                $(".j").on('mouseover', coverUp);
+
+                $(".h").on('mouseout', coverDown);
+
+                $('.m').on('click', turnTo);
+            });
+        </script>
+    </body>
+</html>

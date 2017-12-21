@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                12.设置导航栏字体位置和禁止选中，更改封面函数的参数，优化大背景动画
+            </title>
+            <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+            <style type="text/css">
+                html,body{
+                    height:100%; 
+                    margin:0;
+                    overflow: hidden;
+                }
+                .a{
+                    height:100%;
+                    width: 100%;
+                    overflow: hidden;
+                }
+                .b{
+                    height:95%;
+                    width: 800%;
+                    transition: transform 500ms ease-in-out;
+                }
+                .b1{
+                    transform: translate3d(0px, 0px, 0px);
+                }
+                .b2{
+                    transform: translate3d(-12.5%, 0px, 0px);
+                }
+                .b3{
+                    transform: translate3d(-25%, 0px, 0px);
+                }
+                .b4{
+                    transform: translate3d(-37.5%, 0px, 0px);
+                }
+                .b5{
+                    transform: translate3d(-50%, 0px, 0px);
+                }
+                .b6{
+                    transform: translate3d(-62.5%, 0px, 0px);
+                }
+                .c{
+                    height:100%;
+                    width: 12.5%;
+                    float: left;
+                    transform: translate3d(0px, 0px, 0px);
+                    transition: transform 250ms ease-in-out;
+                }
+                .cU{
+                    transform: translate3d(0px, -100%, 0px);
+                }
+                .d{
+                    right: 0;
+                    bottom: 0;
+                    height:5%;
+                    width: 50%;
+                    background: #ffffff;
+                    position: fixed;
+                    z-index: 1;
+                }
+                .e{
+                    top: 0;
+                    left: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: left;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                }
+                .f{
+                    top: 0;
+                    right: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: right;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                }
+                .e:hover {
+                    opacity: 0.3;
+                }
+                .f:hover {
+                    opacity: 0.3;
+                }
+                .efA{
+                    width: 16%;
+                }
+                .g{
+                    bottom: 0;
+                    left: 0;
+                    height: 5%;
+                    width: 50%;
+                    position: fixed;
+                    background: #ffffff;
+                }
+                .h{
+                    background:#000000;
+                    margin-left: 8%;
+                    margin-right: 8%; 
+                    height:100%;
+                    width: 84%;
+                    opacity:0.6;
+                }
+                .i{
+                    width: 100%;
+                    height: 95%;
+                    position: absolute;
+                    z-index: -1;
+                    background: url("img/b.jpg") no-repeat center center;
+                    background-size: cover;
+                }
+                .j1{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
+                }
+                .j2{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
+                }
+                .j3{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
+                }
+                .j4{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat;
+                }
+                .j5{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
+                }
+                .j6{
+                    background: url("img/a.jpg") center center no-repeat;
+                }
+                .j{
+                    height:100%;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    position: relative;
+                    z-index: -2;
+                }
+                .k{
+                    position: absolute;
+                    height:100%;
+                    width: 100%;
+                    background: #000000;
+                    z-index: -1;
+                    opacity:0.8;
+                }
+                .l{
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 8%;
+                    -webkit-text-fill-color: transparent !important;
+                    -webkit-background-clip: text !important;
+                    font-size: 30em;
+                    font-weight: 800;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    transition: 500ms;
+                    opacity:1;
+                }
+                .lO{
+                    opacity:0;
+                }
+                .m{
+                    height: 100%;
+                    float: right;
+                    opacity:1;
+                    font-size: 2em;
+                    font-weight: 800;
+                    transition: 500ms ease-in-out;
+                    user-select: none;
+                }
+                .m:hover{
+                    -webkit-filter:brightness(0.5);
+                }
+                .mR{
+                    width: 8%;
+                    background: #000000;
+                    color: #ffffff;
+                    text-align: right;
+                }
+                .mA{
+                	width: 60%;
+                	background: #000000;
+                	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                	color: #000000;
+                    text-align: left;
+                }
+                .mL{
+                	width: 8%;
+                    background: #ffffff;
+                    color: #000000;
+                    text-align: left;
+                }
+                .n{
+                	height:100%;
+                    width: 100%;
+                	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
+                
+            </style>
+        </meta>
+    </head>
+    <body>
+        <div class="a">
+            <div class="i">
+            </div>
+            <div class="b">
+                <div class="c c1">
+                    <div class="j j1">
+                        <div class="k">
+                        </div>
+                        <div class="l j1 ">
+                            A
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c c2">
+                    <div class="j j2">
+                        <div class="k">
+                        </div>
+                        <div class="l j2">
+                            热
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c c3">
+                    <div class="j j3">
+                        <div class="k">
+                        </div>
+                        <div class="l j3">
+                            C
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c c4">
+                    <div class="j j4">
+                        <div class="k">
+                        </div>
+                        <div class="l j4">
+                            D
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c c5">
+                    <div class="j j5">
+                        <div class="k">
+                        </div>
+                        <div class="l j5">
+                            E
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c c6">
+                    <div class="j j6">
+                        <div class="k">
+                        </div>
+                        <div class="l j6">
+                            F
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+            </div>
+            <div class="d">
+                <div class="m m1">
+                    F
+                </div>
+                <div class="m m2">
+                    E
+                </div>
+                <div class="m m3">
+                    D
+                </div>
+                <div class="m m4">
+                    C
+                </div>
+                <div class="m m5">
+                    B
+                </div>
+                <div class="m m6">
+                    A
+                </div>
+            </div>
+            <div class="e">
+            </div>
+            <div class="f">
+            </div>
+            <div class="g">
+                <div class="n">
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+// 当前页码
+                var pn=1;
+//总页码
+                var tpn=6;
+//大背景动画移动参数
+                var CX=0;
+                var CY=0;
+                var RX=0;
+                var RY=0;
+
+// 大背景相应鼠标位置的动作特效
+                function bgMove(e){
+                    RX=Math.max(-100, Math.min(100, $(window).width() / 2 - e.pageX));
+                    RY=Math.max(-100, Math.min(100, $(window).height() / 2 - e.pageY));
+                    CX += (RX - CX)/100;
+                    CY += (RY - CY)/100;
+                    
+                    $('.i').css({
+                        "transform": "translate3d("+CX+"px,"+CY+"px, 0) scale(1.2,1.2)"
+                     });
+                    
+                }
+
+// 同下，左移按钮
+                function turnLeftStop(){
+
+                    $(".e").addClass("efA");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".e").removeClass("efA");
+                        $(".l").removeClass("lO");
+                    },500);
+
+                }
+
+// 右移按钮显示无法移动的特效动作
+                function turnRightStop(){
+
+                    $(".f").addClass("efA");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".f").removeClass("efA");
+                        $(".l").removeClass("lO");
+                    },500);
+
+                }
+
+// 导航栏移动到某页对应的位置，参数为页码
+                function turnToWhichNav(which){
+
+                	$(".m").removeClass("mA");
+
+                	$(".m").removeClass("mL");
+
+                	$(".m").removeClass("mR");
+
+                	$(".m"+which).nextAll().addClass("mL");
+
+                	$(".m"+which).prevAll().addClass("mR");
+                	
+                	$(".m"+which).addClass("mA");
+
+                }
+
+// 跳转到某一页，参数为页码
+                 function turnToWhichPage(which){
+                    for (var i = 1; i < tpn+1; i++) {
+                        $(".b").removeClass("b"+i);
+                    }
+                    
+                    $(".b").addClass("b"+which);
+
+                 }
+
+//封面上的标题显示与隐藏动作
+                 function titleTroggle(){
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500);
+
+                 }
+
+//某页封面掀开，参数为页码
+                 function coverUp(which){
+                    $(".c"+which).addClass("cU");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500);
+                }
+
+// 封面降下来盖住某页       
+                function coverDown(which){
+                    $(".c"+which).removeClass("cU");
+                    $(".l").addClass("lO");
+                    setTimeout(function () {
+                        $(".l").removeClass("lO");
+                    },500);
+                }
+
+// 同下，向左跳转
+                function turnLeft(){
+                    if(pn==1){
+                        turnLeftStop();
+                        return;
+                    }
+                    pn--;
+                    turnToWhichNav(1+tpn-pn);
+                    turnToWhichPage(pn);
+                    titleTroggle();
+                }
+
+// 向右跳转一页，同时移动导航栏位置
+                function turnRight(){
+                    if(pn==tpn){
+                        turnRightStop();
+                        return;
+                    }
+                    pn++;
+                    turnToWhichNav(1+tpn-pn);
+                    turnToWhichPage(pn);
+                    titleTroggle();
+                }
+
+// 点击导航栏时跳转到某页，每500毫秒响应一次                
+                function turnTo(){
+                    turnToWhichPage((tpn-$(this).index()));
+                    turnToWhichNav($(this).index()+1);
+                    pn=tpn-$(this).index();
+
+                    $('.m').off('click');
+
+                    setTimeout(function () {
+
+                        $('.m').on('click', turnTo);
+           
+                    },500);
+
+                }
+
+// 监视滚轮，防止单次滚动造成过多页数跳转，500毫秒响应一次
+                function turnScroll(e){
+                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) turnLeft();
+                    if (e.originalEvent.wheelDelta < -0 || e.originalEvent.detail > 0) turnRight();
+
+                    $(".d").off('mousewheel ');
+
+                    $(".e").off('mousewheel ');
+
+                    $(".f").off('mousewheel ');
+
+                    setTimeout(function () {
+                        
+                        $(".d").on('mousewheel ', turnScroll);
+
+                        $(".e").on('mousewheel ', turnScroll);
+
+                        $(".f").on('mousewheel ', turnScroll);
+                 
+                    },500);
+                }
+
+// 同下，监视左移按钮
+                function turnLeftCrol(){
+
+                    turnLeft();
+
+                    $(".e").off('click');
+
+                     setTimeout(function () {
+
+                        $(".e").on('click', turnLeftCrol);
+           
+                    },500);
+
+                }
+
+// 监视右移按钮，设定每500毫秒只可以点击生效一次
+                function turnRightCrol(){
+                    
+                    turnRight();
+
+                    $(".f").off('click');
+
+                     setTimeout(function () {
+
+                        $(".f").on('click', turnRightCrol);
+           
+                    },500);
+                }
+                
+//封面下滑盖住当前页
+                function coverUpCrol(){
+                    coverUp(pn);
+                }
+
+//当前页面封面掀开
+                function coverDownCrol(){
+                    coverDown(pn);
+                }
+
+
+
+// 动作绑定                
+                $(window).on("mousemove",bgMove);
+
+                $(".e").on("click", turnLeftCrol);
+
+                $(".f").on("click", turnRightCrol);
+
+                $(".d").on("mousewheel", turnScroll);
+
+                $(".e").on("mousewheel", turnScroll);
+
+                $(".f").on("mousewheel", turnScroll);
+
+                $(".j").on("mouseover",coverUpCrol);
+
+                $(".h").on("mouseout",coverDownCrol);
+
+                $('.m').on("click", turnTo);
+
+// 初始页码和导航栏位置设定
+                turnToWhichNav(1+tpn-pn);
+                turnToWhichPage(pn);
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                4。加入导航栏
+            </title>
+            <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+            <style type="text/css">
+                html,body{
+                    height:100%; 
+                    margin:0;
+                    overflow: hidden;
+                }
+                .a{
+                    height:100%;
+                    width: 100%;
+                    overflow: hidden;
+                }
+                .b{
+                    height:95%;
+                    width: 800%;
+                    transform: translate3d(-12.5%, 0px, 0px);
+                    transition: transform 1000ms ease-in-out;
+                    /*padding-left: 12.5%;*/
+
+
+                }
+                .c1{
+                    margin-left: 12.5%;
+                }
+                .c{
+                    height:100%;
+                    width: 12.5%;
+                    float: left;
+                    transform: translate3d(0px, 0px, 0px);
+                    transition: transform 500ms ease-in-out;
+                }
+                .d{
+                    bottom: 0;
+                    height:5%;
+                    width: 100%;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                    position: fixed;
+                    z-index: 1;
+                }
+                .e{
+                    top: 0;
+                    left: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: left;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                    
+                }
+                .f{
+                    top: 0;
+                    right: 0;
+                    height:95%;
+                    width: 8%;
+                    position: fixed;
+                    float: right;
+                    z-index: 1;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: 500ms;
+                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+
+                }
+                .e:hover {
+                    opacity: 0.3;
+                }
+                .f:hover {
+                    opacity: 0.3;
+                }
+                .g{
+                    bottom: 5%;
+                    left: 25%;
+                    height:5%;
+                    width: 50%;
+                    background:pink;
+                    position: fixed;
+
+                }
+                .h{
+                    background:grey;
+                    margin-left: 8%;
+                    margin-right: 8%; 
+                    height:100%;
+                    width: 84%;
+                    opacity:0.6;
+                }
+                .i{
+                    width: 100%;
+                    height: 95%;
+                    position: absolute;
+                    z-index: -1;
+                    background: url("img/b.jpg") no-repeat center center;
+                    background-size: cover;
+
+                }
+                .j1{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j2{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j3{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j4{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat; 
+                    
+                }
+                .j5{
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
+                    
+                }
+                .j6{
+                    background: url("img/a.jpg") center center no-repeat;
+
+  
+                    
+                }
+                .j{
+                    height:100%;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    position: relative;
+                    z-index: -2;
+                    
+                }
+
+                .k{
+                    position: absolute;
+                    height:100%;
+                    width: 100%;
+                    background: black;
+                    z-index: -1;
+                    opacity:0.8;
+                }
+                .l{
+                    width: 100%;
+                    height: 100%;
+                    -webkit-text-fill-color: transparent !important;
+                    -webkit-background-clip: text !important;
+                    font-size: 30em;
+                    font-weight: 800;
+                    background-size: cover;
+                    background-position: 0px center, 0px center;
+                    transition: 1000ms;
+                    opacity:1;
+
+                }
+                .m{
+                    height: 100%;
+                    background: white;
+                    float: right;
+                    margin-left: 1%;
+                    margin-right: 1%;
+                    opacity:1;
+                    font-size: 2em;
+                    font-weight: 800;
+                    text-align: left;
+                    transition: 1000ms ease-in-out;
+
+                }
+                .m1{
+                    width: 3%;
+                    background: #000000;
+                    color: #ffffff;
+                }
+                .m2{
+                    width: 3%;
+                    background: #333333;
+                    color: #cccccc;                
+                }
+                .m3{
+                    width: 3%;
+                    background: #666666;
+                    color: #999999;
+                }
+                .m4{
+                    width: 3%;
+                    background: #999999;
+                    color: #666666;
+                }
+                .m5{
+                    width: 3%;
+                    background: #cccccc;
+                    color: #333333;
+                }
+                .m6{
+                    width: 30%;
+                    background: #ffffff;
+                    color: #000000;
+                }
+                
+            </style>
+        </meta>
+    </head>
+    <body>
+        <div class="a">
+            <div class="i">
+            </div>
+            <div class="b">
+                <div class="c c1">
+                    <div class="j j1">
+                        <div class="k">
+                        </div>
+                        <div class="l j1 ">
+                            A
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j2">
+                        <div class="k">
+                        </div>
+                        <div class="l j2">
+                            热
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j3">
+                        <div class="k">
+                        </div>
+                        <div class="l j3">
+                            C
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j4">
+                        <div class="k">
+                        </div>
+                        <div class="l j4">
+                            D
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j5">
+                        <div class="k">
+                        </div>
+                        <div class="l j5">
+                            E
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="j j6">
+                        <div class="k">
+                        </div>
+                        <div class="l j6">
+                            F
+                        </div>
+                    </div>
+                    <div class="h">
+                    </div>
+                </div>
+            </div>
+            <div class="d">
+                    <div class="m m1">
+                        F
+                    </div>
+                    <div class="m m2">
+                        E
+                    </div>
+                    <div class="m m3">
+                        D
+                    </div>
+                    <div class="m m4">
+                        C
+                    </div>
+                    <div class="m m5">
+                        B
+                    </div>
+                    <div class="m m6">
+                        A
+                    </div>
+            </div>
+            <div class="e">
+            </div>
+            <div class="f">
+            </div>
+            <div class="g">
+            </div>
+        </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+
+                function bgMove(e){
+                    var RX=$(window).width()/2;
+                    var RY=$(window).height()/2;
+                    var CX=e.pageX;
+                    var CY=e.pageY;
+                    $('.i').css({
+                        "transform": "translate3d("+(CX-RX)/30+"px,"+(CY-RY)/30+"px, 0) scale(1.2,1.2)"
+                     });
+                    
+                }
+
+
+                var pn=1;
+                var tn=0;
+                function turnLeft(){
+
+                if(pn<2){
+                    $(".e").css({
+                        "width":16 +"% "
+                    });
+                    $(".l").css({
+                        "opacity":0
+                    });
+                    setTimeout(function () {
+                        $(".e").css({
+                        "width":8 +"% "
+                        });
+                        $(".l").css({
+                            "opacity":1
+                        });
+                    },1000)
+
+                    return;
+                }
+
+                $(".m"+(7-pn)).css({
+                        "width":3 +"% "
+                        
+                    });
+                $(".m"+(8-pn)).css({
+                        "width":30 +"% "
+                        
+                    });
+                    
+
+                pn--;
+                $(".b").css({
+                    "transform": "translate3d(-" + pn * 12.5 + "%, 0, 0)"
+                });
+                $(".l").css({
+                    "opacity":0
+                 });
+                    setTimeout(function () {
+                        $(".l").css({
+                    "opacity":1
+                 });
+                    },1000)
+                }
+                function turnRight(){
+                    if(pn>5){
+                       $(".f").css({
+                            "width":16 +"% "
+                        });
+                        
+                        $(".l").css({
+                            "opacity":0
+                        });
+                        setTimeout(function () {
+                            $(".f").css({
+                            "width":8 +"% "
+                        });
+                            $(".l").css({
+                            "opacity":1
+                        });
+                        },1000)
+                    
+                        return;
+
+                    }
+                    $(".m"+(7-pn)).css({
+                            "width":3 +"% "
+                            
+                        });
+                    $(".m"+(6-pn)).css({
+                            "width":30 +"% "
+                            
+                        });
+                    
+
+                    pn++;
+                    $(".b").css({
+                    "transform": "translate3d(-" + pn * 12.5 + "%, 0, 0)"
+                        });
+                    $(".l").css({
+                    "opacity":0
+                        });
+                    setTimeout(function () {
+                        $(".l").css({
+                    "opacity":1
+                 });
+                    },1000)
+                }
+
+                function turnScroll(e){
+                    var delta = e.originalEvent.wheelDelta;
+                    if (delta > 0 || e.originalEvent.detail < 0) turnLeft();
+                    if (delta < 0 || e.originalEvent.detail > 0) turnRight();
+                }
+
+
+                function coverUp(){
+                    $(".c").css({
+                    "transform": "translate3d(0, -100%, 0)"
+                        });
+                    $(".l").css({
+                    "opacity":0
+                        });
+                    setTimeout(function () {
+                        $(".l").css({
+                    "opacity":1
+                 });
+                    },1000)
+                }
+            
+                function coverDown(){
+                    $(".c").css({
+                    "transform": "translate3d(0, 0, 0)"
+                        });
+                    $(".l").css({
+                    "opacity":0
+                        });
+                    setTimeout(function () {
+                        $(".l").css({
+                    "opacity":1
+                 });
+                    },1000)
+                }
+
+                function turnTo(){
+                    tn=$(this).index() 
+                    $(".b").css({
+                    "transform": "translate3d(-" + (6-tn) * 12.5 + "%, 0, 0)"
+                        });
+                    $(".m").css({
+                            "width":3 +"% "
+                            
+                        });
+                    $(this).css({
+                            "width":30 +"% "
+                            
+                        });
+
+                }
+
+
+
+
+
+                $(window).on('mousemove',bgMove);
+
+                $(".e").on('click',turnLeft);
+
+                $(".f").on('click',turnRight);
+
+                $(".d").on('mousewheel DOMMouseScroll', turnScroll);
+
+                $(".e").on('mousewheel DOMMouseScroll', turnScroll);
+
+                $(".f").on('mousewheel DOMMouseScroll', turnScroll);
+
+                $(".j").on('mouseover', coverUp);
+
+                $(".h").on('mouseout', coverDown);
+
+                $('.m').on('click', turnTo);
+            });
+        </script>
+    </body>
+</html>

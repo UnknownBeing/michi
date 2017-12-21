@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                2。镂空字体与背景的设计
+            </title>
+        </meta>
+        <style type="text/css">
+            html,body{
+                height:100%;
+                margin:0;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .main{
+                height:100%;
+                width: 100%;
+                position: relative;
+                
+                z-index: -2;
+                
+                background-size: cover;
+                background: url("img/a.jpg") center center no-repeat;
+                background-position: 0px center, 0px center;
+                /*opacity:0.3;*/
+            }
+            .k1{
+                position: absolute;
+                opacity:0.6;
+                height:100%;
+                width: 100%;
+                background: black;
+                z-index: -1;
+}
+            .k2{
+                width: 100%;
+                height: 100%;
+                -webkit-text-fill-color: transparent !important;
+                -webkit-background-clip: text !important;
+                font-size: 50vw;
+                font-weight: 800;
+                background-size: cover;
+                background: url("img/a.jpg") center center no-repeat;
+                background-position: 0px center, 0px center;
+                
+                
+}
+            /*}
+            .main .content{
+                height: 95%;
+            }
+            .main .footer{
+                height: 5%;
+                background: white;
+            }
+            .content .left{
+                width: 7%;
+                height: 100%;
+                float: left;
+            }
+            .content .container{
+                width: 86%;
+                height: 95%;
+                float: left;
+            }
+            .content .nav{
+                left:25%;
+                bottom: 5%;
+                position: absolute;
+                width: 50%;
+                height: 5%;
+            }
+            .content .right{
+                width: 7%;
+                height: 100%;
+                float: right;
+            }
+            .container .page1{
+                left: 0%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            .container .page2{
+                left: 100%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            .container .page3{
+                left: 200%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            .container .page4{
+                left: 300%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            .container .page5{
+                left: 400%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            .container .page6{
+                left: 500%;
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+            */
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="k1">
+                
+            </div>
+            <div class="k2">
+                M
+            </div>
+        </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            //         $(function(){
+    //          var RX=$(document).width()/2;
+                // var RY=$(document).height()/2;
+    //             $(document).on('mousemove',function (e) {
+    //              var RX=$(window).width()/2;
+                //  var RY=$(window).height()/2;
+    //              var CX=e.pageX;
+    //              var CY=e.pageY;
+    //                 $('.mainBg').css({
+             //         "transform": "translate3d("+(CX-RX)/30+"px,"+(CY-RY)/30+"px, 0) scale(1.1,1.1)"
+             //         });
+        //      });
+    //      });
+        </script>
+    </body>
+</html>

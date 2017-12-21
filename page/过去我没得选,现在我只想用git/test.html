@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                test1 旋转轮盘
+            </title>
+        </meta>
+        <style type="text/css">
+         html,body{
+                    height:100%; 
+                    margin:0;
+                    background: pink;
+                    overflow: hidden;
+                }
+        		.a{
+                    top: 100px;
+                    left: 100px;
+                    height:700px;
+                    width: 700px;
+                    background: grey;
+                    position: absolute;
+                    /*display:flex;
+                    flex-wrap:wrap;*/
+                    overflow: hidden;
+                }
+                .b{
+                    position: relative;
+                    left: -300px;
+                    top: -300px;
+                    height:600px;
+                    width: 600px;
+                    background: white;
+                    display:flex;
+                    flex-wrap:wrap;
+                    border-radius:50%;
+                    transition: 2000ms;
+                    /*transform: rotate(45deg);*/
+                }
+                
+                .d{
+                    height:300px;
+                    width: 300px;
+                    background: red;
+                    position: relative;
+                    /*transform: rotate(180deg);*/
+                    /*float: right;*/
+                    border-top-left-radius:100%;
+                    /*opacity: 0;*/
+                }
+                .e{
+                    height:300px;
+                    width: 300px;
+                    background: yellow;
+                    position: relative;
+                    /*transform: rotate(90deg);*/
+                    /*float: left;*/
+                    /*opacity: 0;*/
+                    border-top-right-radius:100%;
+                }
+                .f{
+                    height:300px;
+                    width: 300px;
+                    background: blue;
+                    position: relative;
+                    /*transform: rotate(-180deg);*/
+                    /*float: left;*/
+                    /*opacity: 0;*/
+                    border-bottom-left-radius:100%;
+                }
+                .g{
+                    height:300px;
+                    width: 300px;
+                    background: green;
+                    /*transform: rotate(-90deg);*/
+                    /*float: right;*/
+                    /*opacity: 0;*/
+                    position: relative;
+                    border-bottom-right-radius:100%;
+                }
+                
+                .i{
+                    height:150px;
+                    width: 150px;
+                    background: orange; 
+                    /*display: inline-block;*/
+                    transform: rotate(180deg);
+                    position: absolute;
+                    bottom: 50px;
+                    right: 50px;
+                }
+                .j{
+                    height:150px;
+                    width: 150px;
+                    background: orange; 
+                    /*display: inline-block;*/
+                    transform: rotate(270deg);
+                    position: absolute;
+                    bottom: 50px;
+                    left: 50px;
+                }
+                .k{
+                    height:150px;
+                    width: 150px;
+                    background: orange; 
+                    /*display: inline-block;*/
+                    transform: rotate(90deg);
+                    position: absolute;
+                    top: 50px;
+                    right: 50px;
+                }
+                .l{
+                    height:150px;
+                    width: 150px;
+                    background: orange; 
+                    /*display: inline-block;*/
+                    transform: rotate(0deg);
+                    position: absolute;
+                    top: 50px;
+                    left: 50px;
+                }
+                .m{
+                    display:flex;
+                    flex-wrap:wrap;
+                    height:300px;
+                    width: 300px;
+                    background: brown; 
+                    position: absolute;
+                    /*border-bottom-right-radius:100%;*/
+                    transform:skew(30deg,0deg);
+                }
+                .n{
+                    height:150px;
+                    width: 150px;
+                    background: red;
+                    border-top-left-radius:100%;
+                }
+                .o{
+                    height:150px;
+                    width: 150px;
+                    background: yellow;
+                    border-top-right-radius:100%;
+                }
+                .p{
+                    height:150px;
+                    width: 150px;
+                    background: blue;
+                    border-bottom-left-radius:100%; 
+                }
+                .q{
+                    height:150px;
+                    width: 150px;
+                    background: green; 
+                    border-bottom-right-radius:100%; 
+                    
+                }
+                .h{
+                    height:300px;
+                    width: 300px;
+                    background: white; 
+                    bottom: -50px;
+                    left: 50px;
+                    position: absolute;
+                }
+                .c{
+                    height:600px;
+                    width: 600px;
+                    top: 0px;
+                    right: -300px;
+                    background: white; 
+                    position: absolute;
+                    background: white;
+                    transform: rotate(30deg);
+                    /*transform-origin:left top;*/
+                    border-radius:50%;
+                    transition: 2000ms;
+                    overflow: hidden;
+
+                }
+                .ca{
+                    height:200px;
+                    width: 300px;
+                    top: 0px;
+                    right: 150px;
+                    position: absolute;
+                    transform-origin:150px 300px;
+                    background-size: 50% 100%;
+                    background-repeat: no-repeat;
+                    background-position: right center,left center;
+
+                }
+
+
+                .r{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, red 0), linear-gradient(60deg, transparent 79.9px, red 0);
+                    /*background: red;*/
+                    transform: rotate(60deg);
+                    /*opacity: 0.3;*/
+                     
+                }
+                .s{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, yellow 0), linear-gradient(60deg, transparent 79.9px, yellow 0);
+                    /*background: yellow; */
+                    transform: rotate(120deg);
+                    /*opacity: 0.3;*/
+                }
+
+                .t{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, blue 0), linear-gradient(60deg, transparent 79.9px, blue 0); 
+                    /*background: blue; */
+                    transform: rotate(180deg);
+                    /*opacity: 0.3;*/
+                   
+                }
+                .u{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, green 0), linear-gradient(60deg, transparent 79.9px, green 0); 
+                    /*background: green; */
+                    transform: rotate(240deg);
+                    /*opacity: 0.3;*/
+                }
+                .v{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, purple 0), linear-gradient(60deg, transparent 79.9px, purple 0);
+                    /*background: purple; */
+                    transform: rotate(300deg);
+                    /*opacity: 0.3;*/
+                }
+                .w{
+                    background-image: linear-gradient(-60deg, transparent 79.9px, orange 0), linear-gradient(60deg, transparent 79.9px, orange 0); 
+                    /*background: orange; */
+                    transform: rotate(360deg);
+                    /*opacity: 0.3;*/
+                }
+                .x{
+                    background: black; 
+                    height:231px;
+                    width: 231px;
+                    top: 184.5px;
+                    right: 184.5px;
+                    position: absolute;
+                    border-radius:50%;
+                }
+                .y{ 
+                    height:100px;
+                    width: 100px; 
+                    bottom:0px;
+                    right: 100px;
+                    position: absolute;
+                    background-image: linear-gradient(-60deg, transparent 25px, black 0), linear-gradient(60deg, transparent 50px, black 0);
+                    background-size: 50% 100%;
+                    background-repeat: no-repeat;
+                    background-position: right center,left center;
+                }
+                .z{
+
+                    height:100px;
+                    width: 100px;
+                    position: absolute;
+                    top: 50px;
+                    left:100px;
+                    background: grey;
+                    transform: rotate(90deg);
+
+
+                }
+
+         </style>
+    </head>
+    <body>
+    	<div class="a">
+           
+            <div class="b">
+            
+                <div class="d">
+                    <div class="i">
+                        橙子
+                    </div>
+                </div>
+                <div class="e">
+                    <div class="j">
+                        香蕉
+                    </div>
+                </div>
+                <div class="f">
+                    <div class="k">
+                        苹果
+                    </div>
+                </div>
+                <div class="g">
+                    <div class="l">
+                        葡萄
+                    </div>
+                </div>
+
+            </div>
+            <div class="h">
+            <div class="m">
+                <div class="n">
+                    
+                </div>
+                <div class="o">
+                    
+                </div>
+                <div class="p">
+                    
+                </div>
+                <div class="q">
+                    
+                </div>
+            </div>
+            </div>
+            
+
+            <div class="c">
+                    
+                <div class="r ca">
+                <div class="z">
+                    AAA
+                </div>
+                
+                </div>
+                <div class="s ca ">
+                    <div class="z">
+                        BBB
+                </div>
+                </div>
+                <div class="t ca">
+                    <div class="z">
+                        CCC
+                </div>
+                </div>
+                <div class="u ca">
+                    <div class="z">
+                        DDD
+                </div>
+                </div>
+                <div class="v ca">
+                    
+                    <div class="z">
+                        EEE
+                </div>
+                </div>
+                <div class="w ca">
+                <div class="z">
+                    FFF
+                </div>
+                    
+                    
+                </div>
+                <div class="x">
+                </div>
+
+
+
+
+                
+            </div>
+
+
+
+            <div class="y">
+                </div>
+
+
+
+
+        </div>
+            
+            
+
+
+
+    </body>
+    	<script src="js/jquery-2.1.1.min.js">
+    </script>
+    <script type="text/javascript">
+
+
+
+        var CX=0;
+        var ZX=30;
+
+        function changeB(e){
+
+        console.log(ZX);
+            if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                
+
+                 ZX=ZX+60;
+                    $('.c').css({
+                        "transform": "rotate("+ZX+"deg)"
+                     });
+                       
+
+                     }
+
+
+
+
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                       
+                    
+
+                    ZX=ZX-60;
+                    $('.c').css({
+                        "transform": "rotate("+ZX+"deg)"
+                     });
+                    
+
+
+                }
+
+                    
+
+                    $(document).off('mousewheel');
+                    setTimeout(function () {
+                        $(document).on('mousewheel', changeB);
+                    },1000);
+
+             
+        }
+
+
+            function changeA(e){
+
+                console.log(CX);
+            if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                
+
+                 CX=CX+90;
+                    $('.b').css({
+                        "transform": "rotate("+CX+"deg)"
+                     });
+                       
+
+                     }
+
+
+
+
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                       
+                    
+
+                    CX=CX-90;
+                    $('.b').css({
+                        "transform": "rotate("+CX+"deg)"
+                     });
+                    
+
+
+                }
+
+                    
+
+                    $(document).off('mousewheel');
+                    setTimeout(function () {
+                        $(document).on('mousewheel', changeA);
+                    },1000);
+
+
+                     }
+        
+
+
+
+        $(document).on("mousewheel",changeA);
+        $(document).on("mousewheel",changeB);
+
+   	</script>
+</html>
