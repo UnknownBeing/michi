@@ -333,6 +333,43 @@
                 .u6{
                     background: url("img/a.jpg")   center center no-repeat;
                 }
+                .v{
+                    bottom: 0px;
+                    left: 0px;
+                    position: absolute;
+                    border-top-right-radius:100%;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                    opacity: 0;
+                    transition: 500ms;
+                }
+                .v:hover{
+                    opacity: 0.3;
+                }
+                .w{
+                    position: absolute;
+                    border-bottom-left-radius:100%;
+                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                    opacity: 0;
+                    transition: 500ms;
+                }
+                .w:hover{
+                    opacity: 0.3;
+                }
+                .x{
+                    background: black;
+                    position: absolute;
+                    border-radius:50%;
+                    transform: rotate(45deg);
+                }
+                .y{
+                    background: black;
+                    position: absolute;
+                    border-radius:50%;
+                    transform: rotate(60deg);
+                }
+                .z{
+
+                }
             </style>
         </meta>
     </head>
@@ -368,6 +405,8 @@
                                     <div class="r4 r">
                                     </div>
                                 </div>
+                                <div class="x">
+                                </div>
                             </div>
                             <div class="s">
                                 <div class="t t1">
@@ -394,6 +433,12 @@
                                     <div class="u u6">
                                     </div>
                                 </div>
+                                <div class="y">
+                                </div>
+                            </div>
+                            <div class="v">
+                            </div>
+                            <div class="w">
                             </div>
 						</div>
                     </div>
@@ -521,7 +566,7 @@
                     CY += (RY - CY)/100;
                     $('.i').css({
                         "transform": "translate3d("+CX+"px,"+CY+"px, 0) scale(1.2,1.2)"
-                     });
+                    });
                 }
 
 // 同下，左移按钮
@@ -709,6 +754,8 @@
                     var oc=wc/2;
                     // 某个难写的中间值，梯形切割块的上点到下点的距离
                     var vc=(R-wc/3)/(Math.sqrt(2));
+                    //内部块半径
+                    var r=wc/3;
 
                     $(".p").css({
                         "left": "-"+R+"px",
@@ -730,29 +777,12 @@
                         "top":(hc-vc-R/2)+"px",
                         "right": (wc-R)/2+"px"
                     });
-                }
-//4格轮盘转动
-                function scrollC4(e){
-                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        scroC4=scroC4+90;
-                        $('.p').css({
-                        "transform": "rotate("+scroC4+"deg)"
+                    $(".x").css({
+                        "height":2*r+"px",
+                        "width": 2*r+"px",
+                        "top":R-r+"px",
+                        "right":R-r+"px"
                     });
-                        $('.p').off("mousewheel");
-                        setTimeout(function () {
-                            $(".p").on("mousewheel",scrollC4);
-                        },1000);
-                    }
-                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        scroC4=scroC4-90;
-                        $('.p').css({
-                        "transform": "rotate("+scroC4+"deg)"
-                    });
-                        $('.p').off("mousewheel");
-                        setTimeout(function () {
-                            $(".p").on("mousewheel",scrollC4);
-                        },1000);
-                    }
                 }
 
 //6格轮盘
@@ -775,14 +805,16 @@
                     var dc=(wc/2)-hc/(Math.sqrt(3)*2);
                     //中间值,梯形下段的长度
                     var vc=dc*(Math.sqrt(3));
+                    //内部块半径
+                    var r=2*R/(Math.sqrt(3)*3);
 
                     $(".s").css({
                         "height":(2*R)+"px",
                         "width": (2*R)+"px",
-                        "bottom": "-"+R*1.2+"px"
+                        "bottom": "-"+R*1.25+"px"
                     });
                     $(".t").css({
-                       "height":hc+"px",
+                        "height":hc+"px",
                         "width":wc+"px",
                         "right":R/2+"px",
                         "transform-origin":R/2+"px "+R+"px",
@@ -792,31 +824,173 @@
                         "height":R+"px",
                         "width": R+"px",
                     });
+                    $(".y").css({
+                        "height":2*r+"px",
+                        "width": 2*r+"px",
+                        "top":(R-r)+"px",
+                        "right": (R-r)+"px"
+                    });
                 }    
 
+//轮盘旋转
+                function turnC(which,which2){
+                    if(which){
+                        if(which2){
+                            scroC4=scroC4+90;
+                        $('.p').css({
+                            "transform": "rotate("+scroC4+"deg)"
+                        });
+                        }else{
+                            scroC6=scroC6+60;
+                            $('.s').css({
+                                "transform": "rotate("+scroC6+"deg)"
+                            });
+                        }
+                    }else{
+                        if(which2){
+                            scroC4=scroC4-90;
+                            $('.p').css({
+                                "transform": "rotate("+scroC4+"deg)"
+                            });
+                        }else{
+                            scroC6=scroC6-60;
+                            $('.s').css({
+                                "transform": "rotate("+scroC6+"deg)"
+                            });
+                        }
+                        
+                    }
+                    
+                }
+
+//4格轮盘转动
+                function scrollC4(e){
+                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                        turnC(false,true);
+                        $('.p').off("mousewheel");
+                        setTimeout(function () {
+                            $(".p").on("mousewheel",scrollC4);
+                        },1000);
+                    }
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                        turnC(true,true);
+                        $('.p').off("mousewheel");
+                        setTimeout(function () {
+                            $(".p").on("mousewheel",scrollC4);
+                        },1000);
+                    }
+                }
 //6格轮盘转动
                 function scrollC6(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        scroC6=scroC6+60;
-                        $('.s').css({
-                        "transform": "rotate("+scroC6+"deg)"
-                    });
+                        turnC(false,false);
                         $('.s').off("mousewheel");
                         setTimeout(function () {
                             $(".s").on("mousewheel",scrollC6);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        scroC6=scroC6-60;
-                        $('.s').css({
-                        "transform": "rotate("+scroC6+"deg)"
-                    });
+                        turnC(true,false);
                         $('.s').off("mousewheel");
                         setTimeout(function () {
                             $(".s").on("mousewheel",scrollC6);
                         },1000);
                     }
                 }
+
+//轮盘按钮
+                function circleButton(){
+                    // 内容块宽度
+                    var width=$(".o").width();
+                    // 内容快高度
+                    var height=$(".o").height();
+                    if(width>=height){
+                        // 轮盘半径
+                        var R=height*2/3;
+                    }else{
+                        var R=width*2/3;
+                    }
+                    $(".v").css({
+                        "height":R/5+"px",
+                        "width":R/5+"px"
+                    });
+                    $(".w").css({
+                        "bottom":R/5+"px",
+                        "left":R/5+"px",
+                        "height":R/5+"px",
+                        "width":R/5+"px"
+                    });
+                }
+
+// // 4格轮盘按钮绑定
+//                 function blindC4(){
+//                     // $(".v").off("click");
+//                     // $(".w").off("click");
+//                     // $(".v").on("click", clickC4Up);
+//                     $(".W").on("click", clickC4Down);
+//                     // $(".x").css({
+//                     //     "opacity":0.3
+//                     // });
+//                     // setTimeout(function () {
+//                     //     $(".x").css({
+//                     //         "opacity":1
+//                     //     })
+//                     // },100);
+//                 }
+
+// // 6格轮盘按钮绑定
+//                 function blindC6(){
+//                     // $(".v").off("click");
+//                     // $(".w").off("click");
+//                     // $(".v").on("click", clickC6Up);
+//                     $(".W").on("click", clickC6Down);
+//                     // $(".y").css({
+//                     //     "opacity":0.3
+//                     // });
+//                     // setTimeout(function () {
+//                     //     $('.y').css({
+//                     //         "opacity":1
+//                     //     })
+//                     // },100);
+//                 }
+
+//4格轮盘上移
+                function clickC4Up(){
+                    turnC(false,true);
+                        $(".v").off("click");
+                        setTimeout(function () {
+                            $(".v").on("click",clickC4Up);
+                        },1000);
+                }
+
+//4格轮盘下移
+                function clickC4Down(){
+                    turnC(true,true);
+                        $(".w").off("click");
+                        setTimeout(function () {
+                            $(".w").on("click",clickC4Down);
+                        },1000);
+                }
+
+//6格轮盘上移
+                function clickC6Up(){
+                    turnC(false,false);
+                        $(".v").off("click");
+                        setTimeout(function () {
+                            $(".v").on("click",clickC6Up);
+                        },1000);
+                }
+
+//6格轮盘下移
+                function clickC6Down(){
+                    console.log("6d");
+                    turnC(true,false);
+                        $(".w").off("click");
+                        setTimeout(function () {
+                            $(".w").on("click",clickC6Down);
+                        },1000);
+                }
+
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
 
@@ -846,11 +1020,13 @@
 
                 $(".s").on("mousewheel",scrollC6);
 
+
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
                 turnToWhichPage(pn);
                 circle4();
                 circle6();
+                circleButton();
 
             });
         </script>
