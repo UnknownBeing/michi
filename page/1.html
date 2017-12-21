@@ -11,7 +11,7 @@
                     height:100%; 
                     margin:0;
                     background: pink;
-                    overflow: hidden;
+                    /*overflow: hidden;*/
                 }
         		.a{
                     top: 100px;
@@ -187,7 +187,7 @@
                     background-size: 50% 100%;
                     background-repeat: no-repeat;
                     background-position: right center,left center;
-
+                    overflow: hidden;
                 }
 
 
@@ -195,21 +195,21 @@
                     background-image: linear-gradient(-60deg, transparent 79.9px, red 0), linear-gradient(60deg, transparent 79.9px, red 0);
                     /*background: red;*/
                     transform: rotate(60deg);
-                    opacity: 0.3;
+                    /*opacity: 0.3;*/
                      
                 }
                 .s{
                     background-image: linear-gradient(-60deg, transparent 79.9px, yellow 0), linear-gradient(60deg, transparent 79.9px, yellow 0);
                     /*background: yellow; */
                     transform: rotate(120deg);
-                    opacity: 0.3;
+                    /*opacity: 0.3;*/
                 }
 
                 .t{
                     background-image: linear-gradient(-60deg, transparent 79.9px, blue 0), linear-gradient(60deg, transparent 79.9px, blue 0); 
                     /*background: blue; */
                     transform: rotate(180deg);
-                    opacity: 0.3;
+                    /*opacity: 0.3;*/
                     overflow: hidden;
                    
                 }
@@ -217,7 +217,7 @@
                     background-image: linear-gradient(-60deg, transparent 79.9px, green 0), linear-gradient(60deg, transparent 79.9px, green 0); 
                     /*background: green; */
                     transform: rotate(240deg);
-                    opacity: 0.3;
+                    /*opacity: 0.3;*/
                     overflow: hidden;
 
                 }
@@ -225,7 +225,7 @@
                     background-image: linear-gradient(-60deg, transparent 79.9px, purple 0), linear-gradient(60deg, transparent 79.9px, purple 0);
                     /*background: purple; */
                     transform: rotate(300deg);
-                    opacity: 0.3;
+                    /*opacity: 0.3;*/
                     /*overflow: hidden;*/
                 }
 
@@ -236,6 +236,24 @@
                     transform: rotate(360deg);
                         
                 }
+
+                .z{
+
+                    height:300px;
+                    width: 300px;
+                    position: absolute;
+                    background: grey;
+                    transform: rotate(90deg);
+                    background-color:rgba(0,0,0,0.5);
+
+
+                }
+
+
+
+
+
+
                 .x{
                     background: black; 
                     height:231px;
@@ -245,45 +263,62 @@
                     position: absolute;
                     border-radius:50%;
                 }
+
+
+                
                 .y{ 
-                    height:100px;
-                    width: 100px; 
-                    bottom:0px;
-                    right: 100px;
-                    position: absolute;/*
-                    background-image: linear-gradient(-60deg, transparent 25px, black 0), linear-gradient(60deg, transparent 50px, black 0);
+
+
+
+
+                    height: 415.556px; 
+                    width: 881.526px; 
+                    /*right: 182.57px; */
+                    transform-origin: 440.763px 623.333px 0px; 
+                    clip-path: polygon(0px 0px, 881.526px 0px, 881.526px 182.57px, 648.541px 415.556px, 232.985px 415.556px, 0px 182.57px);
+
+
+
+
+
+
+                    
+                    /*height:300px;
+                    width: 300px; */
+                    /*bottom:0px;*/
+                    top:300px;
+                    right: -700px;
+                    position: absolute;
+                    /*background-image: linear-gradient(-60deg, transparent 25px, black 0), linear-gradient(60deg, transparent 50px, black 0);
                     background-size: 50% 100%;
-                    background-repeat: no-repeat;
-                    background-position: right center,left center;*/
+                    background-repeat: no-repeat;*/
+                    
+                    background: grey;
+                   
+                    /*clip-path: polygon( 
+                        0px 0px,300px 0px,300px 200px,200px 300px,100px 300px,0px 200px
+                        );*/
+
+                    transform: rotate(135deg);
+                }
+                
+                .AA{
+                    /*方案一,懒点,图片大*/
+                    /*top:-258.192px;
+                    position: absolute;
+                    height: 881.526px; 
+                    width: 881.526px; 
+                    transform-origin: 440.763px 440.763px;*/
+                    transform: rotate(225deg);
                     background: url("http://uploadfile.deskcity.org/2015/1024/20151024120641968.jpg")  center center no-repeat;
                     background-size: cover;
-                   
-                    clip-path: polygon( 
-                        20px 0, calc(100% - 20px) 0, 
-                        100% 20px, 100% calc(100% - 20px), 
-                        calc(100% - 20px) 100%, 20px 100%, 
-                        0 calc(100% - 20px), 
-                        0 20px
-                        );
-                }
-                .z{
-
-                    height:100px;
-                    width: 100px;
+                    top:-129.095px;
+                    right: 129.095px;
                     position: absolute;
-                    top: 50px;
-                    left:100px;
-                    background: grey;
-                    transform: rotate(90deg);
-                    background-color:rgba(0,0,0,0.5);
-
-
-                }
-                .AA{
-
-                    height:100%;
-                    width: 100%;
-    background: grey;
+                    height: 623.333px; 
+                    width: 623.333px; 
+                    transform-origin: 311.667px 311.667px;
+                    
 
                 }
 
@@ -338,38 +373,25 @@
             <div class="c">
                     
                 <div class="r ca">
-                <div class="z">
-                    AAA
-                </div>
+                    <div class="z"></div>
                 
                 </div>
                 <div class="s ca ">
-                    <div class="z">
-                        BBB
-                </div>
+                    <div class="z"></div>
                 </div>
                 <div class="t ca">
-                    <div class="z">
-                        CCC
-                </div>
+                    <div class="z"></div>
                 </div>
                 <div class="u ca">
-                    <div class="z">
-                        DDD
-                </div>
+                    <div class="z"></div>
                 </div>
                 <div class="v ca">
+                    <div class="z"></div>
                     
-                    <div class="z">
-                        EEE
-                </div>
                 </div>
                 <div class="w ca">
                     
-                        <div class="z">
-                    FFF
-                
-                    </div>
+                        <div class="z"></div>
                 
                     
                     
@@ -384,9 +406,15 @@
             </div>
 
 
+ <div class="y">
 
-            <div class="y">
+                <div class="AA">
                 </div>
+
+
+
+                </div>
+           
 
 
 

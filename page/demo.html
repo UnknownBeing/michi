@@ -232,7 +232,7 @@
                     width: 84%;
                     color: #ffffff;
                     overflow: auto;
-                    background-color:rgba(0,0,0,0.5);
+                    background-color:rgba(0,0,0,0.3);
                     position: absolute;
                 }
                 .p{
@@ -245,29 +245,38 @@
                 .q{
                     top: 0px;
                     position: absolute;
+                    background-size: 200% 200%;
+                    overflow: hidden;
                 }
                 .q1{
-                    background: red;
                     transform: rotate(90deg);
-                    opacity: 0.3;
                 }
                 .q2{
-                    background: yellow;
                     transform: rotate(180deg);
-                    opacity: 0.3;
                 }
                 .q3{
-                    background: blue;
                     transform: rotate(270deg);
-                    opacity: 0.3;
                 }
                 .q4{
-                    background: green;
                     transform: rotate(360deg);
-                    opacity: 0.3;
                 }
-                
-
+                .r{
+                    position: absolute;
+                    background-size: cover;
+                    transform: rotate(225deg);
+                }
+                .r1{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .r2{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .r3{
+                    background: url("img/13.jpg")  center center no-repeat;
+                }
+                .r4{
+                    background: url("img/a.jpg")  center center no-repeat;
+                }
             </style>
         </meta>
     </head>
@@ -288,14 +297,21 @@
                     	<div class="o o1">
                             <div class="p">
                                 <div class="q q1">
+                                    <div class="r1 r">
+                                    </div>
                                 </div>
                                 <div class="q q2">
+                                    <div class="r2 r">
+                                    </div>
                                 </div>
                                 <div class="q q3">
+                                    <div class="r3 r">
+                                    </div>
                                 </div>
                                 <div class="q q4">
+                                    <div class="r4 r">
+                                    </div>
                                 </div>
-                                
                             </div>
 						</div>
                     </div>
@@ -625,9 +641,15 @@
                         "transform-origin": oc+"px "+ R+"px",
                         "clip-path": "polygon(0 0, "+wc+"px 0, "+wc+"px "+ (hc-vc)+"px, "+(wc-vc)+"px "+hc+"px, "+vc+"px "+hc+"px, 0 "+(hc-vc)+"px)"
                     });
-                    
+                    $(".r").css({
+                        "height":R+"px",
+                        "width": R+"px",
+                        "transform-origin": R/2+"px "+ R/2+"px",
+                        "top":(hc-vc-R/2)+"px",
+                        "right": (wc-R)/2+"px"
+                    });
                 }
-//轮盘转动
+//4格轮盘转动
                 function scrollC4(e){
                     console.log(scroC4);
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
@@ -635,9 +657,9 @@
                         $('.p').css({
                         "transform": "rotate("+scroC4+"deg)"
                     });
-                        $('.h1').off("mousewheel");
+                        $('.p').off("mousewheel");
                         setTimeout(function () {
-                            $(".h1").on("mousewheel",scrollC4);
+                            $(".p").on("mousewheel",scrollC4);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
@@ -645,9 +667,9 @@
                         $('.p').css({
                         "transform": "rotate("+scroC4+"deg)"
                     });
-                        $('.h1').off("mousewheel");
+                        $('.p').off("mousewheel");
                         setTimeout(function () {
-                            $(".h1").on("mousewheel",scrollC4);
+                            $(".p").on("mousewheel",scrollC4);
                         },1000);
                     }
                 }
@@ -680,7 +702,7 @@
 
                 $(".h").on("mousewheel",scrollTroggle);
 
-                $(".h1").on("mousewheel",scrollC4);
+                $(".p").on("mousewheel",scrollC4);
 
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
