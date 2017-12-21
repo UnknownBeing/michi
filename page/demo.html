@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
             <title>
-                15,加入了左上角的响应式轮盘，改写了封面的下拉绑定动作
+                就一张页面
             </title>
             <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
             <style type="text/css">
 /*隐藏滚动条*/
-                /*::-webkit-scrollbar{
+                ::-webkit-scrollbar{
                     display:none; 
-                }*/
+                }
                 html,body{
                     height:100%; 
                     margin:0;
@@ -235,9 +235,12 @@
                     background-color:rgba(0,0,0,0.3);
                     position: absolute;
                 }
+                .o{
+                    overflow: hidden;
+                }
                 .p{
-                    border-radius:50%;
-                    transition: 1000ms;
+                    transform: rotate(45deg);
+                    transition: 1000ms ease-in-out;
                     position: absolute;
                     border-radius:50%;
                     overflow: hidden;
@@ -245,7 +248,6 @@
                 .q{
                     top: 0px;
                     position: absolute;
-                    background-size: 200% 200%;
                     overflow: hidden;
                 }
                 .q1{
@@ -276,6 +278,60 @@
                 }
                 .r4{
                     background: url("img/a.jpg")  center center no-repeat;
+                }
+                .s{
+                    right: 0;
+                    position: absolute;
+                    border-radius:50%;
+                    overflow: hidden;
+                    transition: 1000ms ease-in-out;
+                    transform: rotate(-60deg);
+                }
+                .t{
+                    
+                    top: 0px;
+                    position: absolute;
+                    overflow: hidden;
+                }
+                .t1{
+                    transform: rotate(60deg);
+                }
+                .t2{
+                    transform: rotate(120deg);
+                }
+                .t3{
+                    transform: rotate(180deg);
+                }
+                .t4{
+                    transform: rotate(240deg);
+                }
+                .t5{
+                    transform: rotate(300deg);
+                }
+                .t6{
+                    transform: rotate(360deg);
+                }
+                .u{
+                    position: absolute;
+                    background-size: contain;
+                }
+                .u1{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .u2{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .u3{
+                    background: url("img/13.jpg")  center center no-repeat;
+                }
+                .u4{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .u5{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .u6{
+                    background: url("img/a.jpg")   center center no-repeat;
                 }
             </style>
         </meta>
@@ -310,6 +366,32 @@
                                 </div>
                                 <div class="q q4">
                                     <div class="r4 r">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s">
+                                <div class="t t1">
+                                    <div class="u u1">
+                                    </div>
+                                </div>
+                                <div class="t t2">
+                                    <div class="u u2">
+                                    </div>
+                                </div>
+                                <div class="t t3">
+                                    <div class="u u3">
+                                    </div>
+                                </div>
+                                <div class="t t4">
+                                    <div class="u u4">
+                                    </div>
+                                </div>
+                                <div class="t t5">
+                                    <div class="u u5">
+                                    </div>
+                                </div>
+                                <div class="t t6">
+                                    <div class="u u6">
                                     </div>
                                 </div>
                             </div>
@@ -429,7 +511,8 @@
                 var RY=0;
 //4格轮盘滚动计数
                 var scroC4=45;
-
+//6格轮盘滚动计数
+                var scroC6=-60;
 // 大背景相应鼠标位置的动作特效
                 function bgMove(e){
                     RX=Math.max(-100, Math.min(100, $(window).width() / 2 - e.pageX));
@@ -631,8 +714,7 @@
                         "left": "-"+R+"px",
                         "top": "-"+R+"px",
                         "height":2*R+"px",
-                        "width": 2*R+"px",
-                        "transform": "rotate("+45+"deg)"
+                        "width": 2*R+"px"
                     });
                     $(".q").css({
                         "height":hc+"px",
@@ -651,7 +733,6 @@
                 }
 //4格轮盘转动
                 function scrollC4(e){
-                    console.log(scroC4);
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
                         scroC4=scroC4+90;
                         $('.p').css({
@@ -674,9 +755,68 @@
                     }
                 }
 
+//6格轮盘
+                function circle6(){
+                    // 内容块宽度
+                    var width=$(".o").width();
+                    // 内容快高度
+                    var height=$(".o").height();
+                    if(width>=height){
+                        // 轮盘半径
+                        var R=height*2/3;
+                    }else{
+                        var R=width*2/3;
+                    }
+                    // 轮盘格高度
+                    var hc=2*R/3;
+                    //轮盘格宽度
+                    var wc=R;
+                    //中间值,横向截断值;
+                    var dc=(wc/2)-hc/(Math.sqrt(3)*2);
+                    //中间值,梯形下段的长度
+                    var vc=dc*(Math.sqrt(3));
 
+                    $(".s").css({
+                        "height":(2*R)+"px",
+                        "width": (2*R)+"px",
+                        "bottom": "-"+R*1.2+"px"
+                    });
+                    $(".t").css({
+                       "height":hc+"px",
+                        "width":wc+"px",
+                        "right":R/2+"px",
+                        "transform-origin":R/2+"px "+R+"px",
+                        "clip-path": "polygon(0 0, "+wc+"px 0, "+wc+"px "+ (hc-vc)+"px, "+(wc-dc)+"px "+hc+"px, "+dc+"px "+hc+"px, 0 "+(hc-vc)+"px)"
+                    });
+                    $(".u").css({
+                        "height":R+"px",
+                        "width": R+"px",
+                    });
+                }    
 
-
+//6格轮盘转动
+                function scrollC6(e){
+                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                        scroC6=scroC6+60;
+                        $('.s').css({
+                        "transform": "rotate("+scroC6+"deg)"
+                    });
+                        $('.s').off("mousewheel");
+                        setTimeout(function () {
+                            $(".s").on("mousewheel",scrollC6);
+                        },1000);
+                    }
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                        scroC6=scroC6-60;
+                        $('.s').css({
+                        "transform": "rotate("+scroC6+"deg)"
+                    });
+                        $('.s').off("mousewheel");
+                        setTimeout(function () {
+                            $(".s").on("mousewheel",scrollC6);
+                        },1000);
+                    }
+                }
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
 
@@ -704,10 +844,13 @@
 
                 $(".p").on("mousewheel",scrollC4);
 
+                $(".s").on("mousewheel",scrollC6);
+
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
                 turnToWhichPage(pn);
                 circle4();
+                circle6();
 
             });
         </script>
