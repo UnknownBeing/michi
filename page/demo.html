@@ -3,25 +3,25 @@
     <head>
         <meta charset="utf-8">
             <title>
-                15,加入了左上角的响应式轮盘，改写了封面的下拉绑定动作
+                就一张页面
             </title>
             <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
             <style type="text/css">
 /*隐藏滚动条*/
-                /*::-webkit-scrollbar{
+                ::-webkit-scrollbar{
                     display:none; 
-                }*/
+                }
                 html,body{
                     height:100%; 
                     margin:0;
                     overflow: hidden;
                 }
-                .a{
+                .all{
                     height:100%;
                     width: 100%;
                     overflow: hidden;
                 }
-                .b{
+                .mainPage{
                     height:95%;
                     width: 800%;
                     transition: transform 500ms ease-in-out;
@@ -29,35 +29,34 @@
                     display:flex;
   					flex-wrap:wrap;
                 }
-                .b1{
+                .Page1{
                     transform: translate3d(0px, 0px, 0px);
                 }
-                .b2{
+                .Page2{
                     transform: translate3d(-12.5%, 0px, 0px);
                 }
-                .b3{
+                .Page3{
                     transform: translate3d(-25%, 0px, 0px);
                 }
-                .b4{
+                .Page4{
                     transform: translate3d(-37.5%, 0px, 0px);
                 }
-                .b5{
+                .Page5{
                     transform: translate3d(-50%, 0px, 0px);
                 }
-                .b6{
+                .Page6{
                     transform: translate3d(-62.5%, 0px, 0px);
                 }
-                .c{
+                .containers{
                     height:100%;
                     width: 12.5%;
-                    /*display: inline-block;*/
                     transform: translate3d(0px, 0px, 0px);
                     transition: transform 250ms ease-in-out;
                 }
-                .cU{
+                .containersU{
                     transform: translate3d(0px, -100%, 0px);
                 }
-                .d{
+                .footer{
                     right: 0;
                     bottom: 0;
                     height:5%;
@@ -68,7 +67,7 @@
                     display:flex;
   					flex-wrap:wrap;
                 }
-                .e{
+                .lefter{
                     top: 0;
                     left: 0;
                     height:95%;
@@ -81,7 +80,7 @@
                     transition: 500ms;
                     background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
                 }
-                .f{
+                .righter{
                     top: 0;
                     right: 0;
                     height:95%;
@@ -94,16 +93,17 @@
                     transition: 500ms;
                     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
                 }
-                .e:hover {
+                .lefter:hover {
                     opacity: 0.3;
                 }
-                .f:hover {
+                .righter:hover {
                     opacity: 0.3;
                 }
-                .efA{
+                .lrA{
                     width: 16%;
+                    opacity: 0.3;
                 }
-                .g{
+                .logo{
                     bottom: 0;
                     left: 0;
                     height: 5%;
@@ -111,7 +111,7 @@
                     position: fixed;
                     background: #ffffff;
                 }
-                .h{
+                .content{
                     background: url("img/aa.png")   no-repeat;
                     height:100%;
                     width: 100%;
@@ -120,41 +120,41 @@
                     background-size: cover;
                     background-position: 50% 50%;
                 }
-                .hU{
-                    background-position: 50% 30%;
-                    /*background-position: 10% 50%;    左右移动*/
+                .contentU{
+                    background-position: 50% 45%;
+                    /*background-position: 60% 50%;   左右移动*/
                 }
-                .hD{
-                    background-position: 50% 70%;
-                    /*background-position: 90% 50%;   左右移动*/
+                .contentD{
+                    background-position: 50% 55%;
+                    /*background-position: 40% 50%;   左右移动*/
                 }
-                .i{
+                .bgAnim{
                     width: 100%;
                     height: 95%;
                     position: absolute;
                     z-index: -1;
-                    background: url("http://uploadfile.deskcity.org/2015/1024/20151024120641968.jpg")  center center no-repeat;
+                    background: url("http://www.firecute.com/wp-content/uploads/starry-sky/001.jpg")  center center no-repeat;
                     background-size: cover;
                 }
-                .j1{
+                .cover1{
                     background: url("http://www.cpanet.org.cn/uploads/allimg/140404/5-140404103P93M.jpg") center center no-repeat;
                 }
-                .j2{
+                .cover2{
                     background: url("http://pic1.win4000.com/wallpaper/f/58086e7812b7a.jpg") center center no-repeat;
                 }
-                .j3{
+                .cover3{
                     background: url("http://uniqueway.b0.upaiyun.com//uploads/2016/08/715xro72y43fdolj89gb5az9w8ptpgf8.jpg") center center no-repeat;
                 }
-                .j4{
+                .cover4{
                     background: url("http://cairuitao-wordpress.stor.sinaapp.com/uploads/2013/12/start.png") center center no-repeat;
                 }
-                .j5{
+                .cover5{
                     background: url("https://colorhub.me/thumbs/c5/aa/89323_900x600.jpg") center center no-repeat;
                 }
-                .j6{
+                .cover6{
                     background: url("https://abc.2008php.com/2014_Website_appreciate/2014-02-16/20140216234113.jpg") center center no-repeat;
                 }
-                .j{
+                .cover{
                     height:100%;
                     width: 100%;
                     background-size: cover;
@@ -162,7 +162,7 @@
                     position: relative;
                     z-index: -2;
                 }
-                .k{
+                .coverShadow{
                     position: absolute;
                     height:100%;
                     width: 100%;
@@ -170,7 +170,7 @@
                     z-index: -1;
                     opacity:0.7;
                 }
-                .l{
+                .title{
                     width: 100%;
                     height: 100%;
                     padding-left: 8%;
@@ -184,214 +184,384 @@
                     opacity:1;
                     user-select: none;
                 }
-                .lO{
+                .titleO{
                     opacity:0;
                 }
-                .m{
+                .navg{
                     height: 100%;
-                    /*display:inline-block;*/
-                    /*float: right;*/
                     opacity:1;
                     font-size: 2em;
                     font-weight: 800;
                     transition: 500ms ease-in-out;
                     user-select: none;
                 }
-                .m:hover{
+                .navg:hover{
                     -webkit-filter:brightness(0.5);
                 }
-                .mR{
+                .navgR{
                     width: 8%;
                     background: #000000;
                     color: #ffffff;
                     text-align: right;
                 }
-                .mA{
+                .navgA{
                 	width: 60%;
                 	background: #000000;
                 	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
                 	color: #000000;
                     text-align: left;
                 }
-                .mL{
+                .navgL{
                 	width: 8%;
                     background: #ffffff;
                     color: #000000;
                     text-align: left;
                 }
-                .n{
+                .logoBg{
                 	height:100%;
                     width: 100%;
                 	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
                 }
-                .o{
+
+        
+                .contentShadow{
                 	height: 100%;
                     margin-right: 8%;
                     margin-left: 8%;
                     width: 84%;
                     color: #ffffff;
                     overflow: auto;
-                    background-color:rgba(0,0,0,0.5);
+                    background-color:rgba(0,0,0,0.3);
                     position: absolute;
                 }
-                .p{
-                    border-radius:50%;
-                    transition: 1000ms;
+                .contentShadow{
+                    overflow: hidden;
+                }
+                .circle4{
+                    transform: rotate(225deg);
+                    transition: 1000ms ease-in-out;
                     position: absolute;
                     border-radius:50%;
                     overflow: hidden;
+                    border:1px solid white;
                 }
-                .q{
+                .c4Lat{
                     top: 0px;
                     position: absolute;
+                    overflow: hidden;
                 }
-                .q1{
-                    background: red;
-                    transform: rotate(90deg);
-                    opacity: 0.3;
-                }
-                .q2{
-                    background: yellow;
-                    transform: rotate(180deg);
-                    opacity: 0.3;
-                }
-                .q3{
-                    background: blue;
+                .c4Lat1{
                     transform: rotate(270deg);
-                    opacity: 0.3;
                 }
-                .q4{
-                    background: green;
-                    transform: rotate(360deg);
-                    opacity: 0.3;
+                .c4Lat2{
+                    transform: rotate(180deg);
+                }
+                .c4Lat3{
+                    transform: rotate(90deg);
+                }
+                .c4Lat4{
+                    transform: rotate(0deg);
+                }
+                .c4LatBg{
+                    position: absolute;
+                    background-size: cover;
+                    transform: rotate(225deg);
+                }
+                .c4LatBg1{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .c4LatBg2{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .c4LatBg3{
+                    background: url("img/13.jpg")  center center no-repeat;
+                }
+                .c4LatBg4{
+                    background: url("img/a.jpg")  center center no-repeat;
+                }
+                .circle6{
+                    right: 0;
+                    position: absolute;
+                    border-radius:50%;
+                    overflow: hidden;
+                    transition: 1000ms ease-in-out;
+                    transform: rotate(60deg);
+                    border:1px solid white;
+                }
+                .c6Lat{
+                    top: 0px;
+                    position: absolute;
+                    overflow: hidden;
+                }
+                .c6Lat1{
+                    transform: rotate(300deg);
+                }
+                .c6Lat2{
+                    transform: rotate(240deg);
+                }
+                .c6Lat3{
+                    transform: rotate(180deg);
+                }
+                .c6Lat4{
+                    transform: rotate(120deg);
+                }
+                .c6Lat5{
+                    transform: rotate(60deg);
+                }
+                .c6Lat6{
+                    transform: rotate(0deg);
+                }
+                .c6LatBg{
+                    position: absolute;
+                    background-size: contain;
+                }
+                .c6LatBg1{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .c6LatBg2{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .c6LatBg3{
+                    background: url("img/13.jpg")  center center no-repeat;
+                }
+                .c6LatBg4{
+                    background: url("img/11.jpg")  center center no-repeat;
+                }
+                .c6LatBg5{
+                    background: url("img/12.jpg")  center center no-repeat;
+                }
+                .c6LatBg6{
+                    background: url("img/a.jpg")   center center no-repeat;
+                }
+                .c4Center{
+                    background: black;
+                    position: absolute;
+                    border-radius:50%;
+                    overflow: hidden;
+                    border:1px solid white;
+                }
+                .centerLeft{
+                    height: 50%;
+                    width: 100%;
+                    background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                }
+                .centerRight{
+                    height: 50%;
+                    width: 100%;
+                    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                }
+                .centerRight:hover{
+                    -webkit-filter:brightness(0.5);
+                }
+                .centerLeft:hover{
+                    -webkit-filter:brightness(0.5);
+                }
+                .c6Center{
+                    background: black;
+                    position: absolute;
+                    border-radius:50%;
+                    overflow: hidden;
+                    border:1px solid white;
+                }
+                .circle1{
+                    position: absolute;
+                    transition: 1000ms ease-in-out;
+                }
+                .c1Lat{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    border-radius:50%;
+                    background: black;
+                    border:2px solid white;
+                }
+
+                .searchBar{
+                    border:2px solid white; 
+                    position: absolute;
+                    height: 5%;
+                    width: 80%;
+                    left: 10%;
+                    top:7%;
+                    background: grey;
+                    overflow: hidden;
                 }
                 
-
             </style>
         </meta>
     </head>
     <body>
-        <div class="a">
-            <div class="i">
+        <div class="all">
+            <div class="bgAnim">
             </div>
-            <div class="b">
-                <div class="c c1">
-                    <div class="j j1">
-                        <div class="k">
+            <div class="mainPage">
+                <div class="containers containers1">
+                    <div class="cover cover1">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j1 ">
+                        <div class="title cover1">
                             A
                         </div>
                     </div>
-                    <div class="h1 h">
-                    	<div class="o o1">
-                            <div class="p">
-                                <div class="q q1">
+                    <div class="content content1">
+                    	<div class="contentShadow contentShadow1">
+                            <div class="circle4">
+                                <div class="c4Lat c4Lat1">
+                                    <div class="c4LatBg1 c4LatBg">
+                                    </div>
                                 </div>
-                                <div class="q q2">
+                                <div class="c4Lat c4Lat2">
+                                    <div class="c4LatBg2 c4LatBg">
+                                    </div>
                                 </div>
-                                <div class="q q3">
+                                <div class="c4Lat c4Lat3">
+                                    <div class="c4LatBg3 c4LatBg">
+                                    </div>
                                 </div>
-                                <div class="q q4">
+                                <div class="c4Lat c4Lat4">
+                                    <div class="c4LatBg4 c4LatBg">
+                                    </div>
                                 </div>
-                                
+                                <div class="c4Center">
+                                    <div class="centerLeft c4centerLeft">
+                                    </div>
+                                    <div class="centerRight c4centerRight">
+                                    </div>
+                                </div>
                             </div>
+                            <div class="circle6">
+                                <div class="c6Lat c6Lat1">
+                                    <div class="c6LatBg c6LatBg1">
+                                    </div>
+                                </div>
+                                <div class="c6Lat c6Lat2">
+                                    <div class="c6LatBg c6LatBg2">
+                                    </div>
+                                </div>
+                                <div class="c6Lat c6Lat3">
+                                    <div class="c6LatBg c6LatBg3">
+                                    </div>
+                                </div>
+                                <div class="c6Lat c6Lat4">
+                                    <div class="c6LatBg c6LatBg4">
+                                    </div>
+                                </div>
+                                <div class="c6Lat c6Lat5">
+                                    <div class="c6LatBg c6LatBg5">
+                                    </div>
+                                </div>
+                                <div class="c6Lat c6Lat6">
+                                    <div class="c6LatBg c6LatBg6">
+                                    </div>
+                                </div>
+                                <div class="c6Center">
+                                    <div class="centerLeft c6CenterLeft">
+                                    </div>
+                                    <div class="centerRight c6CenterRight">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle1">
+                                <div class="c1Lat">
+                            </div>
+                            </div>
+                            
 						</div>
                     </div>
                 </div>
-                <div class="c c2">
-                    <div class="j j2">
-                        <div class="k">
+                <div class="containers containers2">
+                    <div class="cover cover2">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j2">
+                        <div class="title cover2">
                             B
                         </div>
                     </div>
-                    <div class="h2 h">
-                    	<div class="o o2">
-
+                    <div class="content2 content">
+                    	<div class="contentShadow contentShadow2">
+                            
 						</div>
                     </div>
                 </div>
-                <div class="c c3">
-                    <div class="j j3">
-                        <div class="k">
+                <div class="containers containers3">
+                    <div class="cover cover3">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j3">
+                        <div class="title cover3">
                             C
                         </div>
                     </div>
-                    <div class="h3 h">
-                    	<div class="o o3">
+                    <div class="content content3">
+                    	<div class="contentShadow contentShadow3">
 						</div>
                     </div>
                 </div>
-                <div class="c c4">
-                    <div class="j j4">
-                        <div class="k">
+                <div class="containers containers4">
+                    <div class="cover cover4">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j4">
+                        <div class="title cover4">
                             D
                         </div>
                     </div>
-                    <div class="h4 h">
-                        <div class="o o4">
+                    <div class="content content4">
+                        <div class="contentShadow contentShadow4">
 						</div>
                     </div>
                 </div>
-                <div class="c c5">
-                    <div class="j j5">
-                        <div class="k">
+                <div class="containers containers5">
+                    <div class="cover cover5">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j5">
+                        <div class="title cover5">
                             E
                         </div>
                     </div>
-                    <div class="h5 h">
-                    	<div class="o o5">
+                    <div class="content content5">
+                    	<div class="contentShadow contentShadow5">
 						</div>
                     </div>
                 </div>
-                <div class="c c6">
-                    <div class="j j6">
-                        <div class="k">
+                <div class="containers containers6">
+                    <div class="cover cover6">
+                        <div class="coverShadow">
                         </div>
-                        <div class="l j6">
+                        <div class="title cover6">
                             F
                         </div>
                     </div>
-                    <div class="h6 h">
-                    	<div class="o o6">
+                    <div class="content content6">
+                    	<div class="contentShadow contentShadow6">
 						</div>
                     </div>
                 </div>
             </div>
-            <div class="d">
-                <div class="m m1">
+            <div class="footer">
+                <div class="navg navg1">
                     A
                 </div>
-                <div class="m m2">
+                <div class="navg navg2">
                     B
                 </div>
-                <div class="m m3">
+                <div class="navg navg3">
                     C
                 </div>
-                <div class="m m4">
+                <div class="navg navg4">
                     D
                 </div>
-                <div class="m m5">
+                <div class="navg navg5">
                     E
                 </div>
-                <div class="m m6">
+                <div class="navg navg6">
                     F
                 </div>
             </div>
-            <div class="e">
+            <div class="lefter">
             </div>
-            <div class="f">
+            <div class="righter">
             </div>
-            <div class="g">
-                <div class="n">
+            <div class="logo">
+                <div class="logoBg">
                 </div>
             </div>
         </div>
@@ -411,81 +581,86 @@
                 var RX=0;
                 var RY=0;
 //4格轮盘滚动计数
-                var scroC4=45;
+                var scroC4=225;
+                var scroC4B=0;
+//6格轮盘滚动计数
+                var scroC6=60;
+                var scroC6B=210;
 
+                var scroC1=0;
 // 大背景相应鼠标位置的动作特效
                 function bgMove(e){
                     RX=Math.max(-100, Math.min(100, $(window).width() / 2 - e.pageX));
                     RY=Math.max(-100, Math.min(100, $(window).height() / 2 - e.pageY));
                     CX += (RX - CX)/100;
                     CY += (RY - CY)/100;
-                    $('.i').css({
-                        "transform": "translate3d("+CX+"px,"+CY+"px, 0) scale(1.2,1.2)"
-                     });
+                    $(".bgAnim").css({
+                        "transform": "translate3d("+CX+"px,"+CY+"px, 0) scale(1.3,1.3)"
+                    });
                 }
 
 // 同下，左移按钮
                 function turnLeftStop(){
-                    $(".e").addClass("efA");
-                    $(".l").addClass("lO");
+                    $(".lefter").addClass("lrA");
+                    $(".title").addClass("titleO");
                     setTimeout(function () {
-                        $(".e").removeClass("efA");
-                        $(".l").removeClass("lO");
+                        $(".lefter").removeClass("lrA");
+                        $(".title").removeClass("titleO");
                     },500);
                 }
 
 // 右移按钮显示无法移动的特效动作
                 function turnRightStop(){
-                    $(".f").addClass("efA");
-                    $(".l").addClass("lO");
+                    $(".righter").addClass("lraA");
+                    $(".title").addClass("titleO");
                     setTimeout(function () {
-                        $(".f").removeClass("efA");
-                        $(".l").removeClass("lO");
+                        $(".righter").removeClass("lrA");
+                        $(".title").removeClass("titleO");
                     },500);
                 }
 
 // 导航栏移动到某页对应的位置，参数为页码
                 function turnToWhichNav(which){
-                	$(".m").removeClass("mA");
-                	$(".m").removeClass("mL");
-                	$(".m").removeClass("mR");
-                	$(".m"+which).nextAll().addClass("mR");
-                	$(".m"+which).prevAll().addClass("mL");
-                	$(".m"+which).addClass("mA");
+                	$(".navg").removeClass("navgA");
+                	$(".navg").removeClass("navgL");
+                	$(".navg").removeClass("navgR");
+                	$(".navg"+which).nextAll().addClass("navgR");
+                	$(".navg"+which).prevAll().addClass("navgL");
+                	$(".navg"+which).addClass("navgA");
                 }
 
 // 跳转到某一页，参数为页码
-                 function turnToWhichPage(which){
+                function turnToWhichPage(which){
                     for (var i = 1; i < tpn+1; i++) {
-                        $(".b").removeClass("b"+i);
+                        $(".mainPage").removeClass("Page"+i);
                     }
-                    $(".b").addClass("b"+which);
+                    $(".mainPage").addClass("Page"+which);
                  }
 
 //封面上的标题显示与隐藏动作
                  function titleTroggle(){
-                    $(".l").addClass("lO");
+                    $(".title").addClass("titleO");
                     setTimeout(function () {
-                        $(".l").removeClass("lO");
+                        $(".title").removeClass("titleO");
                     },500);
 
                  }
 
 //某页封面掀开，参数为页码
-                 function coverUp(which){
-                    $(".c"+which).addClass("cU");
-                    $(".l").addClass("lO");
+                function coverUp(which){
+                    $(".containers"+which).addClass("containersU");
+                    $(".title").addClass("titleO");
                     setTimeout(function () {
-                        $(".l").removeClass("lO");
+                        $(".title").removeClass("titleO");
                     },500);
                 }
 
 // 封面降下来盖住某页       
                 function coverDown(which){
-                    $(".c"+which).removeClass("cU");
-                    $(".l").addClass("lO");
+                    $(".containers"+which).removeClass("containersU");
+                    $(".title").addClass("titleO");
                     setTimeout(function () {
-                        $(".l").removeClass("lO");
+                        $(".title").removeClass("titleO");
                     },500);
                 }
 
@@ -518,46 +693,43 @@
                     turnToWhichPage(($(this).index()+1));
                     turnToWhichNav($(this).index()+1);
                     pn=$(this).index()+1;
-                    $('.m').off('click');
+                    $(".navg").off("click");
                     setTimeout(function () {
-                        $('.m').on('click', turnTo);
+                        $(".navg").on("click", turnTo);
                     },500);
-
-
-                    console.log(pn);
                 }
 
 // 监视滚轮，防止单次滚动造成过多页数跳转，500毫秒响应一次
                 function turnScroll(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) turnLeft();
                     if (e.originalEvent.wheelDelta < -0 || e.originalEvent.detail > 0) turnRight();
-                    $(".d").off('mousewheel ');
-                    $(".e").off('mousewheel ');
-                    $(".f").off('mousewheel ');
-                    $(".j").off('mousewheel ');
+                    $(".footer").off("mousewheel ");
+                    $(".lefter").off("mousewheel ");
+                    $(".righter").off("mousewheel ");
+                    $(".cover").off("mousewheel ");
                     setTimeout(function () {
-                        $(".d").on('mousewheel ', turnScroll);
-                        $(".e").on('mousewheel ', turnScroll);
-                        $(".f").on('mousewheel ', turnScroll);
-                        $(".j").on('mousewheel ', turnScroll);
+                        $(".footer").on("mousewheel ", turnScroll);
+                        $(".lefter").on("mousewheel ", turnScroll);
+                        $(".righter").on("mousewheel ", turnScroll);
+                        $(".cover").on("mousewheel ", turnScroll);
                     },500);
                 }
 
 // 同下，监视左移按钮
                 function turnLeftCrol(){
                     turnLeft();
-                    $(".e").off('click');
+                    $(".lefter").off("click");
                      setTimeout(function () {
-                        $(".e").on('click', turnLeftCrol);
+                        $(".lefter").on("click", turnLeftCrol);
                     },500);
                 }
 
 // 监视右移按钮，设定每500毫秒只可以点击生效一次
                 function turnRightCrol(){
                     turnRight();
-                    $(".f").off('click');
+                    $(".righter").off("click");
                      setTimeout(function () {
-                        $(".f").on('click', turnRightCrol);
+                        $(".righter").on("click", turnRightCrol);
                     },500);
                 }
                 
@@ -574,31 +746,25 @@
 // 封面动画
                 function scrollTroggle(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        $('.h').addClass("hU")
+                        $(".content").addClass("contentU")
                         setTimeout(function () {
-                            $('.h').removeClass("hU");
+                            $(".content").removeClass("contentU");
                         },500);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        $('.h').addClass("hD")
+                        $(".content").addClass("contentD")
                         setTimeout(function () {
-                            $('.h').removeClass("hD");
+                            $(".content").removeClass("contentD");
                         },500);
                     }
                 }
 
 //4格轮盘
                 function circle4(){
-                    // 内容块宽度
-                    var width=$(".o").width();
                     // 内容快高度
-                    var height=$(".o").height();
-                    if(width>=height){
-                        // 轮盘半径
-                        var R=height*2/3;
-                    }else{
-                        var R=width*2/3;
-                    }
+                    var height=$(".contentShadow").height();
+                    // 轮盘半径
+                    var R=height*2/3;
                     // 轮盘格高度
                     var hc=2*R/3;
                     // 轮盘格宽度
@@ -609,82 +775,304 @@
                     var oc=wc/2;
                     // 某个难写的中间值，梯形切割块的上点到下点的距离
                     var vc=(R-wc/3)/(Math.sqrt(2));
+                    //内部块半径
+                    var r=wc/3;
 
-                    $(".p").css({
+                    $(".circle4").css({
                         "left": "-"+R+"px",
                         "top": "-"+R+"px",
                         "height":2*R+"px",
-                        "width": 2*R+"px",
-                        "transform": "rotate("+45+"deg)"
+                        "width": 2*R+"px"
                     });
-                    $(".q").css({
+                    $(".c4Lat").css({
                         "height":hc+"px",
                         "width": wc +"px",
                         "right": rc+"px",
                         "transform-origin": oc+"px "+ R+"px",
                         "clip-path": "polygon(0 0, "+wc+"px 0, "+wc+"px "+ (hc-vc)+"px, "+(wc-vc)+"px "+hc+"px, "+vc+"px "+hc+"px, 0 "+(hc-vc)+"px)"
                     });
+                    $(".c4LatBg").css({
+                        "height":R+"px",
+                        "width": R+"px",
+                        "top":(hc-vc-R/2)+"px",
+                        "right": (wc-R)/2+"px"
+                    });
+                    $(".c4Center").css({
+                        "height":2*r+"px",
+                        "width": 2*r+"px",
+                        "top":R-r+"px",
+                        "right":R-r+"px",
+                    });
+                }
+
+//6格轮盘
+                function circle6(){
+                    // 内容块高度
+                    var height=$(".contentShadow").height();
+                    // 轮盘半径
+                    var R=height*2/3;
+                    // 轮盘格高度
+                    var hc=2*R/3;
+                    //轮盘格宽度
+                    var wc=R;
+                    //中间值,横向截断值;
+                    var dc=(wc/2)-hc/(Math.sqrt(3)*2);
+                    //中间值,梯形下段的长度
+                    var vc=dc*(Math.sqrt(3));
+                    //内部块半径
+                    var r=2*R/(Math.sqrt(3)*3);
+
+                    $(".circle6").css({
+                        "height":(2*R)+"px",
+                        "width": (2*R)+"px",
+                        "bottom": "-"+R*1.25+"px"
+                    });
+                    $(".c6Lat").css({
+                        "height":hc+"px",
+                        "width":wc+"px",
+                        "right":R/2+"px",
+                        "transform-origin":R/2+"px "+R+"px",
+                        "clip-path": "polygon(0 0, "+wc+"px 0, "+wc+"px "+ (hc-vc)+"px, "+(wc-dc)+"px "+hc+"px, "+dc+"px "+hc+"px, 0 "+(hc-vc)+"px)"
+                    });
+                    $(".c6LatBg").css({
+                        "height":R+"px",
+                        "width": R+"px",
+                    });
+                    $(".c6Center").css({
+                        "height":(2*r)+"px",
+                        "width": (2*r)+"px",
+                        "top":(R-r)+"px",
+                        "right": (R-r)+"px",
+                        "transform": "rotate("+210+"deg)"
+                    });
+                }  
+
+// 1格轮盘
+                 function circle1(){
+                    // 内容块高度
+                    var height=$(".contentShadow").height();
+                    // 轮盘半径
+                    var R=height/2;
+                    $(".circle1").css({
+                        "height":(2*R)+"px",
+                        "width": (2*R)+"px",
+                        "top":"-"+(R-5)+"px",
+                        "right":"-"+(R-5)+"px"                 
+                    });
+                    $(".c1Lat").css({
+                        "height":R+"px",
+                        "width":R+"px",
+                    });
+                 }
+
+//轮盘旋转
+                function turnC(which,which2){
+                    if(which=="up"){
+                        if(which2==4){
+                            scroC4=scroC4+90;
+                            scroC4B=scroC4B-90;
+                        $(".circle4").css({
+                            "transform": "rotate("+scroC4+"deg)"
+                        });
+                        $(".c4Center").css({
+                            "transform": "rotate("+scroC4B+"deg)"
+                        });
+                        }else{
+                            scroC6=scroC6+60;
+                            scroC6B=scroC6B-60;
+                            $(".circle6").css({
+                                "transform": "rotate("+scroC6+"deg)"
+                            });
+                            $(".c6Center").css({
+                                "transform": "rotate("+scroC6B+"deg)"
+                            });
+                        }
+                    }else{
+                        if(which2==4){
+                            scroC4=scroC4-90;
+                            scroC4B=scroC4B+90;
+                            $(".circle4").css({
+                                "transform": "rotate("+scroC4+"deg)"
+                            });
+                            $(".c4Center").css({
+                            "transform": "rotate("+scroC4B+"deg)"
+                        });
+                        }else{
+                            scroC6=scroC6-60;
+                            scroC6B=scroC6B+60;
+                            $(".circle6").css({
+                                "transform": "rotate("+scroC6+"deg)"
+                            });
+                            $(".c6Center").css({
+                                "transform": "rotate("+scroC6B+"deg)"
+                            });
+                        }
+                        
+                    }
                     
                 }
-//轮盘转动
+
+//4格轮盘转动
                 function scrollC4(e){
-                    console.log(scroC4);
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        scroC4=scroC4+90;
-                        $('.p').css({
-                        "transform": "rotate("+scroC4+"deg)"
-                    });
-                        $('.h1').off("mousewheel");
+                        turnC("down",4);
+                        scroC1=scroC1+360;
+                        $(".circle1").css({
+                            "transform": "rotate("+scroC1+"deg)"
+                        });
+                        $(".circle4").off("mousewheel");
                         setTimeout(function () {
-                            $(".h1").on("mousewheel",scrollC4);
+                            $(".circle4").on("mousewheel",scrollC4);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        scroC4=scroC4-90;
-                        $('.p').css({
-                        "transform": "rotate("+scroC4+"deg)"
-                    });
-                        $('.h1').off("mousewheel");
+                        turnC("up",4);
+                        scroC1=scroC1-360;
+                        $(".circle1").css({
+                            "transform": "rotate("+scroC1+"deg)"
+                        });
+                        $(".circle4").off("mousewheel");
                         setTimeout(function () {
-                            $(".h1").on("mousewheel",scrollC4);
+                            $(".circle4").on("mousewheel",scrollC4);
+                        },1000);
+                    }
+                }
+//6格轮盘转动
+                function scrollC6(e){
+                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                        turnC("down",6);
+                        scroC1=scroC1+360;
+                        $(".circle1").css({
+                            "transform": "rotate("+scroC1+"deg)"
+                        });
+                        $(".circle6").off("mousewheel");
+                        setTimeout(function () {
+                            $(".circle6").on("mousewheel",scrollC6);
+                        },1000);
+                    }
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                        turnC("up",6);
+                        scroC1=scroC1-360;
+                        $(".circle1").css({
+                            "transform": "rotate("+scroC1+"deg)"
+                        });
+                        $(".circle6").off("mousewheel");
+                        setTimeout(function () {
+                            $(".circle6").on("mousewheel",scrollC6);
                         },1000);
                     }
                 }
 
+//4格轮盘左移
+                function clickC4L(){
+                    turnC("up",4);
+                    scroC1=scroC1-360;
+                    $(".circle1").css({
+                        "transform": "rotate("+scroC1+"deg)"
+                    });
+                        $(".c4centerLeft").off("click");
+                        setTimeout(function () {
+                            $(".c4centerLeft").on("click",clickC4L);
+                        },1000);
+                }
 
+//4格轮盘右移
+                function clickC4R(){
+                    turnC("down",4);
+                    scroC1=scroC1+360;
+                    $(".circle1").css({
+                        "transform": "rotate("+scroC1+"deg)"
+                    });
+                        $(".c4centerRight").off("click");
+                        setTimeout(function () {
+                            $(".c4centerRight").on("click",clickC4R);
+                        },1000);
+                }
 
+//6格轮盘左移
+                function clickC6L(){
+                    turnC("down",6);
+                    scroC1=scroC1-360;
+                    $(".circle1").css({
+                        "transform": "rotate("+scroC1+"deg)"
+                    });
+                        $(".c6CenterLeft").off("click");
+                        setTimeout(function () {
+                            $(".c6CenterLeft").on("click",clickC6L);
+                        },1000);
+                }
 
+//6格轮盘右移
+                function clickC6R(){
+                    turnC("up",6);
+                    scroC1=scroC1+360;
+                    $(".circle1").css({
+                        "transform": "rotate("+scroC1+"deg)"
+                    });
+                        $(".c6CenterRight").off("click");
+                        setTimeout(function () {
+                            $(".c6CenterRight").on("click",clickC6R);
+                        },1000);
+                }
+//将角度转为0到360间的数值
+                function doAngle(a){
+                    if(a<0){
+                        for(a;a<0;a=a+360);
+                    }
+                    if(a>360){
+                        for(a;a>360;a=a-360);
+                    }
+                    if(0<=a<=360){
+                        a=a;
+                    }
+                    return a;
+                }
+
+                
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
 
-                $(".e").on("click", turnLeftCrol);
+                $(".lefter").on("click", turnLeftCrol);
 
-                $(".f").on("click", turnRightCrol);
+                $(".righter").on("click", turnRightCrol);
 
-                $(".d").on("mousewheel", turnScroll);
+                $(".footer").on("mousewheel", turnScroll);
 
-                $(".e").on("mousewheel", turnScroll);
+                $(".lefter").on("mousewheel", turnScroll);
 
-                $(".f").on("mousewheel", turnScroll);
+                $(".righter").on("mousewheel", turnScroll);
 
-                $(".j").on("mousewheel", turnScroll);
+                $(".cover").on("mousewheel", turnScroll);
 
-                $(".j").on("click",coverUpCrol);
+                $(".cover").on("click",coverUpCrol);
 
-                $(".e").on("mouseover",coverDownCrol);
+                $(".lefter").on("mouseover",coverDownCrol);
 
-                $(".f").on("mouseover",coverDownCrol);
+                $(".righter").on("mouseover",coverDownCrol);
 
-                $('.m').on("click", turnTo);
+                $(".navg").on("click", turnTo);
 
-                $(".h").on("mousewheel",scrollTroggle);
+                $(".content").on("mousewheel",scrollTroggle);
 
-                $(".h1").on("mousewheel",scrollC4);
+                $(".circle4").on("mousewheel",scrollC4);
+
+                $(".circle6").on("mousewheel",scrollC6);
+
+                $(".c4centerLeft").on("click", clickC4L);
+
+                $(".c4centerRight").on("click", clickC4R);
+
+                $(".c6CenterLeft").on("click", clickC6L);
+
+                $(".c6CenterRight").on("click", clickC6R);
+
 
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
                 turnToWhichPage(pn);
                 circle4();
+                circle6();
+                circle1();
 
             });
         </script>
