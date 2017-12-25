@@ -373,15 +373,18 @@
                     left: 0;
                     border-radius:50%;
                     background: black;
-                    border:1px solid white;
+                    border:2px solid white;
                 }
+
                 .searchBar{
+                    border:2px solid white; 
                     position: absolute;
                     height: 5%;
                     width: 80%;
                     left: 10%;
-                    top:5%;
+                    top:7%;
                     background: grey;
+                    overflow: hidden;
                 }
                 
             </style>
@@ -476,9 +479,7 @@
                     </div>
                     <div class="content2 content">
                     	<div class="contentShadow contentShadow2">
-                            <div class="searchBar">
-                                
-                            </div>
+                            
 						</div>
                     </div>
                 </div>
@@ -629,7 +630,7 @@
                 }
 
 // 跳转到某一页，参数为页码
-                 function turnToWhichPage(which){
+                function turnToWhichPage(which){
                     for (var i = 1; i < tpn+1; i++) {
                         $(".mainPage").removeClass("Page"+i);
                     }
@@ -1027,8 +1028,7 @@
                     return a;
                 }
 
-
-
+                
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
 
@@ -1065,6 +1065,7 @@
                 $(".c6CenterLeft").on("click", clickC6L);
 
                 $(".c6CenterRight").on("click", clickC6R);
+
 
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
