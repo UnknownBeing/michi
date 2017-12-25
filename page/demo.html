@@ -241,6 +241,7 @@
                     position: absolute;
                     border-radius:50%;
                     overflow: hidden;
+                    border:1px solid white;
                 }
                 .q{
                     top: 0px;
@@ -283,9 +284,9 @@
                     overflow: hidden;
                     transition: 1000ms ease-in-out;
                     transform: rotate(60deg);
+                    border:1px solid white;
                 }
                 .t{
-                    
                     top: 0px;
                     position: absolute;
                     overflow: hidden;
@@ -335,6 +336,7 @@
                     position: absolute;
                     border-radius:50%;
                     overflow: hidden;
+                    border:1px solid white;
                 }
                 .xyl{
                     height: 50%;
@@ -357,6 +359,7 @@
                     position: absolute;
                     border-radius:50%;
                     overflow: hidden;
+                    border:1px solid white;
                 }
                 .z{
                     position: absolute;
@@ -368,6 +371,7 @@
                     left: 0;
                     border-radius:50%;
                     background: black;
+                    border:1px solid white;
                 }
                 
                 
@@ -843,8 +847,8 @@
                     $(".z").css({
                         "height":(2*R)+"px",
                         "width": (2*R)+"px",
-                        "top":"-"+R+"px",
-                        "right":"-"+R+"px"                 
+                        "top":"-"+(R-5)+"px",
+                        "right":"-"+(R-5)+"px"                 
                     });
                     $(".v").css({
                         "height":R+"px",
@@ -914,7 +918,7 @@
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
                         turnC("up",4);
-                        scroC1=scroC1+360;
+                        scroC1=scroC1-360;
                         $(".z").css({
                             "transform": "rotate("+scroC1+"deg)"
                         });
@@ -939,7 +943,7 @@
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
                         turnC("up",6);
-                        scroC1=scroC1+360;
+                        scroC1=scroC1-360;
                         $(".z").css({
                             "transform": "rotate("+scroC1+"deg)"
                         });
@@ -953,7 +957,7 @@
 //4格轮盘左移
                 function clickC4L(){
                     turnC("up",4);
-                    scroC1=scroC1+360;
+                    scroC1=scroC1-360;
                     $(".z").css({
                         "transform": "rotate("+scroC1+"deg)"
                     });
@@ -979,7 +983,7 @@
 //6格轮盘左移
                 function clickC6L(){
                     turnC("down",6);
-                    scroC1=scroC1+360;
+                    scroC1=scroC1-360;
                     $(".z").css({
                         "transform": "rotate("+scroC1+"deg)"
                     });
