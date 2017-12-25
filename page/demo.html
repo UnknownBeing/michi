@@ -222,6 +222,8 @@
                     width: 100%;
                 	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
                 }
+
+        
                 .contentShadow{
                 	height: 100%;
                     margin-right: 8%;
@@ -373,7 +375,14 @@
                     background: black;
                     border:1px solid white;
                 }
-                
+                .searchBar{
+                    position: absolute;
+                    height: 5%;
+                    width: 80%;
+                    left: 10%;
+                    top:5%;
+                    background: grey;
+                }
                 
             </style>
         </meta>
@@ -467,7 +476,9 @@
                     </div>
                     <div class="content2 content">
                     	<div class="contentShadow contentShadow2">
-
+                            <div class="searchBar">
+                                
+                            </div>
 						</div>
                     </div>
                 </div>
@@ -546,7 +557,7 @@
             </div>
             <div class="lefter">
             </div>
-            <div class="rightr">
+            <div class="righter">
             </div>
             <div class="logo">
                 <div class="logoBg">
@@ -635,7 +646,7 @@
                  }
 
 //某页封面掀开，参数为页码
-                 function coverUp(which){
+                function coverUp(which){
                     $(".containers"+which).addClass("containersU");
                     $(".title").addClass("titleO");
                     setTimeout(function () {
