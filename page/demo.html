@@ -1056,7 +1056,7 @@
 //6格轮盘左移
                 function clickC6L(){
                     turnC("down",6);
-                    scroC1=scroC1-360;
+                    scroC1=scroC1+360;
                     $(".circle1").css({
                         "transform": "rotate("+scroC1+"deg)"
                     });
@@ -1069,7 +1069,7 @@
 //6格轮盘右移
                 function clickC6R(){
                     turnC("up",6);
-                    scroC1=scroC1+360;
+                    scroC1=scroC1-360;
                     $(".circle1").css({
                         "transform": "rotate("+scroC1+"deg)"
                     });
@@ -1079,17 +1079,14 @@
                         },1000);
                 }
 //将角度转为0到360间的数值
-                function doAngle(a){
-                    if(a<0){
-                        for(a;a<0;a=a+360);
+                function doAngle(which){
+                    if(which<0){
+                        for(which;which<0;which=which+360);
                     }
-                    if(a>360){
-                        for(a;a>360;a=a-360);
+                    if(which>360){
+                        for(which;which>360;which=which-360);
                     }
-                    if(0<=a<=360){
-                        a=a;
-                    }
-                    return a;
+                    return which;
                 }
 
 //搜索栏开启
