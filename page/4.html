@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+               4.缩放玩法2
+            </title>
+            <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            html,body{
+                    height:100%; 
+                    margin:0;
+                    background: pink;
+                    overflow: hidden;
+                }
+                .a{
+                    /*display: flex;
+                    align-items: flex-end;*/
+                    height: 100%;
+                    width: 84%;
+                    background: cyan;
+                    overflow: auto;
+                    position: absolute;
+                }
+                .b1{
+                    position: absolute;
+                    height: 800px;
+                    width: 800px;
+                    bottom: 0;
+                    left: 5%;
+                    /*background: cyan;*/
+                    border:2px solid white;
+                    z-index: 1;
+
+                }
+                .b2{
+                    position: absolute;
+                    border:2px solid white;
+                    bottom: 0;
+                    left: 5%;
+                    height: 800px;
+                    width: 800px;
+                    background: url("img/11.jpg")  center center no-repeat;
+                    z-index: 0;
+                    opacity: 0;
+                }
+                .c{ 
+                    transform: translate3d(340px,624px,0px);
+                    position: absolute;
+                    background: green;
+                    transition: 500ms ease-in-out;
+                }
+                
+                @keyframes opacityA
+                    {
+                    0% {opacity: 1}
+                    10% {opacity: 0.9}
+                    20% {opacity: 0.8}
+                    30% {opacity: 0.7}
+                    40% {opacity: 0.6}
+                    50% {opacity: 0.5}
+                    60% {opacity: 0.4}
+                    70% {opacity: 0.3}
+                    80% {opacity: 0.2}
+                    90% {opacity: 0.1}
+                    100% {opacity: 0;visibility: hidden;}
+                    }
+                @keyframes opacityB
+                    {
+                    0% {opacity: 0;visibility: visible;}
+                    10% {opacity: 0.1}
+                    20% {opacity: 0.2}
+                    30% {opacity: 0.3}
+                    40% {opacity: 0.4}
+                    50% {opacity: 0.5}
+                    60% {opacity: 0.6}
+                    70% {opacity: 0.7}
+                    80% {opacity: 0.8}
+                    90% {opacity: 0.9}
+                    100% {opacity: 1}
+                    }
+
+
+                .b1x{
+                    animation: opacityA 500ms forwards;
+
+                }    
+                .b2x{
+                    animation: opacityB 500ms forwards;
+
+                }    
+
+        </style>
+        </meta>
+    </head>
+    <body>
+        <div class="a">
+            <div class="b1">
+                <div class="c" positionc="1" positionr="1" >
+                </div>
+                <div class="c" positionc="1" positionr="2" >
+                </div>
+                <div class="c" positionc="1" positionr="3" >
+                </div>
+                <div class="c" positionc="1" positionr="4" >
+                </div>
+                <div class="c" positionc="2" positionr="1" >
+                </div>
+                <div class="c" positionc="2" positionr="2" >
+                </div>
+                <div class="c" positionc="2" positionr="3" >
+                </div>
+                <div class="c" positionc="2" positionr="4" >
+                </div>
+                <div class="c" positionc="3" positionr="1" >
+                </div>
+                <div class="c" positionc="3" positionr="2" >
+                </div>
+                <div class="c" positionc="3" positionr="3" >
+                </div>
+                <div class="c" positionc="3" positionr="4" >
+                </div>
+                <div class="c" positionc="4" positionr="1" >
+                </div>
+                <div class="c" positionc="4" positionr="2" >
+                </div>
+                <div class="c" positionc="4" positionr="3" >
+                </div>
+                <div class="c" positionc="4" positionr="4" >
+                </div>
+                <div class="c" positionc="1" positionr="5" >
+                </div>
+                <div class="c" positionc="2" positionr="5" >
+                </div>
+                <div class="c" positionc="3" positionr="5" >
+                </div>
+                <div class="c" positionc="4" positionr="5" >
+                </div>
+            </div>
+            <div class="b2 ">
+            </div>
+        </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                
+                $(".c").on("click",cc);
+
+               $(".b2").on("mouseout",function(){
+                    $(".b1").removeClass("b1x");
+                    $(".b2").removeClass("b2x");
+                    resetGrid(4,5,176,120,32,50);
+                    $(".c").on("click",cc);
+               });
+
+               function cc(){
+                    var c=$(this).attr("positionc");
+                    var r=$(this).attr("positionr");
+                    animaGrid(c,r,4,5,176,120,32,50);
+                    $(".b1").addClass("b1x");
+                    $(".b2").addClass("b2x");
+                    $(".c").off("click");
+               }
+
+//别问我为啥后面变量的位置反过来了...因为最开始偷懒想省事,直接拿位置当坐标用了,没注意trans函数里的横纵位置...
+//c:第几横行,r:第几竖列 nc:共计几个横行,nr:共几个竖列,w:格子宽度,h:格子高度;mc:每两个横行的间距,mr:每两个竖列的间距
+
+               function animaGrid(c,r,nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc)+(c-i)*mc;
+                            var zr=(j-1)*(w+mr)+(r-j)*mr;
+                            $(".c[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "width":w+"px",
+                                "height":h+"px",
+                                "transform": "translate3d("+zr+"px, "+zc+"px, "+0+"px)"
+                            });
+                        }
+                    }
+               } 
+               function resetGrid(nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc);
+                            var zr=(j-1)*(w+mr);
+                            $(".c[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "width":w+"px",
+                                "height":h+"px",
+                                "transform": "translate3d("+zr+"px, "+zc+"px, "+0+"px)"
+                            });
+                        }
+                    }
+               } 
+
+
+
+               resetGrid(4,5,176,120,32,50);
+
+            });
+        </script>
+    </body>
+    </html>
