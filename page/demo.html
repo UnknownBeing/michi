@@ -73,9 +73,7 @@
                     height:95%;
                     width: 8%;
                     position: fixed;
-                    float: left;
                     z-index: 1;
-                    cursor: pointer;
                     opacity: 0;
                     transition: 500ms;
                     background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
@@ -86,9 +84,7 @@
                     height:95%;
                     width: 8%;
                     position: fixed;
-                    float: right;
                     z-index: 1;
-                    cursor: pointer;
                     opacity: 0;
                     transition: 500ms;
                     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
@@ -200,7 +196,7 @@
                     user-select: none;
                 }
                 .navg:hover{
-                    -webkit-filter:brightness(0.5);
+                    -webkit-filter:brightness(0.1);
                 }
                 .navgR{
                     width: 8%;
@@ -438,7 +434,125 @@
                 .barContent:focus{
                     outline: none;
                 }
-
+                .resultGrid{
+                    position: absolute;
+                    right: 5%;
+                    top: 20%;
+                    height: 70%;
+                    width: 90%;
+                    border:5px solid #999999;
+                    z-index: 1;
+                }
+                .resultDetail{
+                    position: absolute;
+                    right: 5%;
+                    top: 20%;
+                    height: 70%;
+                    width: 90%;
+                    border:5px solid #999999;
+                    background: cyan;
+                    perspective:400px;
+                    perspective-origin: 50% 50%;
+                    z-index: 0;
+                    opacity: 0;
+                }
+                @keyframes opacityA{
+                    0% {opacity: 1}
+                    10% {opacity: 0.9}
+                    20% {opacity: 0.8}
+                    30% {opacity: 0.7}
+                    40% {opacity: 0.6}
+                    50% {opacity: 0.5}
+                    60% {opacity: 0.4}
+                    70% {opacity: 0.3}
+                    80% {opacity: 0.2}
+                    90% {opacity: 0.1}
+                    100% {opacity: 0;visibility: hidden;}
+                }
+                @keyframes opacityB{
+                    0% {opacity: 0;visibility: visible;}
+                    10% {opacity: 0.1}
+                    20% {opacity: 0.2}
+                    30% {opacity: 0.3}
+                    40% {opacity: 0.4}
+                    50% {opacity: 0.5}
+                    60% {opacity: 0.6}
+                    70% {opacity: 0.7}
+                    80% {opacity: 0.8}
+                    90% {opacity: 0.9}
+                    100% {opacity: 1}
+                }
+                .resultGridA{
+                    animation: opacityA 500ms forwards;
+                }    
+                .resultDetailA{
+                    animation: opacityB 500ms forwards;
+                }    
+                .lat{
+                    position: absolute;
+                    background: #ffffff;
+                    transition: 500ms ease-in-out;
+                }
+                .createrContent{
+                    top:5%;
+                    left:5%;
+                    height: 20%;
+                    width: 20%;
+                    background: yellow;
+                    z-index: 1;
+                    opacity: 0.7;
+                    position: absolute;
+                    backface-visibility:hidden;
+                    transform:rotateX(5deg) rotateY(5deg);
+                }
+                .describtionContent{
+                    top: 10%;
+                    left: 10%;
+                    height: 80%;
+                    width: 80%;
+                    background: red;
+                    z-index: 0;
+                    position: absolute;
+                    text-align: center;
+                    backface-visibility:hidden;
+                    transform:rotateX(0deg) rotateY(0deg) ;
+                }
+                .leftButton{
+                    bottom: 0;
+                    left: 0;
+                    height:100px;
+                    width: 100px;
+                    position:absolute;
+                    border-top-right-radius:100%;
+                    transition: 500ms ease-in-out;
+                    opacity: 0;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
+                .leftButton:hover{
+                    opacity: 0.7;
+                }
+                .rightButton{
+                    bottom: 0;
+                    right: 0;
+                    height:100px;
+                    width: 100px;
+                    position:absolute;
+                    border-top-left-radius:100%; 
+                    transition: 500ms ease-in-out;
+                    opacity: 0;
+                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
+                .rightButton:hover{
+                    opacity: 0.7;
+                }
+                .toolBar{
+                    position: absolute;
+                    bottom: 0;
+                    right: 10%;
+                    height: 7%;
+                    width: 80%;
+                    background: grey;
+                }
             </style>
         </meta>
     </head>
@@ -542,6 +656,45 @@
                                 <input class="barContent">
                                 </input>
                             </div>
+                            <div class="resultGrid">
+                                <div class="lat" positionc="1" positionr="1">
+                                </div>
+                                <div class="lat" positionc="1" positionr="2">
+                                </div>
+                                <div class="lat" positionc="1" positionr="3">
+                                </div>
+                                <div class="lat" positionc="1" positionr="4">
+                                </div>
+                                <div class="lat" positionc="2" positionr="1">
+                                </div>
+                                <div class="lat" positionc="2" positionr="2">
+                                </div>
+                                <div class="lat" positionc="2" positionr="3">
+                                </div>
+                                <div class="lat" positionc="2" positionr="4">
+                                </div>
+                                <div class="lat" positionc="3" positionr="1">
+                                </div>
+                                <div class="lat" positionc="3" positionr="2">
+                                </div>
+                                <div class="lat" positionc="3" positionr="3">
+                                </div>
+                                <div class="lat" positionc="3" positionr="4">
+                                </div>
+                            </div>
+                            <div class="resultDetail">
+                                <div class="createrContent">
+                                </div> 
+                                <div class="describtionContent">
+                                </div> 
+                                <div class="leftButton">
+                                </div> 
+                                <div class="rightButton">
+                                </div>   
+                            </div>
+                            <div class="toolBar">
+                                
+                            </div>
 						</div>
                     </div>
                 </div>
@@ -631,6 +784,8 @@
         </script>
         <script type="text/javascript">
             $(function(){
+
+///////////////////////全局变量区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 当前页码
                 var pn=1;
 
@@ -648,8 +803,15 @@
 //6格轮盘滚动计数
                 var scroC6=60;
                 var scroC6B=210;
-
+//1格轮盘滚动计数
                 var scroC1=0;
+//搜索结果列表的相关参数,h为每个格子高度,w为宽度,mc为每两横行间的间距,mr为每两竖列间距
+                var h=$(".resultGrid").height()*5/17;
+                var w=$(".resultGrid").width()*4/19;
+                var mc=$(".resultGrid").height()/17;
+                var mr=$(".resultGrid").width()/19;
+
+///////////////////////函数区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 大背景相应鼠标位置的动作特效
                 function bgMove(e){
                     RX=Math.max(-100, Math.min(100, $(window).width() / 2 - e.pageX));
@@ -673,7 +835,7 @@
 
 // 右移按钮显示无法移动的特效动作
                 function turnRightStop(){
-                    $(".righter").addClass("lraA");
+                    $(".righter").addClass("lrA");
                     $(".title").addClass("titleO");
                     setTimeout(function () {
                         $(".righter").removeClass("lrA");
@@ -702,7 +864,7 @@
                  }
 
 //封面上的标题显示与隐藏动作
-                 function titleTroggle(){
+                function titleTroggle(){
                     $(".title").addClass("titleO");
                     setTimeout(function () {
                         $(".title").removeClass("titleO");
@@ -912,7 +1074,7 @@
                 }  
 
 // 1格轮盘
-                 function circle1(){
+                function circle1(){
                     // 内容块高度
                     var height=$(".contentShadow").height();
                     // 轮盘半径
@@ -1115,9 +1277,85 @@
                     });
                 }    
 
+// 搜索结果列表重置
+                function resetGrid(nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc);
+                            var zr=(j-1)*(w+mr);
+                            $(".lat[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "width":w+"px",
+                                "height":h+"px",
+                                "transform": "translate3d("+zr+"px, "+zc+"px, "+0+"px)"
+                            });
+                        }
+                    }
+               } 
+               
+// 搜索结果详细开启
+                function creatGrid(c,r,nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc)+(c-i)*mc;
+                            var zr=(j-1)*(w+mr)+(r-j)*mr;
+                            $(".lat[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "width":w+"px",
+                                "height":h+"px",
+                                "transform": "translate3d("+zr+"px, "+zc+"px, "+0+"px)"
+                            });
+                        }
+                    }
+               } 
 
+//点击后显示搜索结果动画
+                function showDetail(){
+                    var c=$(this).attr("positionc");
+                    var r=$(this).attr("positionr");
+                    creatGrid(c,r,3,4,h,w,mc,mr);
+                    $(".createrContent").css({
+                        "height":h+"px",
+                        "width":h+"px"
+                    });
+                    $(".leftButton").css({
+                        "height":h/2+"px",
+                        "width":h/2+"px"
+                    });
+                    $(".rightButton").css({
+                        "height":h/2+"px",
+                        "width":h/2+"px"
+                    });
+                    $(".resultGrid").addClass("resultGridA");
+                    $(".resultDetail").addClass("resultDetailA");
+                    $(".lat").off("click");
+               }
+
+//关闭详细返回列表               
+                function backGrid(){
+                    $(".resultGrid").removeClass("resultGridA");
+                    $(".resultDetail").removeClass("resultDetailA");
+                    resetGrid(3,4,h,w,mc,mr);
+                    $(".lat").on("click",showDetail);
+               }
+
+//3d轮播图动画
+                function detailMove(e){
+                    var CX=$(window).width()/2;
+                    var CY=$(window).height()/2;
+                    var RX=-(CX-e.pageX)*10/CX;
+                    var RY=(CY-e.pageY)*10/CY;
+                    $(".describtionContent").css({
+                        "transform": "rotateX("+RY+"deg) rotateY("+RX+"deg)"
+                    });
+                    $(".createrContent").css({
+                        "transform": "rotateX("+(RY+5)+"deg) rotateY("+(RX+5)+"deg)"
+                    });
+                }
+
+///////////////////////动作绑定区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
+
+                $(".resultDetail").on("mousemove",detailMove);
 
                 $(".lefter").on("click", turnLeftCrol);
 
@@ -1157,12 +1395,21 @@
 
                 $(".barContent").on("blur",closeSearchBar);
 
+                $(".lat").on("click", showDetail);
+
+                $(".toolBar").on("click",backGrid);
+
+
+///////////////////////全局函数执行区域///////////////////////////////////////////////////////////////////////////////
 // 初始页码和导航栏位置设定
                 turnToWhichNav(pn);
                 turnToWhichPage(pn);
                 circle4();
                 circle6();
                 circle1();
+                resetGrid(3,4,h,w,mc,mr);
+
+
 
             });
         </script>

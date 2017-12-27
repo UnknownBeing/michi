@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+               5.某个nb的动态玩法
+            </title>
+            <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            html,body{
+                    height:100%; 
+                    margin:0;
+                    background: pink;
+                    overflow: hidden;
+                }
+                .a{
+                    height: 800px;
+                    width: 1200px;
+                    background: cyan;
+                    overflow: auto;
+                    position: absolute;
+                    perspective:400px;
+                }
+                .c{
+                    height: 100px;
+                    width: 200px;
+                    background: brown;
+                    position: absolute;
+                    top:0;
+                    right: 0;
+                }
+                .b{
+                    top: 15%;
+                    left: 15%;
+                    height: 70%;
+                    width: 70%;
+                    background: red;
+                    overflow: hidden;
+                    position: absolute;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 3em;
+                    backface-visibility:hidden;
+                    transform:rotateX(0deg) rotateY(0deg) ;
+                }
+                .d{
+                    top: 5%;
+                    left: 5%;
+                    height: 30%;
+                    width: 30%;
+                    background: yellow;
+                    opacity: 0.5;
+                    overflow: auto;
+                    position: absolute;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 3em;
+                    backface-visibility:hidden;
+                    transform:rotateX(5deg) rotateY(5deg) ;
+                }
+                .e{
+                    bottom: 0;
+                    right: 0;
+                    height: 30%;
+                    width: 30%;
+                    background: green;
+                    position: absolute;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 1em;
+                    backface-visibility:hidden;
+                    transform:rotateX(0deg) rotateY(0deg) ;
+                }
+
+                @keyframes opacityA
+                    {
+                    0% {opacity: 1}
+                    10% {opacity: 0.8}
+                    20% {opacity: 0.6}
+                    30% {opacity: 0.4}
+                    40% {opacity: 0.2}
+                    50% {opacity: 0}
+                    60% {opacity: 0.2}
+                    70% {opacity: 0.4}
+                    80% {opacity: 0.6}
+                    90% {opacity: 0.8}
+                    100% {opacity: 1;}
+                    }
+                    .b1x{
+                    animation: opacityA 500ms;
+
+                }    
+
+
+        </style>
+        </meta>
+    </head>
+    <body>
+        <div class="a">
+            <div class="b">
+                BBBB
+
+                <div class="e">
+                E
+            </div>
+            </div>
+            <div class="d">
+                D
+            </div>
+            
+        </div>
+        <div class="c">
+            </div>
+        <script src="js/jquery-2.1.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+
+//大背景动画移动参数
+                var CX=0;
+                var CY=0;
+                var RX=0;
+                var RY=0;
+
+                function bgMove(e){
+                    CX=$(".a").width()/2;
+                    CY=$(".a").height()/2;
+                    RX=-(CX-e.pageX)*10/CX;
+                    RY=(CY-e.pageY)*10/CY;
+                    $(".b").css({
+                        "transform": "rotateX("+RY+"deg) rotateY("+RX+"deg)"
+                    });
+                    $(".d").css({
+                        "transform": "rotateX("+(RY+5)+"deg) rotateY("+(RX+5)+"deg)"
+                    });
+                }
+
+
+                $(".a").on("mousemove",bgMove);
+
+                $(".c").on("click",function(){
+                    $(".a").addClass("b1x");
+                    setTimeout(function () {
+                        $(".a").removeClass("b1x");
+                    },500);
+                });
+
+            });
+        </script>
+
+    </body>
+    </html>
