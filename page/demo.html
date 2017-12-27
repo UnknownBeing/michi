@@ -8,9 +8,9 @@
             <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
             <style type="text/css">
 /*隐藏滚动条*/
-                ::-webkit-scrollbar{
+                /*::-webkit-scrollBar{
                     display:none; 
-                }
+                }*/
                 html,body{
                     height:100%; 
                     margin:0;
@@ -196,7 +196,7 @@
                     user-select: none;
                 }
                 .navg:hover{
-                    -webkit-filter:brightness(0.1);
+                    -webkit-filter:brightness(0.3);
                 }
                 .navgR{
                     width: 8%;
@@ -222,20 +222,25 @@
                     width: 100%;
                 	background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
                 }
-
-        
-                .contentShadow{
+                .contentPage{
                 	height: 100%;
-                    margin-right: 8%;
-                    margin-left: 8%;
+                    left: 8%;
                     width: 84%;
-                    color: #ffffff;
                     overflow: auto;
-                    background-color:rgba(0,0,0,0.3);
                     position: absolute;
+                    overflow: hidden;
+                    z-index: 1;
                 }
                 .contentShadow{
+                    height: 100%;
+                    left: 8%;
+                    width: 84%;
+                    overflow: auto;
+                    filter: blur(10px);
+                    background: rgba(0,0,0,0.5);
+                    position: absolute;
                     overflow: hidden;
+                    z-index: 0;
                 }
                 .circle4{
                     transform: rotate(225deg);
@@ -378,7 +383,7 @@
 
                 .searchBar{
                     position: absolute;
-                    top: 5%;
+                    top: 3%;
                     right: 10%;
                     height: 7%;
                     width: 80%;
@@ -437,7 +442,7 @@
                 .resultGrid{
                     position: absolute;
                     right: 5%;
-                    top: 20%;
+                    top: 17%;
                     height: 70%;
                     width: 90%;
                     border:5px solid #999999;
@@ -446,11 +451,10 @@
                 .resultDetail{
                     position: absolute;
                     right: 5%;
-                    top: 20%;
+                    top: 17%;
                     height: 70%;
                     width: 90%;
                     border:5px solid #999999;
-                    background: cyan;
                     perspective:400px;
                     perspective-origin: 50% 50%;
                     z-index: 0;
@@ -493,6 +497,9 @@
                     background: #ffffff;
                     transition: 500ms ease-in-out;
                 }
+                .lat:hover{
+                    -webkit-filter:brightness(0.5);
+                }
                 .createrContent{
                     top:5%;
                     left:5%;
@@ -503,25 +510,25 @@
                     opacity: 0.7;
                     position: absolute;
                     backface-visibility:hidden;
-                    transform:rotateX(5deg) rotateY(5deg);
+                    transform:rotateX(0deg) rotateY(0deg);
+                    border:1px solid #999999;
                 }
                 .describtionContent{
-                    top: 10%;
-                    left: 10%;
-                    height: 80%;
-                    width: 80%;
+                    top: 13%;
+                    left: 13%;
+                    height: 74%;
+                    width: 74%;
                     background: red;
                     z-index: 0;
                     position: absolute;
                     text-align: center;
                     backface-visibility:hidden;
-                    transform:rotateX(0deg) rotateY(0deg) ;
+                    transform:rotateX(0deg) rotateY(0deg);
+                    border:1px solid #999999;
                 }
                 .leftButton{
                     bottom: 0;
                     left: 0;
-                    height:100px;
-                    width: 100px;
                     position:absolute;
                     border-top-right-radius:100%;
                     transition: 500ms ease-in-out;
@@ -534,8 +541,6 @@
                 .rightButton{
                     bottom: 0;
                     right: 0;
-                    height:100px;
-                    width: 100px;
                     position:absolute;
                     border-top-left-radius:100%; 
                     transition: 500ms ease-in-out;
@@ -545,14 +550,121 @@
                 .rightButton:hover{
                     opacity: 0.7;
                 }
+                .closeButton{
+                    top: 0;
+                    right: 0;
+                    position:absolute;
+                    border-bottom-left-radius:100%;
+                    transition: 500ms ease-in-out;
+                    opacity: 0;
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
+                .closeButton:hover{
+                    opacity: 0.7;
+                }
                 .toolBar{
                     position: absolute;
-                    bottom: 0;
-                    right: 10%;
-                    height: 7%;
-                    width: 80%;
-                    background: grey;
+                    bottom: 2%;
+                    left: 2%;
+                    height: 5%;
+                    width: 96%;
+                    display: flex;
+                    justify-content:space-between;
+                    border:5px solid #999999;
                 }
+                .updateTime{
+                    height: 100%;
+                    width: 15%;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 2em;
+                    user-select: none; 
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                }
+                .updateTime:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .filterButtonGroup{
+                    height: 100%;
+                    width: 15%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    display: flex;
+                    justify-content:space-between;
+                }
+                .filterButtonGroup:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .filterButton{
+                    height: 100%;
+                    width: 30%;
+                    background: #999999;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 2em;
+                    user-select: none; 
+                    background: #999999;
+                }
+                .fbH{
+                    display: none;
+                }
+                .scrollUp{
+                    height: 100%;
+                    width: 5%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 50%,100% 0,100% 100%);
+                }
+                .scrollUp:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .processBar{
+                    position: relative;
+                    height: 100%;
+                    width: 50%;
+                    border-left:5px solid #999999;
+                    border-right:5px solid #999999;
+                    transition: 500ms ease-in-out;
+                    overflow: hidden;
+                }
+                .processBarBody{
+                    position: absolute;
+                    top: 25%;
+                    height: 50%;
+                    width: 100%;
+                    transition: 500ms ease-in-out;
+                    background: #999999;
+                    text-align: right;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 1em;
+                    user-select: none; 
+                    transform: translate3d(-100%,0px,0px);
+                }
+                .processBarBg{
+                    height: 100%;
+                    width: 100%;
+                    /*background: red;*/
+                    top: 0;
+                    position: absolute;
+                }
+                .processBar:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollDown{
+                    height: 100%;
+                    width: 5%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 50%,0 100%);
+                }
+                .scrollDown:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                
             </style>
         </meta>
     </head>
@@ -570,7 +682,7 @@
                         </div>
                     </div>
                     <div class="content content1">
-                    	<div class="contentShadow contentShadow1">
+                    	<div class="contentPage contentPage1">
                             <div class="circle4">
                                 <div class="c4Lat c4Lat1">
                                     <div class="c4LatBg1 c4LatBg">
@@ -630,9 +742,10 @@
                             <div class="circle1">
                                 <div class="c1Lat">
                             </div>
-                            </div>
-                            
+                            </div>     
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
                 <div class="containers containers2">
@@ -644,7 +757,7 @@
                         </div>
                     </div>
                     <div class="content2 content">
-                    	<div class="contentShadow contentShadow2">
+                    	<div class="contentPage contentPage2">
                             <div class="searchBar">
                                 <div class="barLeft">
                                 </div>
@@ -691,11 +804,38 @@
                                 </div> 
                                 <div class="rightButton">
                                 </div>   
+                                <div class="closeButton">
+                                </div>
                             </div>
                             <div class="toolBar">
-                                
+                                <div class="updateTime">
+                                    几点几点几点
+                                </div>
+                                <div class="scrollUp">
+                                </div>
+                                <div class="processBar">
+                                    <div class="processBarBody">
+                                    </div>
+                                    <div class="processBarBg">
+                                    </div>
+                                </div>
+                                <div class="scrollDown">
+                                </div>
+                                <div class="filterButtonGroup">
+                                    <div class="filterButton fb1">
+                                        A
+                                    </div>
+                                    <div class="filterButton fb2">
+                                        B
+                                    </div>
+                                    <div class="filterButton fb3">
+                                        C
+                                    </div>
+                                </div>
                             </div>
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
                 <div class="containers containers3">
@@ -707,8 +847,10 @@
                         </div>
                     </div>
                     <div class="content content3">
-                    	<div class="contentShadow contentShadow3">
+                    	<div class="contentPage contentPage3">
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
                 <div class="containers containers4">
@@ -720,8 +862,10 @@
                         </div>
                     </div>
                     <div class="content content4">
-                        <div class="contentShadow contentShadow4">
+                        <div class="contentPage contentPage4">
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
                 <div class="containers containers5">
@@ -733,8 +877,10 @@
                         </div>
                     </div>
                     <div class="content content5">
-                    	<div class="contentShadow contentShadow5">
+                    	<div class="contentPage contentPage5">
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
                 <div class="containers containers6">
@@ -746,8 +892,10 @@
                         </div>
                     </div>
                     <div class="content content6">
-                    	<div class="contentShadow contentShadow6">
+                    	<div class="contentPage contentPage6">
 						</div>
+                        <div class="contentShadow">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -784,34 +932,14 @@
         </script>
         <script type="text/javascript">
             $(function(){
+///////////////////////函数区域/////////////////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////全局变量区域/////////////////////////////////////////////////////////////////////////////////////////////////
-// 当前页码
-                var pn=1;
-
-//总页码
-                var tpn=6;
-
-//大背景动画移动参数
+//全局变量,大背景动画移动参数
                 var CX=0;
                 var CY=0;
                 var RX=0;
                 var RY=0;
-//4格轮盘滚动计数
-                var scroC4=225;
-                var scroC4B=0;
-//6格轮盘滚动计数
-                var scroC6=60;
-                var scroC6B=210;
-//1格轮盘滚动计数
-                var scroC1=0;
-//搜索结果列表的相关参数,h为每个格子高度,w为宽度,mc为每两横行间的间距,mr为每两竖列间距
-                var h=$(".resultGrid").height()*5/17;
-                var w=$(".resultGrid").width()*4/19;
-                var mc=$(".resultGrid").height()/17;
-                var mr=$(".resultGrid").width()/19;
 
-///////////////////////函数区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 大背景相应鼠标位置的动作特效
                 function bgMove(e){
                     RX=Math.max(-100, Math.min(100, $(window).width() / 2 - e.pageX));
@@ -853,6 +981,9 @@
                 	$(".navg"+which).addClass("navgA");
                 }
 
+//全局变量,总页码
+                var tpn=6;
+
 // 跳转到某一页，参数为页码
                 function turnToWhichPage(which){
                     for (var i = 1; i < tpn+1; i++) {
@@ -889,6 +1020,9 @@
                         $(".title").removeClass("titleO");
                     },500);
                 }
+
+// 全局变量,当前页码
+                var pn=1;
 
 // 同下，向左跳转
                 function turnLeft(){
@@ -988,7 +1122,7 @@
 //4格轮盘
                 function circle4(){
                     // 内容快高度
-                    var height=$(".contentShadow").height();
+                    var height=$(".contentPage").height();
                     // 轮盘半径
                     var R=height*2/3;
                     // 轮盘格高度
@@ -1034,7 +1168,7 @@
 //6格轮盘
                 function circle6(){
                     // 内容块高度
-                    var height=$(".contentShadow").height();
+                    var height=$(".contentPage").height();
                     // 轮盘半径
                     var R=height*2/3;
                     // 轮盘格高度
@@ -1076,7 +1210,7 @@
 // 1格轮盘
                 function circle1(){
                     // 内容块高度
-                    var height=$(".contentShadow").height();
+                    var height=$(".contentPage").height();
                     // 轮盘半径
                     var R=height/2;
                     $(".circle1").css({
@@ -1090,6 +1224,15 @@
                         "width":R+"px",
                     });
                  }
+
+//全局变量,4格轮盘滚动角度计数
+                var scroC4=225;
+//全局变量,4格轮盘中心按钮滚动角度计数
+                var scroC4B=0;
+//全局变量,6格轮盘滚动角度计数
+                var scroC6=60;
+//全局变量,6格轮盘中心按钮滚动角度计数
+                var scroC6B=210;
 
 //轮盘旋转
                 function turnC(which,which2){
@@ -1137,6 +1280,8 @@
                     }
                     
                 }
+//1格轮盘滚动计数
+                var scroC1=0;
 
 //4格轮盘转动
                 function scrollC4(e){
@@ -1307,6 +1452,12 @@
                     }
                } 
 
+//全局变量,搜索结果列表的相关参数,h为每个格子高度,w为宽度,mc为每两横行间的间距,mr为每两竖列间距
+                var h=$(".resultGrid").height()*5/17;
+                var w=$(".resultGrid").width()*4/19;
+                var mc=$(".resultGrid").height()/17;
+                var mr=$(".resultGrid").width()/19;
+
 //点击后显示搜索结果动画
                 function showDetail(){
                     var c=$(this).attr("positionc");
@@ -1321,6 +1472,10 @@
                         "width":h/2+"px"
                     });
                     $(".rightButton").css({
+                        "height":h/2+"px",
+                        "width":h/2+"px"
+                    });
+                    $(".closeButton").css({
                         "height":h/2+"px",
                         "width":h/2+"px"
                     });
@@ -1347,8 +1502,37 @@
                         "transform": "rotateX("+RY+"deg) rotateY("+RX+"deg)"
                     });
                     $(".createrContent").css({
-                        "transform": "rotateX("+(RY+5)+"deg) rotateY("+(RX+5)+"deg)"
+                        "transform": "rotateX("+RY+"deg) rotateY("+RX+"deg)"
                     });
+                }
+
+//按钮显示               
+                function showFB(which){
+                    $(".filterButton").addClass("fbH");
+                    $(".fb"+which).removeClass("fbH");
+                }
+
+//全局变量,第几个过滤按钮被显示               
+                var bn=1;
+
+//点击显示按钮
+                function changeFB(){
+                    bn++;
+                    if(bn==4){
+                        bn=1;
+                    }
+                    showFB(bn);
+                }
+
+//进度条跳转到指定位置
+                function changeProcess(e){
+                    var x=e.offsetX;
+                    var pw=$(".processBar").width();
+                    var pp=Math.round(100*x/pw);
+                    $(".processBarBody").css({
+                        "transform": "translate3d("+(pp-100)+"%,0px,0px)"
+                    });
+                    $(".processBarBody").text(pp);
                 }
 
 ///////////////////////动作绑定区域/////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1397,8 +1581,11 @@
 
                 $(".lat").on("click", showDetail);
 
-                $(".toolBar").on("click",backGrid);
+                $(".closeButton").on("click",backGrid);
 
+                $(".filterButtonGroup").on("click",changeFB);
+
+                $(".processBarBg").on("click",changeProcess);
 
 ///////////////////////全局函数执行区域///////////////////////////////////////////////////////////////////////////////
 // 初始页码和导航栏位置设定
@@ -1408,7 +1595,7 @@
                 circle6();
                 circle1();
                 resetGrid(3,4,h,w,mc,mr);
-
+                showFB(bn);
 
 
             });
