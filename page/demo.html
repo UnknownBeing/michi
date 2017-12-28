@@ -380,6 +380,14 @@
                     background: black;
                     border:2px solid white;
                 }
+                .c1Left{
+                    position: absolute;
+                    left: 0;
+                }
+                .c1Right{
+                    position: absolute;
+                    bottom: 0;
+                }
 
                 .searchBar{
                     position: absolute;
@@ -496,6 +504,7 @@
                     position: absolute;
                     background: #ffffff;
                     transition: 500ms ease-in-out;
+                    border:2px solid #999999;
                 }
                 .lat:hover{
                     -webkit-filter:brightness(0.5);
@@ -511,7 +520,7 @@
                     position: absolute;
                     backface-visibility:hidden;
                     transform:rotateX(0deg) rotateY(0deg);
-                    border:1px solid #999999;
+                    border:2px solid #999999;
                 }
                 .describtionContent{
                     top: 13%;
@@ -524,7 +533,7 @@
                     text-align: center;
                     backface-visibility:hidden;
                     transform:rotateX(0deg) rotateY(0deg);
-                    border:1px solid #999999;
+                    border:2px solid #999999;
                 }
                 .leftButton{
                     bottom: 0;
@@ -616,7 +625,7 @@
                     width: 5%;
                     background: #999999;
                     transition: 500ms ease-in-out;
-                    clip-path: polygon(0 50%,100% 0,100% 100%);
+                    clip-path: polygon(50% 50%,100% 0,100% 100%);
                 }
                 .scrollUp:hover{
                     -webkit-filter:brightness(0.7);
@@ -632,22 +641,21 @@
                 }
                 .processBarBody{
                     position: absolute;
-                    top: 25%;
-                    height: 50%;
+                    top: 10%;
+                    height: 80%;
                     width: 100%;
                     transition: 500ms ease-in-out;
                     background: #999999;
                     text-align: right;
                     color: #000000;
                     font-weight: bold;
-                    font-size: 1em;
+                    font-size: 1.5em;
                     user-select: none; 
                     transform: translate3d(-100%,0px,0px);
                 }
                 .processBarBg{
                     height: 100%;
                     width: 100%;
-                    /*background: red;*/
                     top: 0;
                     position: absolute;
                 }
@@ -659,7 +667,7 @@
                     width: 5%;
                     background: #999999;
                     transition: 500ms ease-in-out;
-                    clip-path: polygon(0 0,100% 50%,0 100%);
+                    clip-path: polygon(0 0,50% 50%,0 100%);
                 }
                 .scrollDown:hover{
                     -webkit-filter:brightness(0.7);
@@ -673,6 +681,7 @@
             <div class="bgAnim">
             </div>
             <div class="mainPage">
+   				<!-- 首页,推荐部分 -->
                 <div class="containers containers1">
                     <div class="cover cover1">
                         <div class="coverShadow">
@@ -740,14 +749,20 @@
                                 </div>
                             </div>
                             <div class="circle1">
+                            	<div class="c1Left">
+                            	</div>
+                            	<div class="c1Right">
+                            	</div>
+
                                 <div class="c1Lat">
-                            </div>
+                            	</div>
                             </div>     
 						</div>
                         <div class="contentShadow">
                         </div>
                     </div>
                 </div>
+                <!-- 话题搜索部分 -->
                 <div class="containers containers2">
                     <div class="cover cover2">
                         <div class="coverShadow">
@@ -811,16 +826,6 @@
                                 <div class="updateTime">
                                     几点几点几点
                                 </div>
-                                <div class="scrollUp">
-                                </div>
-                                <div class="processBar">
-                                    <div class="processBarBody">
-                                    </div>
-                                    <div class="processBarBg">
-                                    </div>
-                                </div>
-                                <div class="scrollDown">
-                                </div>
                                 <div class="filterButtonGroup">
                                     <div class="filterButton fb1">
                                         A
@@ -832,12 +837,23 @@
                                         C
                                     </div>
                                 </div>
+                                <div class="processBar">
+                                    <div class="processBarBody">
+                                    </div>
+                                    <div class="processBarBg">
+                                    </div>
+                                </div>
+                                <div class="scrollUp">
+                                </div>
+                                <div class="scrollDown">
+                                </div>
                             </div>
 						</div>
                         <div class="contentShadow">
                         </div>
                     </div>
                 </div>
+                <!-- 人物搜索部分 -->
                 <div class="containers containers3">
                     <div class="cover cover3">
                         <div class="coverShadow">
@@ -853,6 +869,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 打开话题及编辑话题 -->
                 <div class="containers containers4">
                     <div class="cover cover4">
                         <div class="coverShadow">
@@ -868,6 +885,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 个人页面,收藏,对话,操作记录之类的 -->
                 <div class="containers containers5">
                     <div class="cover cover5">
                         <div class="coverShadow">
@@ -883,6 +901,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 设置页面,待定 -->
                 <div class="containers containers6">
                     <div class="cover cover6">
                         <div class="coverShadow">
@@ -1124,7 +1143,7 @@
                     // 内容快高度
                     var height=$(".contentPage").height();
                     // 轮盘半径
-                    var R=height*2/3;
+                    var R=height/2;
                     // 轮盘格高度
                     var hc=2*R/3;
                     // 轮盘格宽度
@@ -1168,9 +1187,9 @@
 //6格轮盘
                 function circle6(){
                     // 内容块高度
-                    var height=$(".contentPage").height();
+                    var width=$(".contentPage").width();
                     // 轮盘半径
-                    var R=height*2/3;
+                    var R=width/2;
                     // 轮盘格高度
                     var hc=2*R/3;
                     //轮盘格宽度
@@ -1219,6 +1238,16 @@
                         "top":"-"+(R-5)+"px",
                         "right":"-"+(R-5)+"px"                 
                     });
+                    $(".c1Left").css({
+                        "height":(R/2)+"px",
+                        "width":(R/2)+"px",
+                        "bottom":(R/2)+"px"                 
+                    });
+                    $(".c1Right").css({
+                        "height":(R/2)+"px",
+                        "width":(R/2)+"px",
+                        "left":(R/2)+"px"                 
+                    });
                     $(".c1Lat").css({
                         "height":R+"px",
                         "width":R+"px",
@@ -1233,10 +1262,12 @@
                 var scroC6=60;
 //全局变量,6格轮盘中心按钮滚动角度计数
                 var scroC6B=210;
+//1格轮盘滚动计数
+                var scroC1=0;
 
 //轮盘旋转
                 function turnC(which,which2){
-                    if(which=="up"){
+                    if(which=="left"){
                         if(which2==4){
                             scroC4=scroC4+90;
                             scroC4B=scroC4B-90;
@@ -1247,14 +1278,21 @@
                             "transform": "rotate("+scroC4B+"deg)"
                         });
                         }else{
-                            scroC6=scroC6+60;
-                            scroC6B=scroC6B-60;
-                            $(".circle6").css({
-                                "transform": "rotate("+scroC6+"deg)"
-                            });
-                            $(".c6Center").css({
-                                "transform": "rotate("+scroC6B+"deg)"
-                            });
+                        	if(which2==6){
+                        		scroC6=scroC6+60;
+                            	scroC6B=scroC6B-60;
+                            	$(".circle6").css({
+                                	"transform": "rotate("+scroC6+"deg)"
+                            	});
+                            	$(".c6Center").css({
+                                	"transform": "rotate("+scroC6B+"deg)"
+                            	});
+                        	}else{
+                        		scroC1=scroC1+360;
+                        		$(".circle1").css({
+                            		"transform": "rotate("+scroC1+"deg)"
+                        		});
+                        	} 
                         }
                     }else{
                         if(which2==4){
@@ -1267,124 +1305,132 @@
                             "transform": "rotate("+scroC4B+"deg)"
                         });
                         }else{
-                            scroC6=scroC6-60;
-                            scroC6B=scroC6B+60;
-                            $(".circle6").css({
-                                "transform": "rotate("+scroC6+"deg)"
-                            });
-                            $(".c6Center").css({
-                                "transform": "rotate("+scroC6B+"deg)"
-                            });
+                        	if (which2==6) {
+                        		scroC6=scroC6-60;
+                            	scroC6B=scroC6B+60;
+                            	$(".circle6").css({
+                               	 	"transform": "rotate("+scroC6+"deg)"
+                            	});
+                            	$(".c6Center").css({
+                                	"transform": "rotate("+scroC6B+"deg)"
+                            	});
+                        	}else{
+                        		scroC1=scroC1-360;
+                        		$(".circle1").css({
+                            		"transform": "rotate("+scroC1+"deg)"
+                        		});
+                        	} 
                         }
-                        
                     }
-                    
                 }
-//1格轮盘滚动计数
-                var scroC1=0;
 
 //4格轮盘转动
                 function scrollC4(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        turnC("down",4);
-                        scroC1=scroC1+360;
-                        $(".circle1").css({
-                            "transform": "rotate("+scroC1+"deg)"
-                        });
+                        turnC("right",4);
                         $(".circle4").off("mousewheel");
                         setTimeout(function () {
                             $(".circle4").on("mousewheel",scrollC4);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        turnC("up",4);
-                        scroC1=scroC1-360;
-                        $(".circle1").css({
-                            "transform": "rotate("+scroC1+"deg)"
-                        });
+                        turnC("left",4);
                         $(".circle4").off("mousewheel");
                         setTimeout(function () {
                             $(".circle4").on("mousewheel",scrollC4);
                         },1000);
                     }
                 }
+
 //6格轮盘转动
                 function scrollC6(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        turnC("down",6);
-                        scroC1=scroC1+360;
-                        $(".circle1").css({
-                            "transform": "rotate("+scroC1+"deg)"
-                        });
+                        turnC("right",6);
                         $(".circle6").off("mousewheel");
                         setTimeout(function () {
                             $(".circle6").on("mousewheel",scrollC6);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        turnC("up",6);
-                        scroC1=scroC1-360;
-                        $(".circle1").css({
-                            "transform": "rotate("+scroC1+"deg)"
-                        });
+                        turnC("left",6);
                         $(".circle6").off("mousewheel");
                         setTimeout(function () {
                             $(".circle6").on("mousewheel",scrollC6);
+                        },1000);
+                    }
+                }
+
+//1格轮盘转动
+                function scrollC1(e){
+                    if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
+                        turnC("left",1);
+                        $(".circle1").off("mousewheel");
+                        setTimeout(function () {
+                            $(".circle1").on("mousewheel",scrollC1);
+                        },1000);
+                    }
+                    if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
+                        turnC("right",1);
+                        $(".circle1").off("mousewheel");
+                        setTimeout(function () {
+                            $(".circle1").on("mousewheel",scrollC1);
                         },1000);
                     }
                 }
 
 //4格轮盘左移
                 function clickC4L(){
-                    turnC("up",4);
-                    scroC1=scroC1-360;
-                    $(".circle1").css({
-                        "transform": "rotate("+scroC1+"deg)"
-                    });
-                        $(".c4centerLeft").off("click");
-                        setTimeout(function () {
-                            $(".c4centerLeft").on("click",clickC4L);
-                        },1000);
+                    turnC("left",4);
+                    $(".c4centerLeft").off("click");
+                    setTimeout(function () {
+                        $(".c4centerLeft").on("click",clickC4L);
+                    },1000);
                 }
 
 //4格轮盘右移
                 function clickC4R(){
-                    turnC("down",4);
-                    scroC1=scroC1+360;
-                    $(".circle1").css({
-                        "transform": "rotate("+scroC1+"deg)"
-                    });
-                        $(".c4centerRight").off("click");
-                        setTimeout(function () {
-                            $(".c4centerRight").on("click",clickC4R);
-                        },1000);
+                    turnC("right",4);
+                    $(".c4centerRight").off("click");
+                    setTimeout(function () {
+                        $(".c4centerRight").on("click",clickC4R);
+                    },1000);
                 }
 
 //6格轮盘左移
                 function clickC6L(){
-                    turnC("down",6);
-                    scroC1=scroC1+360;
-                    $(".circle1").css({
-                        "transform": "rotate("+scroC1+"deg)"
-                    });
-                        $(".c6CenterLeft").off("click");
-                        setTimeout(function () {
-                            $(".c6CenterLeft").on("click",clickC6L);
-                        },1000);
+                    turnC("right",6);
+                    $(".c6CenterLeft").off("click");
+                    setTimeout(function () {
+                       	$(".c6CenterLeft").on("click",clickC6L);
+                    },1000);
                 }
 
 //6格轮盘右移
                 function clickC6R(){
-                    turnC("up",6);
-                    scroC1=scroC1-360;
-                    $(".circle1").css({
-                        "transform": "rotate("+scroC1+"deg)"
-                    });
-                        $(".c6CenterRight").off("click");
-                        setTimeout(function () {
-                            $(".c6CenterRight").on("click",clickC6R);
-                        },1000);
+                    turnC("left",6);
+                    $(".c6CenterRight").off("click");
+                    setTimeout(function () {
+                        $(".c6CenterRight").on("click",clickC6R);
+                    },1000);
                 }
+//1格轮盘左移
+                function clickC1L(){
+                    turnC("left",1);
+                    $(".c1Left").off("click");
+                    setTimeout(function () {
+                            $(".c1Left").on("click",clickC1L);
+                    },1000);
+                }
+
+//1格轮盘右移
+                function clickC1R(){
+                    turnC("right",1);
+                    $(".c1Right").off("click");
+                    setTimeout(function () {
+                       	$(".c1Right").on("click",clickC1R);
+                    },1000);
+                }
+
 //将角度转为0到360间的数值
                 function doAngle(which){
                     if(which<0){
@@ -1535,6 +1581,7 @@
                     $(".processBarBody").text(pp);
                 }
 
+
 ///////////////////////动作绑定区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
@@ -1567,6 +1614,8 @@
 
                 $(".circle6").on("mousewheel",scrollC6);
 
+                $(".circle1").on("mousewheel",scrollC1);
+
                 $(".c4centerLeft").on("click", clickC4L);
 
                 $(".c4centerRight").on("click", clickC4R);
@@ -1574,6 +1623,10 @@
                 $(".c6CenterLeft").on("click", clickC6L);
 
                 $(".c6CenterRight").on("click", clickC6R);
+
+                $(".c1Left").on("click", clickC1L);
+
+                $(".c1Right").on("click", clickC1R);
 
                 $(".barContent").on("focus",openSearchBar);
 
