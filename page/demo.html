@@ -658,8 +658,7 @@
                     color: #000000;
                     font-weight: bold;
                     font-size: 1.5em;
-                    user-select: none; 
-                    /*transform: translate3d(-100%,0px,0px);*/
+                    user-select: none;
                 }
                 .processBarBg{
                     height: 100%;
@@ -680,7 +679,85 @@
                 .scrollDown:hover{
                     -webkit-filter:brightness(0.7);
                 }
-                
+                .toolBar2{
+                    position: absolute;
+                    bottom: 3%;
+                    left: 4%;
+                    height: 78%;
+                    width: 3%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:space-between;
+                    border:5px solid #999999;
+                }
+                .scrollUp2{
+                    height: 5%;
+                    width: 100%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 100%,50% 0,100% 100%);
+                }
+                .scrollUp2:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollDown2{
+                    height: 5%;
+                    width: 100%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 0,50% 100%);
+                }
+                .scrollDown2:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .processBar2{
+                    position: relative;
+                    height: 80%;
+                    width: 100%;
+                    border-bottom:5px solid #999999;
+                    transition: 500ms ease-in-out;
+                    overflow: hidden;
+                }
+                .resultGrid2{
+                    position: absolute;
+                    right: 4%;
+                    bottom: 3%;
+                    height: 78%;
+                    width: 85%;
+                    border:5px solid #999999;
+                    z-index: 1;
+                }
+                .resultDetail2{
+                    position: absolute;
+                    right: 4%;
+                    bottom: 3%;
+                    height: 78%;
+                    width: 85%;
+                    border:5px solid #999999;
+                    z-index: 0;
+                    opacity: 0;
+                }
+                .processBarBody2{
+                    position: absolute;
+                    bottom: 0;
+                    left: 10%;
+                    height: 0%;
+                    width: 80%;
+                    transition: 500ms ease-in-out;
+                    background: #999999;
+                    text-align: right;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    text-align: center;
+                    user-select: none;
+                }
+                .processBarBg2{
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    position: absolute;
+                }
             </style>
         </meta>
     </head>
@@ -883,6 +960,23 @@
                                 </div>
                                 <input class="barContent">
                                 </input>
+                            </div>
+                            <div class="toolBar2">
+                            	<div class="processBar2">
+                            		<div class="processBarBody2">
+                                    	0
+                                    </div>
+                                    <div class="processBarBg2">
+                                    </div>
+                                </div>
+                            	<div class="scrollUp2">
+                                </div>
+                                <div class="scrollDown2">
+                                </div>
+                            </div>
+                            <div class="resultGrid2">
+                            </div>
+                            <div class="resultDetail2">
                             </div>
 						</div>
                         <div class="contentShadow">
@@ -1603,7 +1697,7 @@
                     showFB(bn);
                 }
 
-//进度条跳转到指定位置
+//第二页的进度条跳转到指定位置
                 function changeProcess(e){
                     var x=e.offsetX;
                     var pw=$(".processBar").width();
@@ -1614,6 +1708,23 @@
                     var t=setInterval(function() {
                     	var pb=$(".processBarBody").width();
     					$(".processBarBody").text(Math.round(100*pb/pw));
+  					}, 10);
+					setTimeout(function() {
+                        clearInterval(t);
+                    },500);    
+                }
+
+//第三页的进度条跳转到指定位置
+                function changeProcess2(e){
+                    var y=e.offsetY;
+                    var ph=$(".processBar2").height();
+                    var pp=100-Math.round(100*y/ph);
+                    $(".processBarBody2").css({
+                        "height": pp+"%"
+                    });
+                    var t=setInterval(function() {
+                    	var pb=$(".processBarBody2").height();
+    					$(".processBarBody2").text(Math.round(100*pb/ph));
   					}, 10);
 					setTimeout(function() {
                         clearInterval(t);
@@ -1679,6 +1790,8 @@
                 $(".filterButtonGroup").on("click",changeFB);
 
                 $(".processBarBg").on("click",changeProcess);
+
+                $(".processBarBg2").on("click",changeProcess2);
 
 ///////////////////////全局函数执行区域///////////////////////////////////////////////////////////////////////////////
 // 初始页码和导航栏位置设定
