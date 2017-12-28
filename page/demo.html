@@ -384,9 +384,15 @@
                     position: absolute;
                     left: 0;
                 }
+                .c1Left:hover{
+                	background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #000000 100%);
+                }
                 .c1Right{
                     position: absolute;
                     bottom: 0;
+                }
+                .c1Right:hover{
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
                 }
 
                 .searchBar{
@@ -421,15 +427,16 @@
                 .barTitle{
                     position: absolute;
                     height: 100%;
-                    width: 60%;
+                    width: 20%;
                     top: 0;
-                    right: 20%;
+                    right: 40%;
                     text-align: center;
                     color: #000000;
                     font-weight: bold;
                     font-size: 3em;
                     user-select: none; 
                     transition: 500ms ease-in-out;
+                    z-index: 0;
                 }
                 .barContent{
                     position: absolute;
@@ -443,6 +450,7 @@
                     color: #000000;
                     font-size: 2em;
                     font-weight: bold;
+                    z-index: 1;
                 }
                 .barContent:focus{
                     outline: none;
@@ -643,7 +651,7 @@
                     position: absolute;
                     top: 10%;
                     height: 80%;
-                    width: 100%;
+                    width: 0%;
                     transition: 500ms ease-in-out;
                     background: #999999;
                     text-align: right;
@@ -651,7 +659,7 @@
                     font-weight: bold;
                     font-size: 1.5em;
                     user-select: none; 
-                    transform: translate3d(-100%,0px,0px);
+                    /*transform: translate3d(-100%,0px,0px);*/
                 }
                 .processBarBg{
                     height: 100%;
@@ -773,7 +781,7 @@
                     </div>
                     <div class="content2 content">
                     	<div class="contentPage contentPage2">
-                            <div class="searchBar">
+                            <div class="searchBar page2">
                                 <div class="barLeft">
                                 </div>
                                 <div class="barRight">
@@ -839,6 +847,7 @@
                                 </div>
                                 <div class="processBar">
                                     <div class="processBarBody">
+                                    	0
                                     </div>
                                     <div class="processBarBg">
                                     </div>
@@ -864,6 +873,17 @@
                     </div>
                     <div class="content content3">
                     	<div class="contentPage contentPage3">
+                    		<div class="searchBar page3">
+                                <div class="barLeft">
+                                </div>
+                                <div class="barRight">
+                                </div>
+                                <div class="barTitle">
+                                    Search
+                                </div>
+                                <input class="barContent">
+                                </input>
+                            </div>
 						</div>
                         <div class="contentShadow">
                         </div>
@@ -1107,7 +1127,7 @@
                 function turnRightCrol(){
                     turnRight();
                     $(".righter").off("click");
-                     setTimeout(function () {
+                    setTimeout(function () {
                         $(".righter").on("click", turnRightCrol);
                     },500);
                 }
@@ -1239,13 +1259,13 @@
                         "right":"-"+(R-5)+"px"                 
                     });
                     $(".c1Left").css({
-                        "height":(R/2)+"px",
+                        "height":((R/2)+5)+"px",
                         "width":(R/2)+"px",
                         "bottom":(R/2)+"px"                 
                     });
                     $(".c1Right").css({
                         "height":(R/2)+"px",
-                        "width":(R/2)+"px",
+                        "width":((R/2)+5)+"px",
                         "left":(R/2)+"px"                 
                     });
                     $(".c1Lat").css({
@@ -1267,7 +1287,7 @@
 
 //轮盘旋转
                 function turnC(which,which2){
-                    if(which=="left"){
+                    if(which=="forward"){
                         if(which2==4){
                             scroC4=scroC4+90;
                             scroC4B=scroC4B-90;
@@ -1279,8 +1299,8 @@
                         });
                         }else{
                         	if(which2==6){
-                        		scroC6=scroC6+60;
-                            	scroC6B=scroC6B-60;
+                        		scroC6=scroC6-60;
+                            	scroC6B=scroC6B+60;
                             	$(".circle6").css({
                                 	"transform": "rotate("+scroC6+"deg)"
                             	});
@@ -1306,8 +1326,8 @@
                         });
                         }else{
                         	if (which2==6) {
-                        		scroC6=scroC6-60;
-                            	scroC6B=scroC6B+60;
+                        		scroC6=scroC6+60;
+                            	scroC6B=scroC6B-60;
                             	$(".circle6").css({
                                	 	"transform": "rotate("+scroC6+"deg)"
                             	});
@@ -1327,14 +1347,14 @@
 //4格轮盘转动
                 function scrollC4(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        turnC("right",4);
+                        turnC("reverse",4);
                         $(".circle4").off("mousewheel");
                         setTimeout(function () {
                             $(".circle4").on("mousewheel",scrollC4);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        turnC("left",4);
+                        turnC("forward",4);
                         $(".circle4").off("mousewheel");
                         setTimeout(function () {
                             $(".circle4").on("mousewheel",scrollC4);
@@ -1345,14 +1365,14 @@
 //6格轮盘转动
                 function scrollC6(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        turnC("right",6);
+                        turnC("forward",6);
                         $(".circle6").off("mousewheel");
                         setTimeout(function () {
                             $(".circle6").on("mousewheel",scrollC6);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        turnC("left",6);
+                        turnC("reverse",6);
                         $(".circle6").off("mousewheel");
                         setTimeout(function () {
                             $(".circle6").on("mousewheel",scrollC6);
@@ -1363,14 +1383,14 @@
 //1格轮盘转动
                 function scrollC1(e){
                     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0){ 
-                        turnC("left",1);
+                        turnC("forward",1);
                         $(".circle1").off("mousewheel");
                         setTimeout(function () {
                             $(".circle1").on("mousewheel",scrollC1);
                         },1000);
                     }
                     if (e.originalEvent.wheelDelta < 0 || e.originalEvent.detail > 0){
-                        turnC("right",1);
+                        turnC("reverse",1);
                         $(".circle1").off("mousewheel");
                         setTimeout(function () {
                             $(".circle1").on("mousewheel",scrollC1);
@@ -1380,7 +1400,7 @@
 
 //4格轮盘左移
                 function clickC4L(){
-                    turnC("left",4);
+                    turnC("forward",4);
                     $(".c4centerLeft").off("click");
                     setTimeout(function () {
                         $(".c4centerLeft").on("click",clickC4L);
@@ -1389,7 +1409,7 @@
 
 //4格轮盘右移
                 function clickC4R(){
-                    turnC("right",4);
+                    turnC("reverse",4);
                     $(".c4centerRight").off("click");
                     setTimeout(function () {
                         $(".c4centerRight").on("click",clickC4R);
@@ -1398,7 +1418,7 @@
 
 //6格轮盘左移
                 function clickC6L(){
-                    turnC("right",6);
+                    turnC("forward",6);
                     $(".c6CenterLeft").off("click");
                     setTimeout(function () {
                        	$(".c6CenterLeft").on("click",clickC6L);
@@ -1407,7 +1427,7 @@
 
 //6格轮盘右移
                 function clickC6R(){
-                    turnC("left",6);
+                    turnC("reverse",6);
                     $(".c6CenterRight").off("click");
                     setTimeout(function () {
                         $(".c6CenterRight").on("click",clickC6R);
@@ -1415,7 +1435,7 @@
                 }
 //1格轮盘左移
                 function clickC1L(){
-                    turnC("left",1);
+                    turnC("forward",1);
                     $(".c1Left").off("click");
                     setTimeout(function () {
                             $(".c1Left").on("click",clickC1L);
@@ -1424,7 +1444,7 @@
 
 //1格轮盘右移
                 function clickC1R(){
-                    turnC("right",1);
+                    turnC("reverse",1);
                     $(".c1Right").off("click");
                     setTimeout(function () {
                        	$(".c1Right").on("click",clickC1R);
@@ -1455,8 +1475,21 @@
                     });
                 }
               
-//搜索栏关闭    
-                function closeSearchBar(){
+//第二页搜索栏关闭    
+                function closeSearchBarPage2(){
+                    $(".barLeft").css({
+                        "transform": "translate3d("+0+"px,"+0+"px, 0)"
+                    });
+                    $(".barRight").css({
+                        "transform": "translate3d("+0+"px,"+0+"px, 0)"
+                    });
+                    $(".barTitle").css({
+                        "transform": "translate3d("+0+"px,"+0+"px, 0)"
+                    });
+                }    
+
+//第三页搜索栏关闭    
+                function closeSearchBarPage3(){
                     $(".barLeft").css({
                         "transform": "translate3d("+0+"px,"+0+"px, 0)"
                     });
@@ -1576,11 +1609,16 @@
                     var pw=$(".processBar").width();
                     var pp=Math.round(100*x/pw);
                     $(".processBarBody").css({
-                        "transform": "translate3d("+(pp-100)+"%,0px,0px)"
+                        "width": pp+"%"
                     });
-                    $(".processBarBody").text(pp);
+                    var t=setInterval(function() {
+                    	var pb=$(".processBarBody").width();
+    					$(".processBarBody").text(Math.round(100*pb/pw));
+  					}, 10);
+					setTimeout(function() {
+                        clearInterval(t);
+                    },500);    
                 }
-
 
 ///////////////////////动作绑定区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 动作绑定                
@@ -1630,7 +1668,9 @@
 
                 $(".barContent").on("focus",openSearchBar);
 
-                $(".barContent").on("blur",closeSearchBar);
+                $(".page2 > .barTitle").on("click",closeSearchBarPage2);
+
+                $(".page3 > .barTitle").on("click",closeSearchBarPage3);
 
                 $(".lat").on("click", showDetail);
 
