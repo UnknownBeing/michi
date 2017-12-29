@@ -543,42 +543,6 @@
                     transform:rotateX(0deg) rotateY(0deg);
                     border:2px solid #999999;
                 }
-                .leftButton{
-                    bottom: 0;
-                    left: 0;
-                    position:absolute;
-                    border-top-right-radius:100%;
-                    transition: 500ms ease-in-out;
-                    opacity: 0;
-                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
-                }
-                .leftButton:hover{
-                    opacity: 0.7;
-                }
-                .rightButton{
-                    bottom: 0;
-                    right: 0;
-                    position:absolute;
-                    border-top-left-radius:100%; 
-                    transition: 500ms ease-in-out;
-                    opacity: 0;
-                    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #000000 100%);
-                }
-                .rightButton:hover{
-                    opacity: 0.7;
-                }
-                .closeButton{
-                    top: 0;
-                    right: 0;
-                    position:absolute;
-                    border-bottom-left-radius:100%;
-                    transition: 500ms ease-in-out;
-                    opacity: 0;
-                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #000000 100%);
-                }
-                .closeButton:hover{
-                    opacity: 0.7;
-                }
                 .toolBar{
                     position: absolute;
                     bottom: 2%;
@@ -605,7 +569,7 @@
                 }
                 .filterButtonGroup{
                     height: 100%;
-                    width: 15%;
+                    width: 10%;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     display: flex;
@@ -628,16 +592,6 @@
                 .fbH{
                     display: none;
                 }
-                .scrollUp{
-                    height: 100%;
-                    width: 5%;
-                    background: #999999;
-                    transition: 500ms ease-in-out;
-                    clip-path: polygon(50% 50%,100% 0,100% 100%);
-                }
-                .scrollUp:hover{
-                    -webkit-filter:brightness(0.7);
-                }
                 .processBar{
                     position: relative;
                     height: 100%;
@@ -650,7 +604,7 @@
                 .processBarBody{
                     position: absolute;
                     top: 10%;
-                    height: 80%;
+                    height: 70%;
                     width: 0%;
                     transition: 500ms ease-in-out;
                     background: #999999;
@@ -669,26 +623,155 @@
                 .processBar:hover{
                     -webkit-filter:brightness(0.7);
                 }
-                .scrollDown{
+                .scrollUp{
                     height: 100%;
-                    width: 5%;
+                    width: 3%;
                     background: #999999;
                     transition: 500ms ease-in-out;
-                    clip-path: polygon(0 0,50% 50%,0 100%);
+                    clip-path: polygon(0 100%,50% 0,100% 100%);
+                }
+                .scrollUp:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollDown{
+                    height: 100%;
+                    width: 3%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 0,50% 100%);
                 }
                 .scrollDown:hover{
                     -webkit-filter:brightness(0.7);
+                }
+                .scrollLeft{
+                    height: 100%;
+                    width: 3%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 50%,100% 0,100% 100%);
+                }
+                .scrollLeft:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollRight{
+                    height: 100%;
+                    width: 3%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 50%,0 100%);
+                }
+                .scrollRight:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .resultClose{
+                    height: 100%;
+                    width: 3%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 30%,30% 50%,0 70%,30% 100%,50% 70%,70% 100%,100% 70%,70% 50%,100% 30%,70% 0,50% 30%,30% 0);
+                }
+                .resultClose:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .searchBar2{
+                    position: absolute;
+                    top: 3%;
+                    right: 5%;
+                    height: 7%;
+                    width: 80%;
+                }
+                .barLeft2{
+                    position: absolute;
+                    top:-5px;
+                    left: 0;
+                    height: 100%;
+                    width: 50%;
+                    border-left:5px solid #999999;
+                    border-top:5px solid #999999;
+                    border-bottom:5px solid #999999;
+                    transition: 500ms ease-in-out;
+                }
+                .barRight2{
+                    position: absolute;
+                    top:-5px;
+                    right: 0;
+                    height: 100%;
+                    width: 50%;
+                    border-right:5px solid #999999;
+                    border-top:5px solid #999999;
+                    border-bottom:5px solid #999999;
+                    transition: 500ms ease-in-out;
+                }
+                .barTitle2{
+                    position: absolute;
+                    height: 100%;
+                    width: 20%;
+                    top: 0;
+                    right: 40%;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 3em;
+                    user-select: none; 
+                    transition: 500ms ease-in-out;
+                    z-index: 0;
+                }
+                .barContent2{
+                    position: absolute;
+                    border: none;
+                    border-radius: 0;
+                    right: 20%;
+                    height: 100%;
+                    width: 60%;
+                    background: transparent;
+                    text-align: center;
+                    color: #000000;
+                    font-size: 2em;
+                    font-weight: bold;
+                    z-index: 1;
+                }
+                .barContent2:focus{
+                    outline: none;
                 }
                 .toolBar2{
                     position: absolute;
                     bottom: 3%;
                     left: 4%;
-                    height: 78%;
+                    height: 92%;
                     width: 3%;
                     display: flex;
                     flex-direction: column;
                     justify-content:space-between;
                     border:5px solid #999999;
+                }.scrollLeft2{
+                    height: 5%;
+                    width: 100%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 50%,100% 0,100% 100%);
+                }
+                .scrollLeft2:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollRight2{
+                    height: 5%;
+                    width: 100%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 50%,0 100%);
+                }
+                .scrollRight2:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .resultClose2{
+                    height: 5%;
+                    width: 100%;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 30%,30% 50%,0 70%,30% 100%,50% 70%,70% 100%,100% 70%,70% 50%,100% 30%,70% 0,50% 30%,30% 0);
+                }
+                .resultClose2:hover{
+                    -webkit-filter:brightness(0.7);
                 }
                 .scrollUp2{
                     height: 5%;
@@ -712,7 +795,7 @@
                 }
                 .processBar2{
                     position: relative;
-                    height: 80%;
+                    height: 70%;
                     width: 100%;
                     border-bottom:5px solid #999999;
                     transition: 500ms ease-in-out;
@@ -726,6 +809,7 @@
                     width: 85%;
                     border:5px solid #999999;
                     z-index: 1;
+                    overflow: hidden;
                 }
                 .resultDetail2{
                     position: absolute;
@@ -757,6 +841,12 @@
                     width: 100%;
                     top: 0;
                     position: absolute;
+                }
+                .lat2{ 
+                    position: absolute;
+                    background: #ffffff;
+                    transition: 500ms ease-in-out;
+                    /*border:2px solid #999999;*/
                 }
             </style>
         </meta>
@@ -899,12 +989,6 @@
                                 <div class="createrContent">
                                 </div> 
                                 <div class="describtionContent">
-                                </div> 
-                                <div class="leftButton">
-                                </div> 
-                                <div class="rightButton">
-                                </div>   
-                                <div class="closeButton">
                                 </div>
                             </div>
                             <div class="toolBar">
@@ -933,6 +1017,12 @@
                                 </div>
                                 <div class="scrollDown">
                                 </div>
+                                <div class="scrollLeft">
+                                </div>
+                                <div class="scrollRight">
+                                </div>
+                                <div class="resultClose">
+                                </div>
                             </div>
 						</div>
                         <div class="contentShadow">
@@ -950,15 +1040,15 @@
                     </div>
                     <div class="content content3">
                     	<div class="contentPage contentPage3">
-                    		<div class="searchBar page3">
-                                <div class="barLeft">
+                    		<div class="searchBar2">
+                                <div class="barLeft2">
                                 </div>
-                                <div class="barRight">
+                                <div class="barRight2">
                                 </div>
-                                <div class="barTitle">
+                                <div class="barTitle2">
                                     Search
                                 </div>
-                                <input class="barContent">
+                                <input class="barContent2">
                                 </input>
                             </div>
                             <div class="toolBar2">
@@ -973,8 +1063,38 @@
                                 </div>
                                 <div class="scrollDown2">
                                 </div>
+                                <div class="scrollLeft2">
+                                </div>
+                                <div class="scrollRight2">
+                                </div>
+                                <div class="resultClose2">
+                                </div>
                             </div>
                             <div class="resultGrid2">
+                            	<div class="lat2" positionc="1" positionr="1">
+				                </div>
+				                <div class="lat2" positionc="1" positionr="2">
+				                </div>
+				                <div class="lat2" positionc="1" positionr="3">
+				                </div>
+				                <div class="lat2" positionc="1" positionr="4">
+				                </div>
+				                <div class="lat2" positionc="2" positionr="1">
+				                </div>
+				                <div class="lat2" positionc="2" positionr="2">
+				                </div>
+				                <div class="lat2" positionc="2" positionr="3">
+				                </div>
+				                <div class="lat2" positionc="2" positionr="4">
+				                </div>
+				                <div class="lat2" positionc="3" positionr="1">
+				                </div>
+				                <div class="lat2" positionc="3" positionr="2">
+				                </div>
+				                <div class="lat2" positionc="3" positionr="3">
+				                </div>
+				                <div class="lat2" positionc="3" positionr="4">
+				                </div>
                             </div>
                             <div class="resultDetail2">
                             </div>
@@ -1556,7 +1676,7 @@
                     return which;
                 }
 
-//搜索栏开启
+//第二页搜索栏开启
                 function openSearchBar(){
                     $(".barLeft").css({
                         "transform": "translate3d(-"+10+"%,"+0+"px, 0)"
@@ -1581,16 +1701,30 @@
                         "transform": "translate3d("+0+"px,"+0+"px, 0)"
                     });
                 }    
+//第三页搜索栏开启
+				function openSearchBar2(){
+                    $(".barLeft2").css({
+                        "transform": "translate3d(-"+10+"%,"+0+"px, 0)"
+                    });
+                    $(".barRight2").css({
+                        "transform": "translate3d("+10+"%,"+0+"px, 0)"
+                    });
+                    $(".barTitle2").css({
+                        "transform": "translate3d("+0+"px,"+100+"%, 0)"
+                    });
+                }
+
+
 
 //第三页搜索栏关闭    
                 function closeSearchBarPage3(){
-                    $(".barLeft").css({
+                    $(".barLeft2").css({
                         "transform": "translate3d("+0+"px,"+0+"px, 0)"
                     });
-                    $(".barRight").css({
+                    $(".barRight2").css({
                         "transform": "translate3d("+0+"px,"+0+"px, 0)"
                     });
-                    $(".barTitle").css({
+                    $(".barTitle2").css({
                         "transform": "translate3d("+0+"px,"+0+"px, 0)"
                     });
                 }    
@@ -1610,6 +1744,12 @@
                     }
                } 
                
+//全局变量,搜索结果列表的相关参数,c:第几横行,r:第几竖列,nc:共计几个横行,nr:共几个竖列,h为每个格子高度,w为宽度,mc为每两横行间的间距,mr为每两竖列间距
+                var h=$(".resultGrid").height()*5/17;
+                var w=$(".resultGrid").width()*4/19;
+                var mc=$(".resultGrid").height()/17;
+                var mr=$(".resultGrid").width()/19;
+
 // 搜索结果详细开启
                 function creatGrid(c,r,nc,nr,h,w,mc,mr){
                     for(var i=1;i<nc+1;i++){
@@ -1625,12 +1765,6 @@
                     }
                } 
 
-//全局变量,搜索结果列表的相关参数,h为每个格子高度,w为宽度,mc为每两横行间的间距,mr为每两竖列间距
-                var h=$(".resultGrid").height()*5/17;
-                var w=$(".resultGrid").width()*4/19;
-                var mc=$(".resultGrid").height()/17;
-                var mr=$(".resultGrid").width()/19;
-
 //点击后显示搜索结果动画
                 function showDetail(){
                     var c=$(this).attr("positionc");
@@ -1639,18 +1773,6 @@
                     $(".createrContent").css({
                         "height":h+"px",
                         "width":h+"px"
-                    });
-                    $(".leftButton").css({
-                        "height":h/2+"px",
-                        "width":h/2+"px"
-                    });
-                    $(".rightButton").css({
-                        "height":h/2+"px",
-                        "width":h/2+"px"
-                    });
-                    $(".closeButton").css({
-                        "height":h/2+"px",
-                        "width":h/2+"px"
                     });
                     $(".resultGrid").addClass("resultGridA");
                     $(".resultDetail").addClass("resultDetailA");
@@ -1731,6 +1853,92 @@
                     },500);    
                 }
 
+//全局变量2
+                var h2=$(".resultGrid2").height()*5/17;
+                var w2=$(".resultGrid2").width()*5/17;
+                var mc2=$(".resultGrid2").height()/17;
+                var mr2=$(".resultGrid2").width()/17;
+
+//第三页搜索结果显示动画
+				function creatGrid2(c,r,nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc)+(c-i)*(mc+h);
+                            var zr=(j-1)*(w+mr)+(r-j)*(mr+w);
+                            $(".lat2[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "transform":"translate3d("+zr+"px, "+zc+"px, "+0+"px)" ,
+                                "z-index":((i-1)*nr+j+1),
+                                "visibility":"hidden"
+                            });
+                            if(c==i&&r==j){
+                                $(".lat2[positionc='"+i+"'][positionr='"+j+"']").css({
+                                    "width":w+"px",
+                                    "height":h+"px",
+                                    "z-index":(nc*nr+2),
+                                    "visibility":"visible",
+                                    "transform":"translate3d("+0+"px, "+0+"px, "+0+"px)",
+                                });
+                            }
+                        }
+                    }
+                    setTimeout(function () {
+                            $(".lat2[positionc='"+c+"'][positionr='"+r+"']").css({
+                                "width":100+"%",
+                                "height":100+"%"
+                            });
+                    },125);
+                    setTimeout(function () {
+                            $(".lat2[positionc='"+c+"'][positionr='"+r+"']").css({
+                                "opacity" :0,
+                                "visibility":"hidden"
+                            });
+                    },125);
+               	} 
+
+//第三页搜索结果显示动画重置
+                function resetGrid2(nc,nr,h,w,mc,mr){
+                    for(var i=1;i<nc+1;i++){
+                        for(var j=1;j<nr+1;j++){
+                            var zc=(i-1)*(h+mc);
+                            var zr=(j-1)*(w+mr);
+                            $(".lat2[positionc='"+i+"'][positionr='"+j+"']").css({
+                                "width":w+"px",
+                                "height":h+"px",
+                                "transform":"translate3d("+zr+"px, "+zc+"px, "+0+"px)",
+                                "visibility":"visible",
+                                "opacity":1,
+                                "z-index":2,
+                            });
+
+                        }
+                    }
+                   
+               	}
+
+//开启详细结果页面页三
+				function showDetail2(){
+                    var c=$(this).attr("positionc");
+                    var r=$(this).attr("positionr");
+                    creatGrid2(c,r,3,3,h2,w2,mc2,mr2);
+                    $(".lat2").off("click");
+                    setTimeout(function () {
+                    $(".resultDetail2").css({
+                        "visibility":"visible",
+                        "opacity":1
+                    });
+                    },500);
+               	}
+
+				function backGrid2(){
+                     $(".resultDetail2").css({
+                        "visibility":"hidden",
+                        "opacity":0
+                    });
+                    resetGrid2(3,3,h2,w2,mc2,mr2);
+                    $(".lat2").on("click",showDetail2);
+
+               }
+
 ///////////////////////动作绑定区域/////////////////////////////////////////////////////////////////////////////////////////////////
 // 动作绑定                
                 $(window).on("mousemove",bgMove);
@@ -1779,19 +1987,25 @@
 
                 $(".barContent").on("focus",openSearchBar);
 
-                $(".page2 > .barTitle").on("click",closeSearchBarPage2);
+                $(".barContent2").on("focus",openSearchBar2);
 
-                $(".page3 > .barTitle").on("click",closeSearchBarPage3);
+                $(".barTitle").on("click",closeSearchBarPage2);
+
+                $(".barTitle2").on("click",closeSearchBarPage3);
 
                 $(".lat").on("click", showDetail);
 
-                $(".closeButton").on("click",backGrid);
+                $(".resultClose").on("click",backGrid);
 
                 $(".filterButtonGroup").on("click",changeFB);
 
                 $(".processBarBg").on("click",changeProcess);
 
                 $(".processBarBg2").on("click",changeProcess2);
+
+                $(".lat2").on("click",showDetail2);
+
+                $(".resultClose2").on("click",backGrid2);
 
 ///////////////////////全局函数执行区域///////////////////////////////////////////////////////////////////////////////
 // 初始页码和导航栏位置设定
@@ -1801,6 +2015,7 @@
                 circle6();
                 circle1();
                 resetGrid(3,4,h,w,mc,mr);
+                resetGrid2(3,3,h2,w2,mc2,mr2);
                 showFB(bn);
 
 
