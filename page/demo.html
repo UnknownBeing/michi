@@ -8,9 +8,9 @@
             <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
             <style type="text/css">
 /*隐藏滚动条*/
-                /*::-webkit-scrollBar{
+                ::-webkit-scrollBar{
                     display:none; 
-                }*/
+                }
                 html,body{
                     height:100%; 
                     margin:0;
@@ -546,17 +546,15 @@
                 .toolBar{
                     position: absolute;
                     bottom: 2%;
-                    left: 2%;
+                    right: 5%;
                     height: 5%;
-                    width: 96%;
                     display: flex;
                     justify-content:space-between;
                     border:5px solid #999999;
                 }
                 .updateTime{
                     height: 100%;
-                    width: 15%;
-                    text-align: center;
+                    text-align: left;
                     color: #000000;
                     font-weight: bold;
                     font-size: 2em;
@@ -569,7 +567,7 @@
                 }
                 .filterButtonGroup{
                     height: 100%;
-                    width: 10%;
+                    width: 100px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     display: flex;
@@ -582,7 +580,7 @@
                     height: 100%;
                     width: 30%;
                     background: #999999;
-                    text-align: center;
+                    text-align: right;
                     color: #000000;
                     font-weight: bold;
                     font-size: 2em;
@@ -595,7 +593,7 @@
                 .processBar{
                     position: relative;
                     height: 100%;
-                    width: 50%;
+                    width: 600px;
                     border-left:5px solid #999999;
                     border-right:5px solid #999999;
                     transition: 500ms ease-in-out;
@@ -625,7 +623,7 @@
                 }
                 .scrollUp{
                     height: 100%;
-                    width: 3%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 100%,50% 0,100% 100%);
@@ -635,7 +633,7 @@
                 }
                 .scrollDown{
                     height: 100%;
-                    width: 3%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 0,100% 0,50% 100%);
@@ -645,7 +643,7 @@
                 }
                 .scrollLeft{
                     height: 100%;
-                    width: 3%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 50%,100% 0,100% 100%);
@@ -655,7 +653,7 @@
                 }
                 .scrollRight{
                     height: 100%;
-                    width: 3%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 0,100% 50%,0 100%);
@@ -665,7 +663,7 @@
                 }
                 .resultClose{
                     height: 100%;
-                    width: 3%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 30%,30% 50%,0 70%,30% 100%,50% 70%,70% 100%,100% 70%,70% 50%,100% 30%,70% 0,50% 30%,30% 0);
@@ -676,7 +674,7 @@
                 .searchBar2{
                     position: absolute;
                     top: 3%;
-                    right: 5%;
+                    right: 10%;
                     height: 7%;
                     width: 80%;
                 }
@@ -734,18 +732,17 @@
                     outline: none;
                 }
                 .toolBar2{
-                    position: absolute;
-                    bottom: 3%;
-                    left: 4%;
-                    height: 92%;
-                    width: 3%;
+                	position: absolute;
+                    bottom: 2%;
+                    right: 5%;
+                    height: 5%;
                     display: flex;
-                    flex-direction: column;
                     justify-content:space-between;
                     border:5px solid #999999;
-                }.scrollLeft2{
-                    height: 5%;
-                    width: 100%;
+                }
+                .scrollLeft2{
+                	height: 100%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 50%,100% 0,100% 100%);
@@ -754,8 +751,8 @@
                     -webkit-filter:brightness(0.7);
                 }
                 .scrollRight2{
-                    height: 5%;
-                    width: 100%;
+                	height: 100%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 0,100% 50%,0 100%);
@@ -764,8 +761,8 @@
                     -webkit-filter:brightness(0.7);
                 }
                 .resultClose2{
-                    height: 5%;
-                    width: 100%;
+                    height: 100%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 30%,30% 50%,0 70%,30% 100%,50% 70%,70% 100%,100% 70%,70% 50%,100% 30%,70% 0,50% 30%,30% 0);
@@ -774,8 +771,8 @@
                     -webkit-filter:brightness(0.7);
                 }
                 .scrollUp2{
-                    height: 5%;
-                    width: 100%;
+                    height: 100%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 100%,50% 0,100% 100%);
@@ -784,8 +781,8 @@
                     -webkit-filter:brightness(0.7);
                 }
                 .scrollDown2{
-                    height: 5%;
-                    width: 100%;
+                    height: 100%;
+                    width: 50px;
                     background: #999999;
                     transition: 500ms ease-in-out;
                     clip-path: polygon(0 0,100% 0,50% 100%);
@@ -793,47 +790,45 @@
                 .scrollDown2:hover{
                     -webkit-filter:brightness(0.7);
                 }
+                .personReport{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 75%,75% 0,100% 25%,25% 100%);
+                }
+                .personReport:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .sendMessage{
+                	height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 80%,30% 0,50% 50%,70% 0,100% 80%,87.75% 100%,70% 50%,50% 100%,30% 50%,12.25% 100%);
+                }
+                .sendMessage:hover{
+                    -webkit-filter:brightness(0.7);
+                }
                 .processBar2{
-                    position: relative;
-                    height: 70%;
-                    width: 100%;
-                    border-bottom:5px solid #999999;
+                	position: relative;
+                    height: 100%;
+                    width: 600px;
+                    border-right:5px solid #999999;
                     transition: 500ms ease-in-out;
                     overflow: hidden;
                 }
-                .resultGrid2{
-                    position: absolute;
-                    right: 4%;
-                    bottom: 3%;
-                    height: 78%;
-                    width: 85%;
-                    border:5px solid #999999;
-                    z-index: 1;
-                    overflow: hidden;
-                }
-                .resultDetail2{
-                    position: absolute;
-                    right: 4%;
-                    bottom: 3%;
-                    height: 78%;
-                    width: 85%;
-                    border:5px solid #999999;
-                    z-index: 0;
-                    opacity: 0;
-                }
                 .processBarBody2{
-                    position: absolute;
-                    bottom: 0;
-                    left: 10%;
-                    height: 0%;
-                    width: 80%;
+                	position: absolute;
+                    top: 10%;
+                    height: 70%;
+                    width: 0%;
                     transition: 500ms ease-in-out;
                     background: #999999;
                     text-align: right;
                     color: #000000;
                     font-weight: bold;
                     font-size: 1.5em;
-                    text-align: center;
                     user-select: none;
                 }
                 .processBarBg2{
@@ -842,12 +837,201 @@
                     top: 0;
                     position: absolute;
                 }
+                .resultGrid2{
+                	position: absolute;
+                    right: 5%;
+                    top: 17%;
+                    height: 70%;
+                    width: 90%;
+                    border:5px solid #999999;
+                    z-index: 1;
+                    overflow: hidden;
+                }
+                .resultDetail2{
+                	position: absolute;
+                    right: 5%;
+                    top: 17%;
+                    height: 70%;
+                    width: 90%;
+                    border:5px solid #999999;
+                    z-index: 0;
+                    opacity: 0;
+                }
                 .lat2{ 
                     position: absolute;
                     background: #ffffff;
                     transition: 500ms ease-in-out;
-                    /*border:2px solid #999999;*/
+                    border:2px solid #999999;
                 }
+                .topicTitle{
+                	position: absolute;
+                    right: 5%;
+                    top: 2%;
+                    height: 10%;
+                    width: 90%;
+                    border:5px solid #999999;
+                }
+				.topicContent{
+                	position: absolute;
+                    top: 15%;
+                    height: 74%;
+                    width: 100%;
+                    border-top:5px solid #999999;
+                    border-bottom:5px solid #999999;
+                    overflow: auto;
+                }
+				.toolBar3{
+                	position: absolute;
+                    bottom: 2%;
+                    right: 5%;
+                    height: 5%;
+                    display: flex;
+                    justify-content:space-between;
+                    border:5px solid #999999;
+                }
+                .processBar3{
+                	position: relative;
+                    height: 100%;
+                    width: 600px;
+                    border-right:5px solid #999999;
+                    transition: 500ms ease-in-out;
+                    overflow: hidden;
+                }
+                .processBarBody3{
+                	position: absolute;
+                    top: 10%;
+                    height: 70%;
+                    width: 0%;
+                    transition: 500ms ease-in-out;
+                    background: #999999;
+                    text-align: right;
+                    color: #000000;
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    user-select: none;
+                }
+                .processBarBg3{
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    position: absolute;
+                }
+                .scrollUp3{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 100%,50% 0,100% 100%);
+                }
+                .scrollUp3:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollDown3{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 0,50% 100%);
+                }
+                .scrollDown3:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollLeft3{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(100% 0,100% 100%,0 50%);
+                }
+                .scrollLeft3:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .scrollRight3{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 0,100% 50%,0 100%);
+                }
+                .scrollRight3:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .addContent{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 40%,40% 40%,40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%);
+                }
+                .addContent:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .suki{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 20%,20% 0,50% 40%,80% 0,100% 20%,60% 60%,60% 100%,40% 100%,40% 60%);
+                }
+                .suki:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .kirai{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(10% 0%,30% 0,70% 70%,70% 0,90% 0,90% 100%,70% 100%,30% 30%,30% 100%,10% 100%);
+                }
+                .kirai:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .topicReport{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 75%,75% 0,100% 25%,25% 100%);
+                }
+                .topicReport:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .topicClose{
+                    height: 100%;
+                    width: 50px;
+                    background: #999999;
+                    transition: 500ms ease-in-out;
+                    clip-path: polygon(0 30%,30% 50%,0 70%,30% 100%,50% 70%,70% 100%,100% 70%,70% 50%,100% 30%,70% 0,50% 30%,30% 0);
+                }
+                .topicClose:hover{
+                    -webkit-filter:brightness(0.7);
+                }
+                .lat3{
+                	top:5%;
+                	right: 5%;
+                	width: 90%;
+                	height: 470%;
+                    position: absolute;
+                    display: flex;
+                    transition: 500ms ease-in-out;
+                    border:2px solid #999999;
+                }
+                .topicContentInfo{
+                	width: 20%;
+                	height: 100%;
+                    transition: 500ms ease-in-out;
+                    background: red;
+                    border:2px solid #999999;
+                }
+				.topicContentDetail{
+                	width: 80%;
+                	height: 100%;
+                	background: green;
+                	border:2px solid #999999;
+                }
+
+
+
             </style>
         </meta>
     </head>
@@ -1059,6 +1243,8 @@
                                     <div class="processBarBg2">
                                     </div>
                                 </div>
+                                <div class="sendMessage">
+                        		</div>
                             	<div class="scrollUp2">
                                 </div>
                                 <div class="scrollDown2">
@@ -1067,6 +1253,12 @@
                                 </div>
                                 <div class="scrollRight2">
                                 </div>
+                                <div class="suki">
+                        		</div>
+                        		<div class="kirai">
+                        		</div>
+                        		<div class="personReport">
+                        		</div>
                                 <div class="resultClose2">
                                 </div>
                             </div>
@@ -1114,6 +1306,51 @@
                     </div>
                     <div class="content content4">
                         <div class="contentPage contentPage4">
+                        	<div class="topicTitle">
+                        	</div>
+                        	<div class="topicContent">
+                        		<div class="lat3">
+                        			<div class="topicContentInfo">
+				                	</div>
+				                	<div class="topicContentDetail">
+				                	</div>
+				                </div>
+				                <div class="lat3">
+				                </div>
+				                <div class="lat3">
+				                </div>
+				                <div class="lat3">
+				                </div>
+				                <div class="lat3">
+				                </div>
+                        	</div>
+                        	<div class="toolBar3">
+                        		<div class="processBar3">
+                            		<div class="processBarBody3">
+                                    	0
+                                    </div>
+                                    <div class="processBarBg3">
+                                    </div>
+                                </div>
+                                <div class="addContent">
+                        		</div>
+                        		<div class="scrollUp3">
+                        		</div>
+                        		<div class="scrollDown3">
+                        		</div>
+                        		<div class="scrollLeft3">
+                        		</div>
+                        		<div class="scrollRight3">
+                        		</div>
+                        		<div class="suki">
+                        		</div>
+                        		<div class="kirai">
+                        		</div>
+                        		<div class="topicReport">
+                        		</div>
+                        		<div class="topicClose">
+                        		</div>
+                        	</div>
 						</div>
                         <div class="contentShadow">
                         </div>
@@ -1838,20 +2075,37 @@
 
 //第三页的进度条跳转到指定位置
                 function changeProcess2(e){
-                    var y=e.offsetY;
-                    var ph=$(".processBar2").height();
-                    var pp=100-Math.round(100*y/ph);
+                    var x=e.offsetX;
+                    var pw=$(".processBar2").width();
+                    var pp=Math.round(100*x/pw);
                     $(".processBarBody2").css({
-                        "height": pp+"%"
+                        "width": pp+"%"
                     });
                     var t=setInterval(function() {
-                    	var pb=$(".processBarBody2").height();
-    					$(".processBarBody2").text(Math.round(100*pb/ph));
+                    	var pb=$(".processBarBody2").width();
+    					$(".processBarBody2").text(Math.round(100*pb/pw));
   					}, 10);
 					setTimeout(function() {
                         clearInterval(t);
                     },500);    
                 }
+
+//第四页的进度条跳转到指定位置
+                function changeProcess3(e){
+                    var x=e.offsetX;
+                    var pw=$(".processBar3").width();
+                    var pp=Math.round(100*x/pw);
+                    $(".processBarBody3").css({
+                        "width": pp+"%"
+                    });
+                    var t=setInterval(function() {
+                    	var pb=$(".processBarBody3").width();
+    					$(".processBarBody3").text(Math.round(100*pb/pw));
+  					}, 10);
+					setTimeout(function() {
+                        clearInterval(t);
+                    },500);    
+                }                
 
 //全局变量2
                 var h2=$(".resultGrid2").height()*5/17;
@@ -2002,6 +2256,8 @@
                 $(".processBarBg").on("click",changeProcess);
 
                 $(".processBarBg2").on("click",changeProcess2);
+
+                $(".processBarBg3").on("click",changeProcess3);
 
                 $(".lat2").on("click",showDetail2);
 
